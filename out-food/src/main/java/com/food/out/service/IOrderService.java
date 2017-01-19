@@ -1,4 +1,4 @@
-package com.xianguo.platform.service;
+package com.food.out.service;
 
 import java.util.List;
 import java.util.Map;
