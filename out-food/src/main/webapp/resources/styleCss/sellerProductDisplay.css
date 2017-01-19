@@ -1,0 +1,230 @@
+@charset "utf-8";
+.goods-list {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: 1080px;
+    margin: 20px auto;
+}
+.goods-list .gl-warp {
+    margin: 0 auto;
+    margin-left: 20px;
+    overflow: hidden;
+}
+.goods-list .gl-item {
+    float: left;
+    width: 234px;
+    height: 410px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    margin: 0 0 20px;
+    margin-right: 30px;
+}
+
+.goods-list .gl-item .gl-i-wrap {
+    width: 216px;
+    border: 2px solid #fff;
+    background: #fff;
+    padding: 4px 4px 0;
+    position: absolute;
+    margin-left: 2px;
+    margin-top: 2px;
+}
+.goods-list .gl-item .gl-i-wrap:hover {
+    height: auto;
+    border: 4px solid #F86220;
+    border-radius: 0;
+    -webkit-transition: border-color .2s ease-in;
+    -moz-transition: border-color .2s ease-in;
+    -ms-transition: border-color .2s ease-in;
+    -o-transition: border-color .2s ease-in;
+    transition: border-color .2s ease-in;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+.goods-list .gl-item .p-img {
+    height: 216px;
+    position: relative;
+    margin-bottom: 10px;
+}
+.goods-list .gl-item .p-img a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+.lazy {
+    text-align: center;
+    float: none;
+}
+.new_picon {
+    position: absolute;
+    overflow: hidden;
+    width: 58px;
+    height: 50px;
+    top: 0;
+    right: 0;
+}
+.pi1 {
+    background-position: -93px -335px;
+}
+.sider {
+    width: 100%;
+    float: left;
+    margin-bottom: 8px;
+    position: relative;
+}
+.sider ul {
+    float: left;
+    width: 220px;
+    min-height: 30px;
+    overflow: hidden;
+}
+.sider li {
+    float: left;
+    margin-right: 6px;
+    border: 1px solid #e3e3e3;
+    padding: 1px;
+    cursor: pointer;
+}
+.sider li:hover, .sider li.curr {
+    border-color: #F86220;
+}
+.p-price {
+    color: #666;
+    font-size: 18px;
+    padding-top: 5px;
+}
+.goods-list .gl-item .p-price {
+    position: relative;
+    padding: 0;
+    float: left;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+.goods-list .gl-item .p-price strong {
+    font-size: 20px;
+    font-weight: 400;
+    color: #F86220;
+    float: left;
+    font-family: arial;
+}
+.p-num {
+    float: left;
+    color: #9fa0a0;
+}
+.goods-list .gl-item .p-num {
+    float: right;
+    height: 22px;
+    line-height: 22px;
+    margin-bottom: 5px;
+}
+.goods-list .gl-item .p-num em{
+    color: #b57c5b;
+    font-weight: 700;
+    font-family: arial;
+}
+.p-version {
+    width: 100%;
+}
+.goods-list .gl-item .p-version {
+    overflow: hidden;
+    height: 20px;
+    line-height: 15px;
+    text-align: left;
+    margin-bottom: 5px;
+    text-align: right;
+    color: #9fa0a0;
+}
+.goods-list .gl-item .p-version em{
+    color: #b57c5b;
+    font-weight: 700;
+    font-family: arial;
+}
+.p-name {
+    width: 100%;
+}
+.goods-list .gl-item .p-name {
+    overflow: hidden;
+    height: auto;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+.goods-list .gl-item .p-name a {
+    color: #333;
+    font-size: 14px;
+}
+.goods-list .gl-item .p-name a:hover {
+    color: #F86220;
+}
+.goods-list .gl-item .p-commit {
+    line-height: 27px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+.p-commit-left {
+    float: left;
+}
+.p-eva {
+    color: #bdbdbd;
+}
+.p-eva em {
+    color: #b57c5b;
+    margin: 0 5px;
+}
+.p-store a {
+    color: #a4a4a4;
+    position: relative;
+    padding-left: 20px;
+}
+.p-commit .p-brand {
+    float: left;
+    color: #3a78bf;
+}
+.p-commit-left .p-store a {
+    max-width: 118px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.p-store .icon {
+    width: 15px;
+    height: 13px;
+    display: block;
+    position: absolute;
+    left: 1px;
+    top: 4px;
+    background-position: -528px -340px;
+}
+.p-commit-right {
+    float: right;
+}
+.p-commit-right a {
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    border: 1px solid #DDD;
+    padding: 0 5px 0 30px;
+    position: relative;
+    background: #fff;
+}
+.p-commit-right a.addcart {
+    text-align: center;
+    color: rgb(202, 60, 60);
+    cursor: pointer;
+}
+.p-commit-right a i {
+    position: absolute;
+    display: block;
+    font-style: normal;
+    left: 4px;
+    top: 3px;
+    width: 18px;
+    height: 18px;
+    background: url(../styleImages/cart_icon.png) no-repeat;
+}
+.p-commit-right a.addcart i, .p-commit-right a.addcart:hover i {
+    background-position: 0 -25px;
+}

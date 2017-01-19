@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+	version="2.1">
+	<description>display order status,pay status</description>
+	<display-name>Display Status</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>d</short-name>
+	<uri>/d</uri>
+	<!-- display name by code for order status -->
+	<tag>
+		<description>display name by code for order status </description>
+		<name>order</name>
+		<tag-class>com.xianguo.platform.common.tag.DisplayOrderStatus</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<description>order status code</description>
+			<name>code</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>int</type>
+		</attribute>
+	</tag>
+
+	<!-- display name by code for pay status -->
+	<tag>
+		<description>display name by code for order status </description>
+		<name>pay</name>
+		<tag-class>com.xianguo.platform.common.tag.DisplayPayStatus</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<description>pay status code</description>
+			<name>code</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>int</type>
+		</attribute>
+	</tag>
+
+</taglib>

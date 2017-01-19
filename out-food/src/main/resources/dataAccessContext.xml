@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd 
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+	http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.1.xsd"
+	default-autowire="byName">
+	<context:component-scan base-package="com.food.out.dao" />
+	<!-- ========================= RESOURCE DEFINITIONS ========================= -->
+
+	<!-- 数据源 -->
+	<bean id="dataSource_mysql" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<!-- 默认是 8 ，连接池中最大空闲连接数 -->
+		<property name="maxIdle" value="5" />
+		<!-- 默认是 0, 连接数中最小空闲连接数 -->
+		<property name="minIdle" value="5" />
+		<!-- 默认值是 8, 连接池中同时可以分派的最大活跃连接数 -->
+		<property name="maxActive" value="20" />
+		<!-- 默认值是无限大，当连接池中连接已经用完了，等待建立一个新连接的最大毫秒数 ( 在抛异常之前 ) -->
+		<property name="maxWait" value="30000" />
+		<!-- 一条 sql 语句，用来验证数据库连接是否正常 -->
+		<property name="validationQuery" value="select 1" />
+		<!-- 验证连接池中的空闲连接是否有效 -->
+		<property name="testWhileIdle" value="true" />
+
+		<property name="timeBetweenEvictionRunsMillis" value="3600000" />
+
+		<property name="minEvictableIdleTimeMillis" value="18000000" />
+
+		<!-- 当从连接池取连接时，验证这个连接是否有效 -->
+		<property name="testOnBorrow" value="true" />
+		
+		<property name="driverClassName" value="${pom.jdbc.driverClassName}" />
+		<property name="url" value="${pom.jdbc.url}" />
+		<property name="username" value="${pom.jdbc.username}" />
+		<property name="password" value="${pom.jdbc.password}" />
+	</bean>
+	<!-- mybatis session -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:sqlmap/config.xml" />
+		<property name="dataSource" ref="dataSource_mysql" />
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		p:dataSource-ref="dataSource_mysql" />
+	<!--basePackage指定要扫描的包，在此包之下的映射器都会被搜索到。可指定多个包，包与包之间用逗号或分号分隔 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="annotationClass" value="org.springframework.stereotype.Repository" />
+		<property name="basePackage" value="com.food.out.dao" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
+
+	<!-- 编程式事务处理 -->
+	<bean id="txTemplate"
+		class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager" ref="transactionManager"></property>
+	</bean>
+</beans>

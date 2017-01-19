@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.food.out.dao.ShopDao" >
+  <resultMap id="BaseResultMap" type="com.food.out.model.Shop" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="shop_name" property="shopName" jdbcType="VARCHAR" />
+    <result column="shop_log_url" property="shopLogUrl" jdbcType="VARCHAR" />
+    <result column="shop_type" property="shopType" jdbcType="TINYINT" />
+    <result column="least_mon" property="leastMon" jdbcType="DECIMAL" />
+    <result column="send_mon" property="sendMon" jdbcType="DECIMAL" />
+    <result column="package_mon" property="packageMon" jdbcType="DECIMAL" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="audit_state" property="auditState" jdbcType="TINYINT" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="is_del" property="isDel" jdbcType="TINYINT" />
+    
+    <result column="business_scope" property="businessScope" />
+    <result column="license_url" property="licenseUrl" />
+    <result column="license_num" property="licenseNum" />
+    <result column="school" property="school" />
+    <result column="contact_name" property="contactName" />
+    <result column="contact_cell" property="contactCell" />
+    <result column="contact_url" property="contactUrl" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, shop_name, shop_log_url, shop_type, least_mon, send_mon, package_mon, start_time, 
+    end_time, audit_state, is_del,business_scope,license_url,license_num,school,contact_name,contact_cell
+    ,contact_url
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from shop
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from shop
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.food.out.model.Shop" >
+    insert into shop (id, user_id, shop_name, 
+      shop_log_url, shop_type, least_mon, 
+      send_mon, package_mon, start_time, 
+      end_time, audit_state, is_del,business_scope
+      ,license_url,license_num,school,contact_name
+      ,contact_cell,contact_url
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{shopName,jdbcType=VARCHAR}, 
+      #{shopLogUrl,jdbcType=VARCHAR}, #{shopType,jdbcType=TINYINT}, #{leastMon,jdbcType=DECIMAL}, 
+      #{sendMon,jdbcType=DECIMAL}, #{packageMon,jdbcType=DECIMAL}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{auditState,jdbcType=TINYINT}, #{isDel,jdbcType=TINYINT}
+      ,#{businessScope},#{licenseUrl},#{licenseNum},#{school},#{contactName},#{contactCell}
+      ,#{contactUrl}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.food.out.model.Shop" >
+    insert into shop
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="shopName != null" >
+        shop_name,
+      </if>
+      <if test="shopLogUrl != null" >
+        shop_log_url,
+      </if>
+      <if test="shopType != null" >
+        shop_type,
+      </if>
+      <if test="leastMon != null" >
+        least_mon,
+      </if>
+      <if test="sendMon != null" >
+        send_mon,
+      </if>
+      <if test="packageMon != null" >
+        package_mon,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="auditState != null" >
+        audit_state,
+      </if>
+       <if test="status != null" >
+        status,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      
+            <if test="businessScope != null" >
+        business_scope,
+      </if>
+            <if test="licenseUrl != null" >
+        license_url,
+      </if>
+            <if test="licenseNum != null" >
+        license_num,
+      </if>
+            <if test="school != null" >
+        school,
+      </if>
+            <if test="contactName != null" >
+        contact_name,
+      </if>
+            <if test="contactCell != null" >
+        contact_cell,
+      </if>
+            <if test="contactUrl != null" >
+        contact_url
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="shopName != null" >
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopLogUrl != null" >
+        #{shopLogUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="shopType != null" >
+        #{shopType,jdbcType=TINYINT},
+      </if>
+      <if test="leastMon != null" >
+        #{leastMon,jdbcType=DECIMAL},
+      </if>
+      <if test="sendMon != null" >
+        #{sendMon,jdbcType=DECIMAL},
+      </if>
+      <if test="packageMon != null" >
+        #{packageMon,jdbcType=DECIMAL},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditState != null" >
+        #{auditState,jdbcType=TINYINT},
+      </if>
+       <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=TINYINT},
+      </if>
+      
+            <if test="businessScope != null" >
+        #{businessScope},
+      </if>
+            <if test="licenseUrl != null" >
+        #{licenseUrl},
+      </if>
+            <if test="licenseNum != null" >
+        #{licenseNum},
+      </if>
+            <if test="school != null" >
+        #{school},
+      </if>
+            <if test="contactName != null" >
+        #{contactName},
+      </if>
+            <if test="contactCell != null" >
+        #{contactCell},
+      </if>
+            <if test="contactUrl != null" >
+        #{contactUrl},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.food.out.model.Shop" >
+    update shop
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="shopName != null" >
+        shop_name = #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopLogUrl != null" >
+        shop_log_url = #{shopLogUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="shopType != null" >
+        shop_type = #{shopType,jdbcType=TINYINT},
+      </if>
+      <if test="leastMon != null" >
+        least_mon = #{leastMon,jdbcType=DECIMAL},
+      </if>
+      <if test="sendMon != null" >
+        send_mon = #{sendMon,jdbcType=DECIMAL},
+      </if>
+      <if test="packageMon != null" >
+        package_mon = #{packageMon,jdbcType=DECIMAL},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditState != null" >
+        audit_state = #{auditState,jdbcType=TINYINT},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=TINYINT},
+      </if>
+      
+      
+            <if test="businessScope != null" >
+        business_scope = #{businessScope},
+      </if>
+            <if test="licenseUrl != null" >
+        license_url = #{licenseUrl},
+      </if>
+            <if test="licenseNum != null" >
+        license_num = #{licenseNum},
+      </if>
+            <if test="school != null" >
+        school = #{school},
+      </if>
+            <if test="contactName != null" >
+        contact_name = #{contactName},
+      </if>
+            <if test="contactCell != null" >
+        contact_cell = #{contactCell},
+      </if>
+            <if test="contactUrl != null" >
+        contact_url = #{contactUrl},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.food.out.model.Shop" >
+    update shop
+    <set >
+    <if test="userId != null" >
+    user_id = #{userId,jdbcType=INTEGER},
+    </if>
+    <if test="shopName != null" >
+      shop_name = #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopLogUrl != null" >
+      shop_log_url = #{shopLogUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="shopLogUrl != null" >
+      shop_type = #{shopType,jdbcType=TINYINT},
+      </if>
+      <if test="leastMon != null" >
+      least_mon = #{leastMon,jdbcType=DECIMAL},
+      </if>
+      <if test="sendMon != null" >
+      send_mon = #{sendMon,jdbcType=DECIMAL},
+      </if>
+      <if test="packageMon != null" >
+      package_mon = #{packageMon,jdbcType=DECIMAL},
+      </if>
+      <if test="startTime != null" >
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditState != null" >
+      audit_state = #{auditState,jdbcType=TINYINT},
+      </if>
+            <if test="status != null" >
+      status = #{status},
+      </if>
+       <if test="isDel != null" >
+      is_del = #{isDel,jdbcType=TINYINT},
+      </if>
+       <if test="businessScope != null" >
+       business_scope = #{businessScope},
+       </if>
+       <if test="licenseUrl != null" >
+        license_url = #{licenseUrl},
+        </if>
+        
+               <if test="licenseNum != null" >
+        license_num = #{licenseNum},
+        </if>
+               <if test="school != null" >
+        school = #{school},
+        </if>
+               <if test="contactName != null" >
+        contact_name = #{contactName},
+        </if>
+               <if test="contactCell != null" >
+        contact_cell = #{contactCell},
+        </if>
+               <if test="contactUrl != null" >
+        contact_url = #{contactUrl}
+        </if>
+    where id = #{id,jdbcType=INTEGER}
+    </set>
+  </update>
+  
+  <select id="selectListByUserId" resultMap="BaseResultMap" parameterType="map">
+		select * from shop
+		where 1=1
+			<if test="userId != null">
+				and user_id = #{userId}
+			</if>
+						<if test="status != null">
+				and status = #{status}
+			</if>
+						<if test="deleted != null">
+				and is_del = #{isDel}
+			</if>
+	</select>
+	
+</mapper>

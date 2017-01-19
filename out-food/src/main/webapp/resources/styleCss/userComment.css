@@ -1,0 +1,145 @@
+.shopList img {
+    display: block;
+    width: 220px;
+    height: 180px;
+    margin: 20px auto 10px auto;
+    padding: 5px;
+    background-color: #F6F6F6;
+    border: 1px solid #DCDCDC;
+}
+
+.shopList p {
+    width: 220px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    line-height: 25px;
+}
+
+.comment {}
+
+.commentList {}
+
+.commentList-table span {
+    display: block;
+    margin: 11px 0;
+}
+
+.commentList-table {
+    position: relative;
+    left: -211px;
+    top: 20px;
+}
+
+#commentInfo button,
+#commentInfo a {
+    margin-top: 10px;
+    position: relative;
+    left: 50%;
+    margin-left: -100px;
+}
+
+.shop_info {
+    overflow: hidden;
+}
+
+.shop_info .shop {
+    float: left;
+}
+
+/*.shop_info .shop img {
+    width: 79px;
+    height: 59px;
+    vertical-align: middle;
+    margin: 15px 10px 0 20px;
+    border: 1px solid #7ec47c;
+    float: left;
+}
+*/
+.shop_info .shop p {
+    padding-top: 22px;
+    line-height: 22px;
+}
+
+.score-start {
+    margin:5px 0 0 30px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 28px;
+}
+
+.score-start span.start {
+    height: 26px;
+    width: 100px;
+    position: relative;
+    overflow: hidden;
+    background-image: url(../images/star1.png);
+    background-repeat: no-repeat;
+    vertical-align: top;
+    background-position: 0 50%;
+    display: inline-block;
+    margin-right: 30px;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.score-start span i {
+    height: 19px;
+    margin-top: 3px;
+    display: inline-block;
+    background-image: url(../images/star4.png);
+}
+
+.score-start em {
+    font-style: normal;
+    color: #FF7701;
+}
+
+.pj-cont {
+    /*position: relative;*/
+    /*top: 226px;*/
+    padding: 0 20px;
+    /*margin-left:100px;*/
+}
+
+.pj-cont textarea {
+    display: block;
+    min-width: 350px;
+    padding: 10px;
+    /*height: 185px;*/
+    min-height: 110px;
+    margin-top: 12px;
+}
+
+.pj-cont button {
+    /*margin-top: 10px;*/
+    /*margin-left:100px;*/
+}
+
+.ks-simplestar {
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid transparent;
+}
+
+.stars {
+    padding: 12px 20px 0 20px;
+}
+
+.stars li {
+    margin: 5px 0;
+}
+
+.stars li label {
+    font-weight: normal;
+    line-height: 23px;
+}
+
+.ks-simplestar img {
+    margin-right: 5px;
+}
+
+.ks-ss-tips {
+    margin-left: 10px;
+    font-size: 12px;
+}

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.food.out.dao.ItemDao" >
+  <resultMap id="BaseResultMap" type="com.food.out.model.Item" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="shop_id" property="shopId" jdbcType="INTEGER" />
+    <result column="shop_item_class_id" property="shopItemClassId" jdbcType="INTEGER" />
+    <result column="item_name" property="itemName" jdbcType="VARCHAR" />
+    <result column="item_img" property="itemImg" jdbcType="VARCHAR" />
+    <result column="item_price" property="itemPrice" jdbcType="DECIMAL" />
+    <result column="month_trade_count" property="monthTradeCount" jdbcType="VARCHAR" />
+    <result column="recommend_count" property="recommendCount" jdbcType="VARCHAR" />
+    <result column="day_stock" property="dayStock" jdbcType="VARCHAR" />
+    <result column="creat_time" property="creatTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status"  />
+    <result column="is_del" property="isDel"  />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, shop_id, shop_item_class_id, item_name, item_img, item_price, month_trade_count, 
+    recommend_count, day_stock, creat_time, update_time, status, is_del
+  </sql>
+  <sql id="Blob_Column_List" >
+    describe
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+*
+    from item
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from item
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.food.out.model.Item" >
+    insert into item (id, shop_id, shop_item_class_id, 
+      item_name, item_img, item_price, 
+      month_trade_count, recommend_count, day_stock, 
+      creat_time, update_time, status, 
+      is_del)
+    values (#{id,jdbcType=INTEGER}, #{shopId,jdbcType=INTEGER}, #{shopItemClassId,jdbcType=INTEGER}, 
+      #{itemName,jdbcType=VARCHAR}, #{itemImg,jdbcType=VARCHAR}, #{itemPrice,jdbcType=DECIMAL}, 
+      #{monthTradeCount,jdbcType=VARCHAR}, #{recommendCount,jdbcType=VARCHAR}, #{dayStock,jdbcType=VARCHAR}, 
+      #{creatTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{status}, 
+      #{isDel})
+  </insert>
+  <insert id="insertSelective" parameterType="com.food.out.model.Item" >
+    insert into item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="shopId != null" >
+        shop_id,
+      </if>
+      <if test="shopItemClassId != null" >
+        shop_item_class_id,
+      </if>
+      <if test="itemName != null" >
+        item_name,
+      </if>
+      <if test="itemImg != null" >
+        item_img,
+      </if>
+      <if test="itemPrice != null" >
+        item_price,
+      </if>
+      <if test="monthTradeCount != null" >
+        month_trade_count,
+      </if>
+      <if test="recommendCount != null" >
+        recommend_count,
+      </if>
+      <if test="dayStock != null" >
+        day_stock,
+      </if>
+      <if test="creatTime != null" >
+        creat_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="describe != null" >
+        describe,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="shopItemClassId != null" >
+        #{shopItemClassId,jdbcType=INTEGER},
+      </if>
+      <if test="itemName != null" >
+        #{itemName,jdbcType=VARCHAR},
+      </if>
+      <if test="itemImg != null" >
+        #{itemImg,jdbcType=VARCHAR},
+      </if>
+      <if test="itemPrice != null" >
+        #{itemPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="monthTradeCount != null" >
+        #{monthTradeCount,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendCount != null" >
+        #{recommendCount,jdbcType=VARCHAR},
+      </if>
+      <if test="dayStock != null" >
+        #{dayStock,jdbcType=VARCHAR},
+      </if>
+      <if test="creatTime != null" >
+        #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status},
+      </if>
+      <if test="isDel != null" >
+        #{isDel},
+      </if>
+      <if test="describe != null" >
+        #{describe,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.food.out.model.Item" >
+    update item
+    <set >
+      <if test="shopId != null" >
+        shop_id = #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="shopItemClassId != null" >
+        shop_item_class_id = #{shopItemClassId,jdbcType=INTEGER},
+      </if>
+      <if test="itemName != null" >
+        item_name = #{itemName,jdbcType=VARCHAR},
+      </if>
+      <if test="itemImg != null" >
+        item_img = #{itemImg,jdbcType=VARCHAR},
+      </if>
+      <if test="itemPrice != null" >
+        item_price = #{itemPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="monthTradeCount != null" >
+        month_trade_count = #{monthTradeCount,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendCount != null" >
+        recommend_count = #{recommendCount,jdbcType=VARCHAR},
+      </if>
+      <if test="dayStock != null" >
+        day_stock = #{dayStock,jdbcType=VARCHAR},
+      </if>
+      <if test="creatTime != null" >
+        creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel},
+      </if>
+      <if test="describe != null" >
+        describe = #{describe,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.food.out.model.Item" >
+    update item
+    set shop_id = #{shopId,jdbcType=INTEGER},
+      shop_item_class_id = #{shopItemClassId,jdbcType=INTEGER},
+      item_name = #{itemName,jdbcType=VARCHAR},
+      item_img = #{itemImg,jdbcType=VARCHAR},
+      item_price = #{itemPrice,jdbcType=DECIMAL},
+      month_trade_count = #{monthTradeCount,jdbcType=VARCHAR},
+      recommend_count = #{recommendCount,jdbcType=VARCHAR},
+      day_stock = #{dayStock,jdbcType=VARCHAR},
+      creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status},
+      is_del = #{isDel},
+      describe = #{describe,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateItem" parameterType="com.food.out.model.Item" >
+    update item
+    <trim prefix="set" suffixOverrides=",">
+            <if test="shopId != null">
+                shop_id = #{shopId},
+            </if>
+            <if test="shopItemClassId != null ">
+                shop_item_class_id = #{shopItemClassId},
+            </if>
+            <if test="itemName != null ">
+                item_name = #{itemName},
+            </if>
+            <if test="itemImg != null ">
+                item_img = #{itemImg},
+            </if>
+            <if test="itemPrice != null ">
+                item_price = #{itemPrice},
+            </if>
+            <if test="monthTradeCount != null ">
+                month_trade_count = #{monthTradeCount},
+            </if>
+            <if test="recommendCount != null ">
+                recommend_count = #{recommendCount},
+            </if>
+            <if test="dayStock != null ">
+                day_stock = #{dayStock},
+            </if>
+            <if test="creatTime != null ">
+                creat_time = #{creatTime},
+            </if>
+            <if test="updateTime != null ">
+                update_time = #{updateTime},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="isDel != null">
+                is_del = #{isDel},
+            </if>
+     </trim>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getItemsCount" parameterType="map" resultType="int">
+        select count(*) from item as a
+        LEFT JOIN shop shop
+        ON shop.id = a.shop_id
+        where 1=1
+        <if test="id != null and id != ''">
+            and a.id = #{id}
+        </if>
+        <if test="itemName != null and itemName != ''">
+            and a.item_name like concat('%',#{itemName},'%')
+        </if>
+        <if test="status != null and status != ''">
+            and a.status = #{status}
+        </if>
+        <if test="shopId != null and shopId != ''">
+            and a.shop_id = #{shopId}
+        </if>
+        <if test="deleted != null and deleted != ''">
+            and a.deleted = #{deleted}
+        </if>
+    </select>
+    
+    <select id="getItems" parameterType="map" resultMap="BaseResultMap">
+        select a.* from item as a
+        LEFT JOIN shop shop
+        ON shop.id = a.shop_id
+        where 1=1
+        <if test="id != null and id != ''">
+            and a.id = #{id}
+        </if>
+        <if test="itemName != null and itemName != ''">
+            and a.item_name like concat('%',#{itemName},'%')
+        </if>
+        <if test="status != null and status != ''">
+            and a.status = #{status}
+        </if>
+        <if test="shopId != null and shopId != ''">
+            and a.shop_id = #{shopId}
+        </if>
+        <if test="deleted != null and deleted != ''">
+            and a.deleted = #{deleted}
+        </if>
+        order by a.creat_time desc
+        <if test="startNum != null and startNum >= 0 and pageSize != null and pageSize >= 0">
+            limit #{startNum},#{pageSize}
+        </if>
+    </select>
+    
+</mapper>

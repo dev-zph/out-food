@@ -1,0 +1,38 @@
+@charset "utf-8";
+.toEffect {
+    -webkit-transition: opacity .3s ease-out;
+    -moz-transition: opacity .3s ease-out;
+    -ms-transition: opacity .3s ease-out;
+    -o-transition: opacity .3s ease-out;
+    transition: opacity .3s ease-out;
+}
+
+.orgShow {
+    opacity: 1;
+    display: block;
+}
+
+.orgHide {
+    opacity: 0;
+    display: none;
+}
+
+.orgJoin {
+    margin-top: 30px;
+}
+
+.join {
+    cursor: pointer;
+}
+
+.join:hover {
+    cursor: pointer;
+}
+
+.join:focus {
+    cursor: pointer;
+}
+
+.joinFont {
+    margin-top: 15px;
+}

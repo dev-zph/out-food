@@ -1,0 +1,59 @@
+/*按钮颜色*/
+.button-green {
+    background: rgb(28, 184, 65); /* 绿色 */
+    color: #fff;
+}
+
+.button-red {
+    background: rgb(202, 60, 60); /* 红色 */
+    color: #fff;
+}
+
+.button-orange {
+    background: rgb(258, 163, 43); /* 橙色 */
+    color: #fff;
+}
+
+.button-blue-light {
+    background: rgb(66, 184, 221); /* 蓝色 */
+    color: #fff;
+}
+/*按钮换行*/
+.layui-btn+.layui-btn.button-line-left{
+   margin-left: 2px;
+}
+.layui-btn+.layui-btn.button-line-top{
+   margin-top: 8px;
+}
+/*按钮大小*/
+.button-xsmall {
+    font-size: 70%;
+}
+
+.button-small {
+    font-size: 85%;
+}
+
+.button-large {
+    font-size: 110%;
+}
+
+.button-xlarge {
+    font-size: 125%;
+}
+
+#background-color-gray{
+    background-color: #F1F1F1;
+}
+
+/*table*/
+.text-center thead tr th,.text-center tbody tr td{
+    text-align: center;
+}
+.td-width-33 thead tr th,.td-width-33 tbody tr td{
+    width: 33.3%;
+}
+.tr-height-30 thead tr th,.tr-height-30 tbody tr td{
+    height: 30px;
+    line-height: 30px;
+}

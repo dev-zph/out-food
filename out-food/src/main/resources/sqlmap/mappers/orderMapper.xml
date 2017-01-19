@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.food.out.dao.OrderDao" >
+  <resultMap id="orderMap" type="com.food.out.model.Order" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="shop_id" property="shopId" jdbcType="INTEGER" />
+    <result column="order_num" property="orderNum" jdbcType="INTEGER" />
+    <result column="item_id" property="itemId" jdbcType="INTEGER" />
+    <result column="item_count" property="itemCount" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="over_time" property="overTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="pre_send_time" property="preSendTime" jdbcType="TIMESTAMP" />
+    <result column="id_del" property="idDel" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, shop_id, order_num, item_id, item_count, create_time, over_time, status, 
+    pre_send_time, id_del
+  </sql>
+  <select id="selectByKey" resultMap="orderMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="com.food.out.model.Order" >
+    insert into order (id, user_id, shop_id, 
+      order_num, item_id, item_count, 
+      create_time, over_time, status, 
+      pre_send_time, id_del)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{shopId,jdbcType=INTEGER}, 
+      #{orderNum,jdbcType=INTEGER}, #{itemId,jdbcType=INTEGER}, #{itemCount,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{overTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{preSendTime,jdbcType=TIMESTAMP}, #{idDel,jdbcType=TINYINT})
+  </insert>
+  <update id="updateOrder" parameterType="com.food.out.model.Order" >
+    update order
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="shopId != null" >
+        shop_id = #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="orderNum != null" >
+        order_num = #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="itemId != null" >
+        item_id = #{itemId,jdbcType=INTEGER},
+      </if>
+      <if test="itemCount != null" >
+        item_count = #{itemCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="overTime != null" >
+        over_time = #{overTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="preSendTime != null" >
+        pre_send_time = #{preSendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idDel != null" >
+        id_del = #{idDel,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getOrders" resultMap="orderMap" parameterType="map" >
+    select 
+     o.id,o.user_id,o.shop_id,o.order_num,o.item_id,o.item_count,o.create_time,o.over_time,o.status,o.pre_send_time
+      form order
+   where 1=1   
+   		<if test="userId != null">
+            and o.user_id = #{userId}
+        </if>
+        <if test="shopId != null">
+            and o.shop_id = #{shopId}
+        </if>
+        <if test="orderum != null">
+            and o.order_num = #{shopGrade}
+        </if>
+        <if test="itemId != null">
+            and o.item_id = #{itemId}
+        </if>
+        <if test="status != null">
+            and o.status = #{status}
+        </if>
+          <if test="id != null">
+            and o.id = #{id}
+        </if>
+        <if test="startDate != null and startDate != ''">
+				<![CDATA[
+					and DATE_FORMAT(create_time, '%Y-%m-%d') >= DATE_FORMAT(#{startDate}, '%Y-%m-%d')
+				]]>
+			</if>
+			<if test="endDate != null and endDate != ''">
+				<![CDATA[
+					and DATE_FORMAT(create_time, '%Y-%m-%d') <= DATE_FORMAT(#{endDate}, '%Y-%m-%d')
+				]]>
+	</if>
+        order by o.create_time desc 
+        <if test="offset != null and offset >= 0 and limit != null and limit >= 0">
+			limit #{offset},#{limit}
+	</if>
+  </select>
+  
+  <select id="getOrdersCount" parameterType="map" resultType="int">
+    select 
+    count(*) form order
+   where 1=1   
+   		<if test="userId != null">
+            and o.user_id = #{userId}
+        </if>
+        <if test="shopId != null">
+            and o.shop_id = #{shopId}
+        </if>
+        <if test="orderum != null">
+            and o.order_num = #{shopGrade}
+        </if>
+        <if test="itemId != null">
+            and o.item_id = #{itemId}
+        </if>
+        <if test="status != null">
+            and o.status = #{status}
+        </if>
+          <if test="id != null">
+            and o.id = #{id}
+        </if>
+        <if test="startDate != null and startDate != ''">
+				<![CDATA[
+					and DATE_FORMAT(create_time, '%Y-%m-%d') >= DATE_FORMAT(#{startDate}, '%Y-%m-%d')
+				]]>
+			</if>
+			<if test="endDate != null and endDate != ''">
+				<![CDATA[
+					and DATE_FORMAT(create_time, '%Y-%m-%d') <= DATE_FORMAT(#{endDate}, '%Y-%m-%d')
+				]]>
+	</if>
+        order by o.create_time desc 
+  </select>
+</mapper>

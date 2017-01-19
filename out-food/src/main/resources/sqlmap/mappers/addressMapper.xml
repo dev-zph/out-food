@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.food.out.dao.AddressDao" >
+  <resultMap id="BaseResultMap" type="com.food.out.model.Address" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="connect_name" property="connectName" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="TINYINT" />
+    <result column="creat_time" property="creatTime" jdbcType="TIMESTAMP" />
+    <result column="is_def" property="isDef" jdbcType="TINYINT" />
+    <result column="id_del" property="idDel" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, phone, connect_name, sex, creat_time, is_def, id_del
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from address
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from address
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.food.out.model.Address" >
+    insert into address (id, user_id, phone, 
+      connect_name, sex, creat_time, 
+      is_def, id_del)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, 
+      #{connectName,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, #{creatTime,jdbcType=TIMESTAMP}, 
+      #{isDef,jdbcType=TINYINT}, #{idDel,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.food.out.model.Address" >
+    insert into address
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="connectName != null" >
+        connect_name,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="creatTime != null" >
+        creat_time,
+      </if>
+      <if test="isDef != null" >
+        is_def,
+      </if>
+      <if test="idDel != null" >
+        id_del,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="connectName != null" >
+        #{connectName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="creatTime != null" >
+        #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDef != null" >
+        #{isDef,jdbcType=TINYINT},
+      </if>
+      <if test="idDel != null" >
+        #{idDel,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.food.out.model.Address" >
+    update address
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="connectName != null" >
+        connect_name = #{connectName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="creatTime != null" >
+        creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDef != null" >
+        is_def = #{isDef,jdbcType=TINYINT},
+      </if>
+      <if test="idDel != null" >
+        id_del = #{idDel,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.food.out.model.Address" >
+    update address
+    set user_id = #{userId,jdbcType=INTEGER},
+      phone = #{phone,jdbcType=VARCHAR},
+      connect_name = #{connectName,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=TINYINT},
+      creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      is_def = #{isDef,jdbcType=TINYINT},
+      id_del = #{idDel,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

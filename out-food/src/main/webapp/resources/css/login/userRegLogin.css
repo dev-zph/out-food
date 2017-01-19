@@ -1,0 +1,180 @@
+@charset "utf-8";
+/*用户注册*/
+.page{
+    width: 990px;
+    margin: 0 auto;
+    color: #3c3c3c;
+    font: 400 12px/1.6 arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif;
+}
+/*注册步骤*/
+.steps {
+    height: 46px;
+    border-bottom: 2px solid #e6e6e6;
+    position: relative;
+}
+.steps ol {
+    width: 610px;
+    margin: 0 auto;
+}
+.steps ol li {
+    display: inline;
+    float: left;
+    width: 170px;
+    padding-left: 70px;
+    height: 46px;
+    line-height: 46px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #999;
+    font-family: "\5FAE\8F6F\96C5\9ED1","\534E\6587\7EC6\9ED1","\9ED1\4F53",arial;
+}
+.steps-4 ol li {
+    width: 150px;
+    padding-left: 25px;
+    padding-right: 5px;
+}
+.steps ol li i {
+    display: inline-block;
+    zoom: 1;
+    margin-right: 5px;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    font-style: normal;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #FFF;
+    background: url(../styleImages/icoCircle.png) no-repeat 0 0;
+}
+	/*正在进行的步骤*/
+.steps ol .active {
+    border-bottom-color: #c40000!important;
+}
+.steps ol li.active {
+    color: #3e3e3e;
+    border-bottom: 2px solid #ff4700;
+}
+.steps ol .active i {
+    background-image: url(../styleImages/icoActiveCircle.png)!important;
+}
+
+
+/*内容*/
+.content {
+    padding: 50px 0;
+    margin: 0 auto;
+    width: 480px;
+}
+.content .buttonStep{
+	padding: 10px 0;
+}
+.content .buttonStep .buttonStepLeft{
+	padding-left: 160px;
+}
+
+/*用户登录框架*/
+.loginPage2 {
+    background-color: #fff;
+}
+.loginPage2 .page2Content {
+    height: auto!important;
+    background-color: #fff;
+}
+.loginPage2 .page2Content .loginBox {
+    margin: auto;
+    width: 350px;
+    padding: 0;
+}
+.loginPage2 .page2Content .loginBox .bd {
+    padding: 25px 26px 20px;
+}
+.staticForm {
+    position: relative;
+    display: block;
+}
+.loginTitle {
+    height: 18px;
+    line-height: 18px;
+    font-size: 17px;
+    color: #3c3c3c;
+    margin-top: 9px;
+    padding-bottom: 8px;
+    font-weight: 700;
+}
+.loginPage2 .page2Content .loginBox .bd .loginTitle {
+    margin-top: 15px;
+    padding-bottom: 0;
+}
+    
+.loginPage2 .page2Content .loginBox .bd .layui-form-item .loginButton {
+    width: 300px;
+    height: 42px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.loginPage2 .page2Content .loginBox .bd .loginTops {
+    margin-top: 25px;
+    overflow: hidden;
+    text-align: right;
+}
+.loginPage2 .page2Content .loginBox .bd .loginTops a{
+    margin-right: 10px;
+    color: #6c6c6c;
+    font-size: 12px;
+    font-weight: 500;
+}
+/*用户登录海报页面*/
+.loginPage{
+    width: auto;
+    min-width: 1190px;
+    background-color: transparent;
+}
+.loginPage .header {
+    padding: 22px 0px;
+    height: 60px;
+    width: 1190px;
+    margin: auto;
+}
+.loginPage .header .ayn-logo {
+    margin-top: 0px;
+}
+.loginPage .loginContent {
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+}
+.loginPicture .inner {
+    position: relative;
+    width: 1190px;
+    margin: auto;
+}
+.loginPicture img {
+    display: block;
+    margin: auto;
+}
+.loginPicture .inner a {
+    display: block;
+    position: absolute;
+    top: 80px;
+    left: 75px;
+    width: 630px;
+    height: 440px;
+    border: none;
+    outline: none;
+}
+.loginPage .loginContent .form {
+    display: none;
+    position: absolute;
+    top: 91px;
+    right: 60px;
+    background: #fff;
+}
+.loginPage .loginContent .form-content {
+    position: relative;
+}
+.loginPage .loginContent .form iframe {
+    width: 350px;
+    height: 400px;
+    overflow: hidden;
+}
