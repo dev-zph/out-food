@@ -9,7 +9,7 @@ import com.food.out.utils.ConfigurableConstants;
 public class Constants extends ConfigurableConstants{
 	static {
 		// init("ftp.properties");
-		init("food.properties");
+		init("food.properties"); 
 	}
 	
 	public static final String PAY_ALIPAY_PID = getValue("food_test_value");
