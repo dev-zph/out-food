@@ -22,6 +22,12 @@ public interface CartItemDao {
 	 */
 	CartItem selectById(Integer key);
 	/**
+	 * 根绝用户Id查询 该用户的所有购物车里面的商品
+	 * @param userId
+	 * @return
+	 */
+	List<CartItem> selectByUserId(Integer userId);
+	/**
 	 * 插入
 	 * @param cartItem
 	 */

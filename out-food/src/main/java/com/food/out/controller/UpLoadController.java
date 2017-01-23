@@ -48,7 +48,7 @@ public class UpLoadController extends BaseController{
 		Map<String, Object> data = new HashMap<String, Object>();
 		data.put("data", Limit.fail.name());
 		try {
-			User user = getSessionUser(session);
+			User user = getSessionUser(request);
 			if (null != user) {
 				// check multipart/form-data
 				boolean isMultipart = ServletFileUpload.isMultipartContent(request);

@@ -36,6 +36,7 @@ public class Status {
 	//user相关的信息,session.key
 	public static final String SYSTEM_SHOP_KEYWORD = "shop";
 	public static final String SYSTEM_USER_KEYWORD = "user";
+	public static final String USER_CART_ITEM_COUNT = "cartItemCount";
 	/**
 	 * 店铺管理
 	 */

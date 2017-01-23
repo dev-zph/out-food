@@ -1,6 +1,8 @@
 package com.food.out.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,6 +20,7 @@ import com.food.out.common.Constants;
 import com.food.out.common.Status;
 import com.food.out.model.Shop;
 import com.food.out.model.User;
+import com.food.out.service.CartItemService;
 import com.food.out.service.ShopService;
 import com.food.out.service.UserService;
 import com.food.out.utils.EncryptMD5;
@@ -30,6 +33,9 @@ public class UserController {
 	
 	@Resource
 	private ShopService shopService;
+	
+	@Resource
+	private CartItemService cartService;
 	
 	
 	@RequestMapping("toLogin")
@@ -104,6 +110,11 @@ public class UserController {
 						request.getSession().setAttribute(Status.SYSTEM_SHOP_KEYWORD, shopList.get(0)); // 商铺ID
 						request.getSession().setAttribute("shopStatus", shopList.get(0).getStatus()); // 商铺申请状态
 					}
+					//获取购物车信息
+					Map<String, Object> param = new HashMap<String, Object>();
+					param.put("userId", user.getId());
+					Integer count = cartService.getCartItemCount(param);
+					request.getSession().setAttribute(Status.USER_CART_ITEM_COUNT, count); // 商铺ID
 					result = Status.SUCCESS;
 				} else {
 					result = "200";

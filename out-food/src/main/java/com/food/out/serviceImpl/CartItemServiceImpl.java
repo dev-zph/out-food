@@ -70,4 +70,13 @@ public class CartItemServiceImpl implements CartItemService{
 		return cartItemDao.getCartItemCount(param);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.food.out.service.CartItemService#selectByUerId(java.lang.Integer)
+	 */
+	@Override
+	public List<CartItem> selectByUserId(Integer userId) {
+		// TODO Auto-generated method stub
+		return cartItemDao.selectByUserId(userId);
+	}
+
 }

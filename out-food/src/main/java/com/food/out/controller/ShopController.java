@@ -48,7 +48,7 @@ public class ShopController extends BaseController {
 	@RequestMapping(value = "/navigate_apply/{view}.html")
 	public ModelAndView navigateToView(HttpServletRequest request, HttpServletResponse response, HttpSession session,
 			@PathVariable(value = "view") String view) throws Exception {
-		User user = getSessionUser(session);
+		User user = getSessionUser(request);
 		if (null == user) {
 			return new ModelAndView("redirect:/toLogin.html");
 		}
@@ -99,7 +99,7 @@ public class ShopController extends BaseController {
 			throws Exception {
 		Map<String, Object> data = new HashMap<String, Object>();
 		try {
-			User user = getSessionUser(session);
+			User user = getSessionUser(request);
 			if (null != user) {
 				String userId = String.valueOf(user.getId());// 获取当前用户id
 				List<Shop> shops = shopService.selectListByUserId(userId, null, Status.DELETED_NO);
@@ -128,7 +128,7 @@ public class ShopController extends BaseController {
 		Map<String, Object> data = new HashMap<String, Object>();
 		data.put("data", "fail");
 		try {
-			User user = getSessionUser(session);
+			User user = getSessionUser(request);
 			if (null != user) {
 				Shop shop = new Shop();
 				BeanUtils.populate(shop, request.getParameterMap());
@@ -169,7 +169,7 @@ public class ShopController extends BaseController {
 		Map<String, Object> data = new HashMap<String, Object>();
 		data.put("data", "fail");
 		try {
-			User user = getSessionUser(session);
+			User user = getSessionUser(request);
 			if (null != user) {
 				Shop shop = new Shop();
 				BeanUtils.populate(shop, request.getParameterMap());

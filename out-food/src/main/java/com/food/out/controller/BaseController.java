@@ -1,14 +1,15 @@
 package com.food.out.controller;
 
-import java.math.BigDecimal;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import org.apache.http.HttpRequest;
 import org.apache.log4j.Logger;
 
 import com.food.out.common.Status;
@@ -55,10 +56,8 @@ public class BaseController {
 	}
 
 
-	protected User getSessionUser(HttpSession session) throws Exception {
-		User user = (User) session.getAttribute(Status.SYSTEM_USER_KEYWORD);
-		// user = new User();
-		// user.setId(10);
+	protected User getSessionUser(HttpServletRequest request) throws Exception {
+		User user = (User) request.getSession().getAttribute(Status.SYSTEM_USER_KEYWORD);
 		return user;
 	}
 
