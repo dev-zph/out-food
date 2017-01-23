@@ -19,7 +19,7 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Component"/>
 	</context:component-scan>
 	  
-	<tx:advice id="platform-txAdvice-service" transaction-manager="transactionManager">
+	<tx:advice id="outfood-txAdvice-service" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="*" propagation="REQUIRED" rollback-for="Exception" />
 			<tx:method name="find*" propagation="NOT_SUPPORTED"
@@ -30,11 +30,11 @@
 				read-only="true" />
 		</tx:attributes>
 	</tx:advice>
-
+<!-- 面向切面 事物注解 -->
 	<aop:config>
-		<aop:pointcut id="platform-bizMethod-service"
+		<aop:pointcut id="outfood-bizMethod-service"
 			expression="execution(* com.food.out.service..*(..))" />
-		<aop:advisor advice-ref="platform-txAdvice-service" pointcut-ref="platform-bizMethod-service" />
+		<aop:advisor advice-ref="outfood-txAdvice-service" pointcut-ref="outfood-bizMethod-service" />
 	</aop:config>
 	
 </beans>

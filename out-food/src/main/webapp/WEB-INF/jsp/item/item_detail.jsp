@@ -109,7 +109,6 @@
 								<img class="etalage_thumb_image" src="${ctx}/resources/images/product-slide/image1_thumb.jpg" style="display: inline; width: 300px; height: 400px; opacity: 1;">
 								<img class="etalage_source_image" src="${ctx}/resources/images/product-slide/image1_large.jpg">
 							</li>
-						<li class="etalage_magnifier" style="margin: 0px; padding: 0px; left: 6px; top: 6px; display: none; opacity: 0.05449673905968666;"><div style="margin: 0px; padding: 0px; width: 195px; height: 215px;"><img src="http://192.168.2.7/chaitanya/spike_shoes/${ctx}/resources/images/product-slide/image3_thumb.jpg" style="margin: 0px; padding: 0px; width: 300px; height: 400px; display: inline; left: 0px; top: 0px;"></div></li><li class="etalage_icon" style="display: list-item; top: 380px; left: 20px; opacity: 1;">��</li><li class="etalage_hint" style="display: none; margin: 0px; top: -15px; right: -15px;">��</li><li class="etalage_zoom_area" style="margin: 0px; opacity: 0; left: 324px; display: none; background-image: none;"><div class="etalage_description" style="width: 546px; bottom: 6px; left: 6px; opacity: 0.7; display: none;"></div><div style="width: 586px; height: 538px;"><img class="etalage_zoom_img" src="${ctx}/resources/images/product-slide/image3_large.jpg" style="width: 900px; height: 1000px; left: -157.34166420232418px; top: 0px;"></div></li><li class="etalage_small_thumbs" style="width: 314px; top: 424px;"><ul style="width: 1072px;"><li class="etalage_smallthumb_navtoend" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/${ctx}/resources/images/product-slide/image7_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li><li class="" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/${ctx}/resources/images/product-slide/image1_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li><li class="etalage_smallthumb_first" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/${ctx}/resources/images/product-slide/image2_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li><li class="etalage_smallthumb_active" style="opacity: 1; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/${ctx}/resources/images/product-slide/image3_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li><li class="etalage_smallthumb_last" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/${ctx}/resources/images/product-slide/image4_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li><li class="" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/${ctx}/resources/images/product-slide/image5_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li><li class="" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/${ctx}/resources/images/product-slide/image6_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li><li class="" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/${ctx}/resources/images/product-slide/image7_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li><li class="etalage_smallthumb_navtostart" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/${ctx}/resources/images/product-slide/image1_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li></ul></li></ul>
 					</div>
 					<div class="details-left-info">
 						<div class="details-right-head">
@@ -133,7 +132,23 @@
                                             </span>
                                             <span class="mui-amount-unit">${list.unit}</span>
                                             <em id="J_EmStock" class="mui-amount-unit" style="display: inline;">
-                                                库存${item.itemStock}${list.unit}</em>
+                                                库存${item.dayStock}</em>
+                                        </span>
+                                    </dd>
+                                </dl>
+                                 <dl class="tb-amount tm-clear">
+                                    <dt class="tb-metatit fl">数量</dt>
+                                    <dd>
+                                        <span class="tb-amount-widget mui-amount-wrap">
+                                            <input type="text" class="tb-text mui-amount-input item-count" value="1"
+                                                   title="请输入购买量">
+                                            <span class="mui-amount-btn">
+                                                <span class="mui-amount-increase a"></span>
+                                                <span class="mui-amount-decrease b"></span>
+                                            </span>
+                                            <span class="mui-amount-unit">10</span>
+                                            <em id="J_EmStock" class="mui-amount-unit" style="display: inline;">
+                                                库存10</em>
                                         </span>
                                     </dd>
                                 </dl>

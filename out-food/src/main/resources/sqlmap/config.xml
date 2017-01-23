@@ -35,8 +35,8 @@
 	<!-- 别名定义 -->
 	<typeAliases>
 		<!-- model -->
-<!-- 		<typeAlias alias="AbcPayInfo" type="com.xianguo.platform.model.AbcPayInfo"/>
- -->	</typeAliases>
+		<typeAlias alias="CartItem" type="com.food.out.model.CartItem">
+	</typeAliases>
 
 	<!-- 插件 -->
 <!-- 	<plugins> -->
@@ -54,7 +54,7 @@
 	 	<mapper resource="sqlmap/mappers/shopMapper.xml"/>
 	 	<mapper resource="sqlmap/mappers/shopSenderMapper.xml"/>
 	 	<mapper resource="sqlmap/mappers/userMapper.xml"/>
-	 	<mapper resource="sqlmap/mappers/ShopItemClassMapper.xml"/>
-
+	 	<mapper resource="sqlmap/mappers/shopItemClassMapper.xml"/>
+		<mapper resource="sqlmap/mappers/cartItemMapper.xml"/>
 	</mappers>
 </configuration>

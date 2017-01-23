@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xianguo.platform.dao.CartItemDao" >
+  <resultMap id="BaseResultMap" type="CartItem" >
+    <id column="id" property="id"  />
+    <result column="user_id" property="userId"  />
+    <result column="item_id" property="itemId"  />
+    <result column="buy_count" property="buyCount"  />
+    <result column="add_time" property="addTime"  />
+    <result column="update_time" property="updateTime"  />
+    <result column="deleted" property="deleted"  />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, item_id, buy_count, add_time, update_time, deleted
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cart_item
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <insert id="insertCartItem" parameterType="CartItem" >
+    insert into cart_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="itemId != null" >
+        item_id,
+      </if>
+      <if test="buyCount != null" >
+        buy_count,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="itemId != null" >
+        #{itemId,jdbcType=INTEGER},
+      </if>
+      <if test="buyCount != null" >
+        #{buyCount,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateCartItem" parameterType="CartItem" >
+    update cart_item
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="itemId != null" >
+        item_id = #{itemId,jdbcType=INTEGER},
+      </if>
+      <if test="buyCount != null" >
+        buy_count = #{buyCount,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getCartItems" parameterType="java.util.Map" resultMap="BaseResultMap">
+  		select 
+  <include refid="Base_Column_List" />
+  		from cart_item
+  <trim prefix="where" suffixOverrides="and">
+  	<if test="userId != null and userId != ''" >
+  		user_id = #{userId} and 
+  	</if>
+  	<if test="itemId != null and itemId != ''" >
+  		item_id = #{itemId} and 
+  	</if>
+  	<if test="deleted != null" >
+  		deleted = #{deleted} and 
+  	</if>
+  </trim>
+  		order by add_time desc
+  	<if test="offset != null and offset >= 0 and limit != null and limit >= 0">
+			limit #{offset}, #{limit}
+	</if>
+  </select>
+  
+  <select id="getCartItemCount" parameterType="java.util.Map" resultMap="Integer">
+  		select 
+  count(*)
+  		from cart_item
+  <trim prefix="where" suffixOverrides="and">
+  	<if test="userId != null and userId != ''" >
+  		user_id = #{userId} and 
+  	</if>
+  	<if test="itemId != null and itemId != ''" >
+  		item_id = #{itemId} and 
+  	</if>
+  	<if test="deleted != null" >
+  		deleted = #{deleted} and 
+  	</if>
+  </trim>
+  		order by add_time desc
+  </select>
+</mapper>
