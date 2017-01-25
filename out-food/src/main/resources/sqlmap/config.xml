@@ -35,7 +35,7 @@
 	<!-- 别名定义 -->
 	<typeAliases>
 		<!-- model -->
-		<typeAlias alias="CartItem" type="com.food.out.model.CartItem">
+		<typeAlias alias="CartItem" type="com.food.out.model.CartItem"></typeAlias>
 	</typeAliases>
 
 	<!-- 插件 -->

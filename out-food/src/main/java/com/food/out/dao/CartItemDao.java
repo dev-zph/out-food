@@ -6,6 +6,10 @@ package com.food.out.dao;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Repository;
+
 import com.food.out.model.CartItem;
 
 /**
@@ -14,6 +18,7 @@ import com.food.out.model.CartItem;
  * @createTime 2017年1月23日 上午10:39:47
  * 
  */
+@Repository("cartItemDao")
 public interface CartItemDao {
 	/**
 	 * 根据id查询cartItem对象

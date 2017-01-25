@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xianguo.platform.dao.CartItemDao" >
+<mapper namespace="com.food.out.dao.CartItemDao" >
   <resultMap id="BaseResultMap" type="CartItem" >
     <id column="id" property="id"  />
     <result column="user_id" property="userId"  />
@@ -120,7 +120,7 @@
 	</if>
   </select>
   
-  <select id="getCartItemCount" parameterType="java.util.Map" resultMap="Integer">
+  <select id="getCartItemCount" parameterType="java.util.Map" resultType="java.lang.Integer">
   		select 
   count(*)
   		from cart_item

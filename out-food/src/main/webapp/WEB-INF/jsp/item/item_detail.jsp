@@ -112,6 +112,7 @@
 					</div>
 					<div class="details-left-info">
 						<div class="details-right-head">
+						<input type="hidden" id="itemId" value="${item.id}"/>
 						<h1>${item.itemName}</h1>
 						<p class="product-detail-info">商家描述： ${item.describe}</p>
 						<div class="product-more-details">
@@ -121,62 +122,19 @@
 								<li class="price"><label>日供量： ${item.dayStock }</label></li>
 								<div class="clearfix"> </div>
 								  <dl class="tb-amount tm-clear">
-                                    <dt class="tb-metatit fl">数量</dt>
+                                    <li class="price"><label>购买数量</label></li>
                                     <dd>
                                         <span class="tb-amount-widget mui-amount-wrap">
-                                            <input type="text" class="tb-text mui-amount-input item-count" value="1"
+                                            <input id="buyCount" type="text" class="tb-text mui-amount-input item-count" value="1"
                                                    title="请输入购买量">
-                                            <span class="mui-amount-btn">
-                                                <span class="mui-amount-increase a"></span>
-                                                <span class="mui-amount-decrease b"></span>
-                                            </span>
-                                            <span class="mui-amount-unit">${list.unit}</span>
                                             <em id="J_EmStock" class="mui-amount-unit" style="display: inline;">
-                                                库存${item.dayStock}</em>
                                         </span>
                                     </dd>
                                 </dl>
-                                 <dl class="tb-amount tm-clear">
-                                    <dt class="tb-metatit fl">数量</dt>
-                                    <dd>
-                                        <span class="tb-amount-widget mui-amount-wrap">
-                                            <input type="text" class="tb-text mui-amount-input item-count" value="1"
-                                                   title="请输入购买量">
-                                            <span class="mui-amount-btn">
-                                                <span class="mui-amount-increase a"></span>
-                                                <span class="mui-amount-decrease b"></span>
-                                            </span>
-                                            <span class="mui-amount-unit">10</span>
-                                            <em id="J_EmStock" class="mui-amount-unit" style="display: inline;">
-                                                库存10</em>
-                                        </span>
-                                    </dd>
+                                 
                                 </dl>
 							</ul>
-<!-- 							<ul class="product-colors"> -->
-<!-- 								<h3>available Colors ::</h3> -->
-<!-- 								<li><a class="color1" href="#"><span> </span></a></li> -->
-<!-- 								<li><a class="color2" href="#"><span> </span></a></li> -->
-<!-- 								<li><a class="color3" href="#"><span> </span></a></li> -->
-<!-- 								<li><a class="color4" href="#"><span> </span></a></li> -->
-<!-- 								<li><a class="color5" href="#"><span> </span></a></li> -->
-<!-- 								<li><a class="color6" href="#"><span> </span></a></li> -->
-<!-- 								<li><a class="color7" href="#"><span> </span></a></li> -->
-<!-- 								<li><a class="color8" href="#"><span> </span></a></li> -->
-<!-- 								<div class="clearfix"> </div> -->
-<!-- 							</ul> -->
-							<ul class="prosuct-qty">
-								<span>Quantity:</span>
-								<select>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-									<option>6</option>
-								</select>
-							</ul>
-							<input type="button" value="add to cart">
+							<input type="button" value="添加至购物车" onclick="addCartItem()">
 							<ul class="product-share">
 								<h3>All so Share On</h3>
 								<ul>
@@ -278,7 +236,7 @@
 		</div>
 		<!-- footer -->
 		<!-- container -->
-	<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+		<script src="${ctx}/resources/js/item/item_detail.js"></script>
 </body>
 </html>
 

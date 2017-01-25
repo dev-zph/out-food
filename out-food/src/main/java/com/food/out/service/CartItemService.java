@@ -6,7 +6,10 @@ package com.food.out.service;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.food.out.model.CartItem;
+import com.food.out.model.parambeen.InsertCart;
 
 /**
  *购物车服务层
@@ -27,11 +30,12 @@ public interface CartItemService {
 	 * @return
 	 */
 	List<CartItem> selectByUserId(Integer userId);
-	/**
-	 * 插入
-	 * @param cartItem
-	 */
-	void insertCartItem(CartItem cartItem);
+/**
+ *  添加购物车，如果购物车已经有则改变数量，不然新增记录
+ * @param param
+ * @param request
+ */
+	void insertCartItem(InsertCart param,HttpServletRequest request);
 	/**
 	 * 更新
 	 * @param cartItem
