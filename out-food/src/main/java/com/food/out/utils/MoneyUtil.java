@@ -1,7 +1,3 @@
-/**
- * @版权所有 城云科技（杭州）有限公司
- * 
- */
 package com.food.out.utils;
 
 import java.math.BigDecimal;

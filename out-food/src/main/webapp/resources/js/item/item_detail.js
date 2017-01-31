@@ -1,6 +1,7 @@
 function addCartItem() {
 	var itemId = $("#itemId").val();
 	var buyCount = $("#buyCount").val();
+	var shopId = $("#shopId").val();
 	$.ajax({
 		type: 'POST',
 		url: ctx+"/cart/addToCart.json",

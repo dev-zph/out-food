@@ -3,6 +3,7 @@
  */
 package com.food.out.serviceImpl;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Service;
 import com.food.out.common.Status;
 import com.food.out.dao.CartItemDao;
 import com.food.out.model.CartItem;
-import com.food.out.model.parambeen.InsertCart;
+import com.food.out.model.querybeen.InsertCart;
 import com.food.out.service.CartItemService;
 
 /**
@@ -53,6 +54,7 @@ public class CartItemServiceImpl implements CartItemService {
 		Integer userId = param.getUserId();
 		Integer itemId = param.getItemId();
 		Integer addCount = param.getAddCount();
+		Integer shopId = param.getShopId();
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("userId", userId);
 		map.put("itemId", itemId);
@@ -64,12 +66,13 @@ public class CartItemServiceImpl implements CartItemService {
 			oldCart.setBuyCount(newCount);
 			cartItemDao.updateCartItem(oldCart);
 		} else {//不然则添加数量
-			CartItem cartItem = new CartItem();
+			CartItem cartItem = new CartItem();   
 			cartItem.setBuyCount(addCount);
 			cartItem.setAddTime(new Date());
 			cartItem.setDeleted(Status.DELETED_NO);
 			cartItem.setItemId(itemId);
 			cartItem.setUserId(userId);
+			cartItem.setShopId(shopId);
 			cartItemDao.insertCartItem(cartItem);
 			//并更新购物车大件数
 			Integer itemCount = (Integer) request.getSession().getAttribute(Status.USER_CART_ITEM_COUNT);
@@ -125,4 +128,32 @@ public class CartItemServiceImpl implements CartItemService {
 		return cartItemDao.selectByUserId(userId);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.food.out.service.CartItemService#getCartDetail(java.util.Map)
+	 */
+	@Override
+	public List<CartItem> getCartDetail(Map<String, Object> param) {
+		// TODO Auto-generated method stub
+		return cartItemDao.getCartDetail(param);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.food.out.service.CartItemService#getCartTotalMoney(java.util.Map)
+	 */
+	@Override
+	public BigDecimal getCartTotalMoney(Map<String, Object> param) {
+		// TODO Auto-generated method stub
+		return cartItemDao.getCartTotalMoney(param);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.food.out.service.CartItemService#deleteCart(java.lang.Integer)
+	 */
+	@Override
+	public void deleteCart(Integer cartId) {
+		CartItem cart = new CartItem();
+		cart.setId(cartId);
+		cart.setDeleted(Status.DELETED_YES);
+		cartItemDao.updateCartItem(cart);
+	}
 }

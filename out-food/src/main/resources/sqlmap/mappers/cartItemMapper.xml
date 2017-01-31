@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.food.out.dao.CartItemDao" >
-  <resultMap id="BaseResultMap" type="CartItem" >
+  <resultMap id="BaseResultMap" type="com.food.out.model.CartItem" >
     <id column="id" property="id"  />
     <result column="user_id" property="userId"  />
     <result column="item_id" property="itemId"  />
@@ -9,7 +9,15 @@
     <result column="add_time" property="addTime"  />
     <result column="update_time" property="updateTime"  />
     <result column="deleted" property="deleted"  />
+    
+    <result column="shop_id" property="shopId"  />
+    <result column="shop_name" property="shopName"  />
+    <result column="item_name" property="itemName"  />
+    <result column="item_price" property="itemPrice"  />
+    <result column="send_mon" property="sendMon"  />
+    <result column="package_mon" property="packageMon"  />
   </resultMap>
+	
   <sql id="Base_Column_List" >
     id, user_id, item_id, buy_count, add_time, update_time, deleted
   </sql>
@@ -98,6 +106,45 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <!-- 我的购物车详情数据获取 -->
+   <select id="getCartDetail" parameterType="java.util.Map" resultMap="BaseResultMap">
+  		select 
+  		c.id,c.user_id,c.item_id,c.buy_count,c.add_time,s.id as shop_id,s.shop_name,s.send_mon,s.package_mon,i.item_name,i.item_price
+  		from cart_item c
+  		left join item i on i.id = c.item_id
+		left join shop s on s.id = i.shop_id 
+  <trim prefix="where" suffixOverrides="and">
+  	<if test="userId != null and userId != ''" >
+  		c.user_id = #{userId} and 
+  	</if>
+  	<if test="deleted != null" >
+  		c.deleted = #{deleted} and 
+  	</if>
+  </trim>
+  		order by c.add_time desc
+  	<if test="offset != null and offset >= 0 and limit != null and limit >= 0">
+			limit #{offset}, #{limit}
+	</if>
+  </select>
+  
+   <select id="getCartTotalMoney" parameterType="java.util.Map" resultType="decimal">
+  		select sum(buy_count * item_price) 
+  		from cart_item c
+  		left join item i on i.id = c.item_id
+		left join shop s on s.id = i.shop_id 
+  <trim prefix="where" suffixOverrides="and">
+  	<if test="userId != null and userId != ''" >
+  		c.user_id = #{userId} and 
+  	</if>
+  	<if test="deleted != null" >
+  		c.deleted = #{deleted} and 
+  	</if>
+  </trim>
+  		order by c.add_time desc
+  	<if test="offset != null and offset >= 0 and limit != null and limit >= 0">
+			limit #{offset}, #{limit}
+	</if>
+  </select>
   
   <select id="getCartItems" parameterType="java.util.Map" resultMap="BaseResultMap">
   		select 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.food.out.model.parambeen;
+package com.food.out.model.querybeen;
 
 /**
  * @author 陈佳
@@ -13,6 +13,7 @@ public class InsertCart {
 	private Integer userId;
 	private Integer itemId;
 	private Integer addCount;
+	private Integer shopId;
 	/**
 	 * @return the userId
 	 */
@@ -49,5 +50,18 @@ public class InsertCart {
 	public void setAddCount(Integer addCount) {
 		this.addCount = addCount;
 	}
+	/**
+	 * @return the shopId
+	 */
+	public Integer getShopId() {
+		return shopId;
+	}
+	/**
+	 * @param shopId the shopId to set
+	 */
+	public void setShopId(Integer shopId) {
+		this.shopId = shopId;
+	}
+	
 	
 }

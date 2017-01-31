@@ -1,5 +1,5 @@
-/*新版支付页面*/
-/*头部*/
+/*鏂扮増鏀粯椤甸潰*/
+/*澶撮儴*/
 .pay-top{
 	width: 990px;
 	margin: 0 auto;
@@ -73,7 +73,7 @@
 
 
 
-/*结算页 order-submit.jsp */
+/*缁撶畻椤� order-submit.jsp */
 .order-submit{
     width: 990px;
     margin: 0 auto;
@@ -242,7 +242,7 @@ color: #fff;
 }
 
 
-/*选择开票信息*/
+/*閫夋嫨寮�绁ㄤ俊鎭�*/
 .consignee-content-invoice {
     overflow: hidden;
     max-height: 400px;
@@ -345,15 +345,15 @@ color: #fff;
     color: 
 }
 
-    /*支付方式*/
-    /*不存在按钮*/
+    /*鏀粯鏂瑰紡*/
+    /*涓嶅瓨鍦ㄦ寜閽�*/
 .payment-list .list-cont .paymode-disabled {
     background: #f3f3f3;
     border-color: #ddd;
     color: #aaa;
     cursor: default
 }
-    /*按钮未选中*/
+    /*鎸夐挳鏈�変腑*/
 .payment-list .list-cont .paymode {
     float: left;
     position: relative;
@@ -368,7 +368,7 @@ color: #fff;
     padding: 4px 23px
 }
 
-    /*按钮已选中*/
+    /*鎸夐挳宸查�変腑*/
 .payment-list .list-cont .paymode-selected {
     border: 2px solid #e4393c;
     padding: 4px 23px;
@@ -385,7 +385,7 @@ color: #fff;
 }
 
 
-    /*账期*/
+    /*璐︽湡*/
 .period-item{
     display: block;
 }
@@ -423,14 +423,14 @@ color: #fff;
 .payment-list .list-cont .payment-item:hover .qmark-icon {
     visibility: visible
 }
-    /*账期不存在按钮*/
+    /*璐︽湡涓嶅瓨鍦ㄦ寜閽�*/
 .payment-list .list-cont .payment-item-disabled {
     background: #f3f3f3;
     border-color: #ddd;
     color: #aaa;
     cursor: default
 }
-    /*账期按钮未选中*/
+    /*璐︽湡鎸夐挳鏈�変腑*/
 .payment-list .list-cont .payment-item {
     float: left;
     position: relative;
@@ -445,7 +445,7 @@ color: #fff;
     padding: 4px 23px
 }
 
-    /*账期按钮已选中*/
+    /*璐︽湡鎸夐挳宸查�変腑*/
 .payment-list .list-cont .period-selected {
     border: 2px solid #e4393c;
     padding: 4px 23px;
@@ -460,7 +460,7 @@ color: #fff;
     overflow: hidden;
     background: url(//misc.360buyimg.com/user/purchase/2.0.0/css/i/selected-icon.png) no-repeat;
 }
-    /*账期定金百分比*/
+    /*璐︽湡瀹氶噾鐧惧垎姣�*/
 .select-height{
     height: 30px;
         padding: 0 20px 10px;
@@ -473,7 +473,7 @@ color: #fff;
     height: 30px;
 }
 
-/*确认商品信息*/
+/*纭鍟嗗搧淇℃伅*/
 .grid-bundle {
     width: 950px;
  /*   margin-bottom: 40px;*/
@@ -584,7 +584,7 @@ color: #fff;
     color: #cf2528;
     }
 
-/*发票信息*/
+/*鍙戠エ淇℃伅*/
 .invoice-cont {
     padding: 10px 20px;
     line-height: 18px;
@@ -596,7 +596,7 @@ color: #fff;
 
 }
 
-/*电子合同*/
+/*鐢靛瓙鍚堝悓*/
 .ht-left{
     float: left;
 }
@@ -650,7 +650,7 @@ color: #fff;
 }
 
 
-/*卖家留言*/
+/*鍗栧鐣欒█*/
 .invoice-cont textarea{
     width:300px; 
     height:60px;
@@ -662,7 +662,7 @@ color: #fff;
 }
 
 
-/*金额统计*/
+/*閲戦缁熻*/
 .order-summary .statistic {
     width: 300px;
     margin-bottom: 10px;
@@ -693,7 +693,7 @@ color: #fff;
     font-family: verdana;
 }
 
-/*确认信息*/
+/*纭淇℃伅*/
 .trade-foot{
     margin-top: 20px;
         width: 990px;
@@ -730,11 +730,18 @@ color: #fff;
     margin-right: 20px;
 }
 
-/*提交订单*/
+/*鎻愪氦璁㈠崟*/
 .checkout-buttons {
     position: relative;
     width: 990px;
     height: 50px;
+    margin: 0 auto;
+}
+/*鎻愪氦璁㈠崟*/
+.checkout-buttonses {
+	position: relative;
+    width: 770px;
+    height: 20px;
     margin: 0 auto;
 }
 .checkout-buttons .sticky-wrap {
@@ -779,7 +786,7 @@ color: #fff;
 
 
 
-/*收银台 order-pay.jsp */
+/*鏀堕摱鍙� order-pay.jsp */
 .container-pay{
 	width: 900px;
     margin: 20px auto 80px;
@@ -874,7 +881,7 @@ color: #fff;
     line-height: 24px;
 }
 
-/*收银台-支付窗口*/
+/*鏀堕摱鍙�-鏀粯绐楀彛*/
 .payment {
     background-color: #fff;
     padding: 12px 30px 0;
@@ -996,7 +1003,7 @@ line-height: 45px;
 }
 
 
-/*支付成功*/
+/*鏀粯鎴愬姛*/
 
 .result-box {
     padding-top: 30px;

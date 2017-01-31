@@ -9,7 +9,7 @@ public class Order {
 
     private Integer shopId;
 
-    private Integer orderNum;
+    private String orderNum;
 
     private Integer itemId;
 
@@ -19,11 +19,11 @@ public class Order {
 
     private Date overTime;
 
-    private Byte status;
+    private Integer status;
 
     private Date preSendTime;
 
-    private Byte isDel;
+    private String isDel;
 
     public Integer getId() {
         return id;
@@ -49,11 +49,11 @@ public class Order {
         this.shopId = shopId;
     }
 
-    public Integer getOrderNum() {
+    public String getOrderNum() {
         return orderNum;
     }
 
-    public void setOrderNum(Integer orderNum) {
+    public void setOrderNum(String orderNum) {
         this.orderNum = orderNum;
     }
 
@@ -89,11 +89,11 @@ public class Order {
         this.overTime = overTime;
     }
 
-    public Byte getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -105,11 +105,11 @@ public class Order {
         this.preSendTime = preSendTime;
     }
 
-    public Byte getIsDel() {
+    public String getIsDel() {
         return isDel;
     }
 
-    public void setIsDel(Byte isDel) {
+    public void setIsDel(String isDel) {
         this.isDel = isDel;
     }
 }

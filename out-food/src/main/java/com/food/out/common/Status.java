@@ -1,5 +1,7 @@
 package com.food.out.common;
 
+import java.math.BigDecimal;
+
 public class Status {
 	
 	
@@ -65,6 +67,8 @@ public class Status {
 	public static final Integer ITEM_SALE = 3; // 销售中的商品
 
 	public static final Integer ITEM_CHECK_NO = 4; // 审核被拒绝
+	
+	//最低起送订单金额
 	
 	/**
 	 * 错误信息

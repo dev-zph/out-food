@@ -113,6 +113,7 @@
 					<div class="details-left-info">
 						<div class="details-right-head">
 						<input type="hidden" id="itemId" value="${item.id}"/>
+						<input type="hidden" id="shopId" value="${item.shopId}"/>
 						<h1>${item.itemName}</h1>
 						<p class="product-detail-info">商家描述： ${item.describe}</p>
 						<div class="product-more-details">

@@ -3,6 +3,7 @@
  */
 package com.food.out.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -39,6 +40,36 @@ public class CartItem {
 	 * 状态 0有效1无效
 	 */
 	private String deleted;
+	/**
+	 * 店铺id
+	 */
+	private Integer shopId;
+	
+	
+	//非持久化字段
+	/**
+	 * 店铺名称
+	 */
+	private String shopName;
+	/**
+	 * 商品名称
+	 */
+	private String itemName;
+	/**
+	 * 商品单价
+	 */
+	private BigDecimal itemPrice;
+	/**
+	 * 配送费
+	 */
+	private BigDecimal sendMon;
+	/**
+	 * 打包费
+	 */
+	private BigDecimal packageMon;
+	
+	
+	
 	/**
 	 * @return the id
 	 */
@@ -123,6 +154,76 @@ public class CartItem {
 	public void setDeleted(String deleted) {
 		this.deleted = deleted;
 	}
-	
-	
+	/**
+	 * @return the shopId
+	 */
+	public Integer getShopId() {
+		return shopId;
+	}
+	/**
+	 * @param shopId the shopId to set
+	 */
+	public void setShopId(Integer shopId) {
+		this.shopId = shopId;
+	}
+	/**
+	 * @return the shopName
+	 */
+	public String getShopName() {
+		return shopName;
+	}
+	/**
+	 * @param shopName the shopName to set
+	 */
+	public void setShopName(String shopName) {
+		this.shopName = shopName;
+	}
+	/**
+	 * @return the itemName
+	 */
+	public String getItemName() {
+		return itemName;
+	}
+	/**
+	 * @param itemName the itemName to set
+	 */
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+	/**
+	 * @return the itemPrice
+	 */
+	public BigDecimal getItemPrice() {
+		return itemPrice;
+	}
+	/**
+	 * @param itemPrice the itemPrice to set
+	 */
+	public void setItemPrice(BigDecimal itemPrice) {
+		this.itemPrice = itemPrice;
+	}
+	/**
+	 * @return the sendMon
+	 */
+	public BigDecimal getSendMon() {
+		return sendMon;
+	}
+	/**
+	 * @param sendMon the sendMon to set
+	 */
+	public void setSendMon(BigDecimal sendMon) {
+		this.sendMon = sendMon;
+	}
+	/**
+	 * @return the packageMon
+	 */
+	public BigDecimal getPackageMon() {
+		return packageMon;
+	}
+	/**
+	 * @param packageMon the packageMon to set
+	 */
+	public void setPackageMon(BigDecimal packageMon) {
+		this.packageMon = packageMon;
+	}
 }

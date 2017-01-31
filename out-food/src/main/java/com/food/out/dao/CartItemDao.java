@@ -3,6 +3,7 @@
  */
 package com.food.out.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -54,4 +55,16 @@ public interface CartItemDao {
 	 * @return
 	 */
 	Integer getCartItemCount(Map<String, Object> param);
+	/**
+	 * 查询下单页面，购物车详情页面的数据
+	 * @param param
+	 * @return
+	 */
+	List<CartItem> getCartDetail (Map<String, Object> param);
+	/**
+	 * 查询购物车总计金额
+	 * @param param
+	 * @return
+	 */
+	BigDecimal getCartTotalMoney(Map<String, Object> param);
 }
