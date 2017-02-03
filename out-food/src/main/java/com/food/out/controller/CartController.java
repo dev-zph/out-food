@@ -76,6 +76,10 @@ public class CartController extends BaseController {
 			cartItemService.insertCartItem(param, request);
 			result.setCode(Status.SUCCESS);
 			result.setMessage("添加成功!");
+		} catch (ApplicationException e) {
+			result.setCode(Status.FAIL);
+			result.setMessage(e.getMessage());
+			logger.error("添加购物车失败!", e);
 		} catch (Exception e) {
 			result.setCode(Status.FAIL);
 			result.setMessage("添加失败!");
@@ -110,7 +114,7 @@ public class CartController extends BaseController {
 			totalMoney = MoneyUtil.multipy(totalMoney, one);
 			BigDecimal packageMon = list.get(0).getPackageMon();
 			BigDecimal sendMon = list.get(0).getSendMon();
-			totalMoney =MoneyUtil.add(MoneyUtil.add(totalMoney, packageMon),sendMon);
+			totalMoney = MoneyUtil.add(MoneyUtil.add(totalMoney, packageMon), sendMon);
 			List<Address> addressList = new ArrayList<Address>();
 			Address address = new Address();
 			address.setProvince("浙江");

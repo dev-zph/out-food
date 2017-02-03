@@ -20,6 +20,7 @@ import com.food.out.model.Order;
 import com.food.out.model.Shop;
 import com.food.out.service.CartItemService;
 import com.food.out.service.OrderService;
+import com.food.out.service.ShopService;
 import com.food.out.utils.MoneyUtil;
 import com.food.out.utils.OrderUtil;
 
@@ -33,6 +34,8 @@ public class OrderServiceImpl implements OrderService {
 	private CartItemService cartItemService;
 	@Resource
 	private ShopDao shopDao;
+	@Resource
+	private ShopService shopService;
 
 	@Override
 	public Integer getSellerOrderListCount(Map<String, Object> params) {
@@ -71,16 +74,25 @@ public class OrderServiceImpl implements OrderService {
 			order.setUserId(cartItem.getUserId());
 			orderDao.insert(order);
 		}
+		//清空购物车
+		cartItemDao.emptyCartItem(list.get(0).getUserId());
 	}
 
 	@Override
 	public void submitOrder(String address, Integer userId, Integer shopId) throws Exception {
+		//判断 买家 是否就是卖家
+//		if(shopService.isSameShop(userId, shopId)){
+//			throw new ApplicationException("您不可以在自己店家下订单哦！");
+//		}
 		// 订单金额
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("userId", userId);
 		param.put("deleted", Status.DELETED_NO);
 		param.put("shopId", Integer.valueOf(shopId));
 		BigDecimal totalMoney = cartItemService.getCartTotalMoney(param);
+		if(totalMoney==null){
+			throw new ApplicationException("您的购物车为空!");
+		}
 		Shop shop = shopDao.selectByPrimaryKey(shopId);
 		BigDecimal packageMon = shop.getPackageMon();
 		BigDecimal sendMon = shop.getSendMon();
@@ -88,11 +100,15 @@ public class OrderServiceImpl implements OrderService {
 		// 店铺起送价格
 		BigDecimal leastMon = shop.getLeastMon();
 		// 判断金额
-		if (leastMon.compareTo(totalMoney) == -1) {
+		if (totalMoney.compareTo(leastMon) == -1) {
 			throw new ApplicationException("您的订单金额小于起送价，请继续添加商品!");
 		}
 		List<CartItem> list = cartItemService.getCartDetail(param);
+		if(list==null||list.size()==0){
+			throw new ApplicationException("您的购物车为空!");
+		}
 		insertOrderOrderFromCart(list);
+		
 	}
 
 }

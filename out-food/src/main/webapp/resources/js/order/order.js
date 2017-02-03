@@ -16,15 +16,22 @@ $('.submit-order').click(function() {
 			address : address,
 			shopId : shopId
 		},
-		error : function() {
-			layer.msg('请求网络失败,请重试！', {
+		success : function(data) {
+			alert(data.code);
+			if(data.code=="101"){
+				alert("提交成功")
+				alert("跳转我的订单!")
+			}else if(data.code=="102"){
+				layer.msg(data.message, {
 				icon : 7,
 				time : 2000,
-				offset : '200px'
-			}, function() {
-			});
-		},
-		success : function(data) {
+				offset : '200px'})
+			}else{
+				layer.msg("系统故障!", {
+					icon : 7,
+					time : 2000,
+					offset : '200px'})
+			}
 		}
 	});
 })

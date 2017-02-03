@@ -12,30 +12,65 @@
     <result column="over_time" property="overTime" jdbcType="TIMESTAMP" />
     <result column="status" property="status" jdbcType="TINYINT" />
     <result column="pre_send_time" property="preSendTime" jdbcType="TIMESTAMP" />
-    <result column="id_del" property="idDel" jdbcType="TINYINT" />
+    <result column="is_del" property="isDel" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, user_id, shop_id, order_num, item_id, item_count, create_time, over_time, status, 
-    pre_send_time, id_del
+    pre_send_time, is_del
   </sql>
   <select id="selectByKey" resultMap="orderMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from order
+    from orderform
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <insert id="insert" parameterType="com.food.out.model.Order" >
-    insert into order (id, user_id, shop_id, 
-      order_num, item_id, item_count, 
-      create_time, over_time, status, 
-      pre_send_time, id_del)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{shopId,jdbcType=INTEGER}, 
-      #{orderNum,jdbcType=INTEGER}, #{itemId,jdbcType=INTEGER}, #{itemCount,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{overTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
-      #{preSendTime,jdbcType=TIMESTAMP}, #{idDel,jdbcType=TINYINT})
-  </insert>
+  <insert id="insert" parameterType="com.food.out.model.Order" useGeneratedKeys="true" keyProperty="id">
+		insert into orderform(
+			<if test="orderNum != null and orderNum != ''">
+				order_num,
+			</if>
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="shopId != null">
+				shop_id,
+			</if>
+			<if test="itemId != null">
+				item_id,
+			</if>
+			<if test="itemCount != null">
+				item_count,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			create_time,
+			is_del
+		)values(
+			<if test="orderNum != null and orderNum != ''">
+				#{orderNum},
+			</if>
+			<if test="userId != null">
+				#{userId},
+			</if>
+			<if test="shopId != null">
+				#{shopId},
+			</if>
+			<if test="itemId != null">
+				#{itemId},
+			</if>
+			<if test="itemCount != null">
+				#{itemCount},
+			</if>
+			<if test="status != null">
+				#{status},
+			</if>
+			now(),
+			#{isDel}
+		)
+	</insert>
   <update id="updateOrder" parameterType="com.food.out.model.Order" >
-    update order
+    update orderform
     <set >
       <if test="userId != null" >
         user_id = #{userId,jdbcType=INTEGER},
@@ -64,8 +99,8 @@
       <if test="preSendTime != null" >
         pre_send_time = #{preSendTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="idDel != null" >
-        id_del = #{idDel,jdbcType=TINYINT},
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -73,7 +108,7 @@
   <select id="getOrders" resultMap="orderMap" parameterType="map" >
     select 
      o.id,o.user_id,o.shop_id,o.order_num,o.item_id,o.item_count,o.create_time,o.over_time,o.status,o.pre_send_time
-      form order
+      form orderform
    where 1=1   
    		<if test="userId != null">
             and o.user_id = #{userId}
@@ -111,7 +146,7 @@
   
   <select id="getOrdersCount" parameterType="map" resultType="int">
     select 
-    count(*) form order
+    count(*) form orderform
    where 1=1   
    		<if test="userId != null">
             and o.user_id = #{userId}

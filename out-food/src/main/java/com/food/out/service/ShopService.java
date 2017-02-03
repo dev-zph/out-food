@@ -22,5 +22,12 @@ public interface ShopService {
      */
     List<Shop> selectListByUserId(String userId, Integer status
 	       , String deleted);
+    /**
+     * 判断是否是 买家再自己的店家购物
+     * @param userId
+     * @param shopId
+     * @return true :是同一家店,false:不是同一家店，可以购物
+     */
+    Boolean isSameShop(Integer userId , Integer shopId);
 
 }

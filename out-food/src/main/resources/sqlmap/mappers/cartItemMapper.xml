@@ -42,6 +42,9 @@
       <if test="userId != null" >
         user_id,
       </if>
+      <if test="shopId != null" >
+        shop_id,
+      </if>
       <if test="itemId != null" >
         item_id,
       </if>
@@ -64,6 +67,9 @@
       </if>
       <if test="userId != null" >
         #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=INTEGER},
       </if>
       <if test="itemId != null" >
         #{itemId,jdbcType=INTEGER},
@@ -105,6 +111,11 @@
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+   <update id="emptyCartItem" parameterType="java.lang.Integer" >
+    update cart_item set deleted = "1"
+    where user_id = #{userId,jdbcType=INTEGER}
   </update>
   <!-- 我的购物车详情数据获取 -->
    <select id="getCartDetail" parameterType="java.util.Map" resultMap="BaseResultMap">

@@ -68,4 +68,19 @@ public class ShopServiceImpl implements ShopService{
 		return shops;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.food.out.service.ShopService#isSameShop(java.lang.Integer, java.lang.Integer)
+	 */
+	@Override
+	public Boolean isSameShop(Integer userId, Integer shopId) {
+		Boolean result = true;
+		Shop shop1 = shopDao.selectShopByUserId(userId);
+		if(shop1==null){
+			result = false;
+		}else{
+			result = (shopId==shop1.getId());//相等是true
+		}
+		return result;
+	}
+
 }

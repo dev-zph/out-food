@@ -58,6 +58,7 @@ public class CartItemServiceImpl implements CartItemService {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("userId", userId);
 		map.put("itemId", itemId);
+		map.put("deleted", Status.DELETED_NO);
 		List<CartItem> list = cartItemDao.getCartItems(map);
 		if (list.size() != 0 && list != null) {//如果购物车已经有相同的商品，则不增加记录只更新数量
 			CartItem oldCart = list.get(0);

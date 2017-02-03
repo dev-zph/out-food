@@ -18,6 +18,7 @@ import com.food.out.common.Status;
 import com.food.out.exception.ApplicationException;
 import com.food.out.model.User;
 import com.food.out.service.OrderService;
+import com.food.out.utils.JsonUtils;
 
 /**
  * @author 陈佳
@@ -38,7 +39,7 @@ public class OrderController extends BaseController {
 	 * @param request
 	 * @param response
 	 */
-	@RequestMapping(value = "order/submitOrder", method = RequestMethod.POST)
+	@RequestMapping(value = "submitOrder", method = RequestMethod.POST)
 	public void submitOrder(HttpServletRequest request, HttpServletResponse response) {
 		ResponseJsonResult result = new ResponseJsonResult();
 		try {
@@ -53,6 +54,8 @@ public class OrderController extends BaseController {
 			}
 			Integer userId = user.getId();
 			orderService.submitOrder(address, userId, Integer.valueOf(shopId));
+			result.setCode(Status.SUCCESS);
+			result.setMessage("订单提交成功，请勿重复提交!");
 		} catch (ApplicationException e) {
 			result.setCode(Status.FAIL);
 			result.setMessage(e.getMessage());
@@ -62,6 +65,7 @@ public class OrderController extends BaseController {
 			result.setMessage("提交失败！");
 			logger.error("提交订单失败", e);
 		}
+		JsonUtils.renderJSON(response, result);
 	}
 
 }

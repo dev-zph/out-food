@@ -24,4 +24,10 @@ public interface ShopDao {
      * @return
      */
     List<Shop>  selectListByUserId(Map<String, Object> params);
+    /**
+     * 根据userId查询自己的shop对象
+     * @param userId
+     * @return
+     */
+    Shop selectShopByUserId(Integer userId);
 }
