@@ -6,7 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.xianguo.platform.common.Constants;
+import com.food.out.common.Constants;
+import com.food.out.common.Status;
 
 public class JsonUtils {
 
@@ -45,7 +46,7 @@ public class JsonUtils {
 	 */
 	public static void renderJSON(HttpServletResponse response, Object object) {
 		try {
-			response.setContentType(Constants.JSON_TYPE);
+			response.setContentType(Status.JSON_TYPE);
 			response.getWriter().write(JSONObject.toJSONString(object));
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -60,7 +61,7 @@ public class JsonUtils {
 	 */
 	public static void renderFormatJSON(HttpServletResponse response, Object object) {
 		try {
-			response.setContentType(Constants.JSON_TYPE);
+			response.setContentType(Status.JSON_TYPE);
 			response.getWriter().write(JSONObject.toJSONString(object,FASTJSON_FORMAT));
 		} catch (IOException e) {
 			e.printStackTrace();

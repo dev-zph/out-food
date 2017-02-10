@@ -9,7 +9,7 @@ package com.food.out.common;
  * 
  */
 public enum OrderStatus {
-	MAIJIA_QUREN(0,"客户确认下单"),MAJIA_QUREN(1,"卖家确认"),QISHI_DENGDAI(2,"等待骑士配送"),QISHI_JIEDANG(3,"骑接单"),ORDER_ARRIVE(4,"订单送达"),EVALUATE(5,"买家评价"),ORDER_STATUS_UNKNOW(99, "未知状态");
+	MAIJIA_QUREN(0,"客户确认下单"),MAJIA_QUREN(1,"卖家确认"),QISHI_JIEDANG(2,"骑士接单"),ORDER_ARRIVE(3,"订单送达"),EVALUATE(4,"买家评价"),CANALE(5,"订单已取消"),ORDER_STATUS_UNKNOW(99, "nihao");
 	private String name;
 	private int code;
 

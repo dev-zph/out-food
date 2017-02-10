@@ -46,7 +46,7 @@
 						<ul>
 							<li><a href="#">进入首页</a></li>
 							<li><a href="#">我的订单</a></li>
-							<li><a href="${ctx}/cart/toCartCent.html">我的购物车</a></li>
+							<li><a href="${ctx}/cart/toPersonShopCart.html">我的购物车</a></li>
 							<li>
 							<c:if test="${shop != null}">
 								<div class="top-menu-hd">

@@ -45,6 +45,11 @@
                         <label>订单状态:</label>
                         <select class="search-by-status status-seller">
                             <option value="">全部</option>
+                            <option value="0"
+                            <c:if test="${status eq '0'}">selected</c:if>
+                            >
+                            <d:order code="0"/>
+                            </option>
                             <option value="2"
                             <c:if test="${status eq '2'}">selected</c:if>
                             >
@@ -65,16 +70,11 @@
                             >
                             <d:order code="5"/>
                             </option>
-                            <option value="6"
-                            <c:if test="${status eq '6'}">selected</c:if>
-                            >
-                            <d:order code="6"/>
-                            </option>
                         </select>
                     </div>
                     <div class="pure-u-1 pure-u-md-1-8" style="width: auto;">
                         <label>下单时间:</label>
-                        <input id="start-date" type="text" class="text-center Wdate" onFocus="WdatePicker()"
+                        <input id="start-date" type="text" class="text-center Wdate" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'start-date\')}'})"
                                value="${startDate}"/>
                     </div>
                     <div class="pure-u-1 pure-u-md-1-8" style="width: auto;">
@@ -88,7 +88,7 @@
                     </div>
                     <div class="pure-u-1 pure-u-md-1-8" style="width: auto;">
                         <label>订单号:</label>
-                        <input id="keyword" type="text" placeholder="请输入订单号">
+                        <input id="keyword" type="text" placeholder="请输入订单号" value="${orderNum}">
                     </div>
                     <div class="pure-u-1 pure-u-md-1-8" style="width: auto;">
                         <label>&nbsp;</label>
@@ -124,12 +124,11 @@
                 </tr>
                 </thead>
             </table>
-            <c:forEach items="${orderList}" var="orderDetail" varStatus="status">
+            <c:forEach items="${orderList}" var="order" varStatus="status">
                 <table class="user-data-list" style="margin-top: 0px;">
-                    <input type="hidden" value="${orderDetail.orderStatus}" class="order-status"></input>
-                    <input type="hidden" value="${orderDetail.payStatus}" class="order-payStatus"></input>
-                    <input type="hidden" value="${orderDetail.orderNum}" class="order-num"></input>
-                    <input type="hidden" value="${orderDetail.orderPrice}" class="order-price"></input>
+                    <input type="hidden" value="${order.status}" class="order-status"></input>
+                    <input type="hidden" value="${order.orderNum}" class="order-num"></input>
+                    <input type="hidden" value="${order.orderPrice}" class="order-price"></input>
                     <thead>
                     <tr>
                         <!-- 							<td width="30%">商品信息</td>
@@ -148,18 +147,18 @@
                     </tr>
                     </thead>
                     <tr>
-                        <td style="text-align: center;"><label style="color:#CC2433">${orderDetail.orderNum}</label>
+                        <td style="text-align: center;"><label style="color:#CC2433">${order.orderNum}</label>
                         </td>
                         <td style="text-align: center;" class="border-right">
-                            <fmt:formatDate value="${orderDetail.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                            <fmt:formatDate value="${order.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
                         </td>
                         <td class="text-center border-right">
-                            <label>${orderDetail.userName}</label><br/>
-                            <label>${orderDetail.phone}</label>
+                            <label>${order.userName}</label><br/>
+                            <label>${order.phone}</label>
                         </td>
 
                         <td class="text-center border-right">
-                            <label style="color:#CC2433;font-weight: 700;">￥${orderDetail.orderPrice}</label><br/>
+                            <label style="color:#CC2433;font-weight: 700;">￥${order.orderPrice}</label><br/>
                         </td>
                         <td class="text-center border-right"
                             orderid="${orderDetail.orderId}"

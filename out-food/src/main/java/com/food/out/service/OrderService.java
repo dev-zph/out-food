@@ -1,5 +1,6 @@
 package com.food.out.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.food.out.model.CartItem;
 import com.food.out.model.Order;
+import com.food.out.model.querybeen.Query1;
 
 public interface OrderService {
 	/**
@@ -30,9 +32,9 @@ public interface OrderService {
 	 * 
 	 * @param CartItem
 	 *            list 封装成 Order list
-	 * @throws Exception 
+	 * @throws Exception
 	 */
-	void insertOrderOrderFromCart(List<CartItem> list) throws Exception;
+	void insertOrderOrderFromCart(List<CartItem> list,BigDecimal totalMoney) throws Exception;
 
 	/**
 	 * 提交订单
@@ -40,7 +42,15 @@ public interface OrderService {
 	 * @param address
 	 * @param userId
 	 * @param shopId
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	void submitOrder(String address, Integer userId, Integer shopId) throws Exception;
+
+	/**
+	 * 根据登入用户的id查询 他开的店铺的相关状态的订单
+	 * @param query
+	 * @return
+	 * @throws Exception
+	 */
+	List<Order> getOrderListByUserId(Query1 query) throws Exception;
 }

@@ -5,17 +5,19 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="shop_id" property="shopId" jdbcType="INTEGER" />
-    <result column="order_num" property="orderNum" jdbcType="INTEGER" />
-    <result column="item_id" property="itemId" jdbcType="INTEGER" />
-    <result column="item_count" property="itemCount" jdbcType="INTEGER" />
+    <result column="order_num" property="orderNum" />
+    <result column="order_price" property="orderPrice" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="over_time" property="overTime" jdbcType="TIMESTAMP" />
     <result column="status" property="status" jdbcType="TINYINT" />
     <result column="pre_send_time" property="preSendTime" jdbcType="TIMESTAMP" />
     <result column="is_del" property="isDel" jdbcType="TINYINT" />
+    
+    <result column="nick_name" property="userName" />
+    <result column="phone" property="phone" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, user_id, shop_id, order_num, item_id, item_count, create_time, over_time, status, 
+    id, user_id, shop_id, order_num, create_time, over_time, status, 
     pre_send_time, is_del
   </sql>
   <select id="selectByKey" resultMap="orderMap" parameterType="java.lang.Integer" >
@@ -35,12 +37,6 @@
 			<if test="shopId != null">
 				shop_id,
 			</if>
-			<if test="itemId != null">
-				item_id,
-			</if>
-			<if test="itemCount != null">
-				item_count,
-			</if>
 			<if test="status != null">
 				status,
 			</if>
@@ -55,12 +51,6 @@
 			</if>
 			<if test="shopId != null">
 				#{shopId},
-			</if>
-			<if test="itemId != null">
-				#{itemId},
-			</if>
-			<if test="itemCount != null">
-				#{itemCount},
 			</if>
 			<if test="status != null">
 				#{status},
@@ -80,12 +70,6 @@
       </if>
       <if test="orderNum != null" >
         order_num = #{orderNum,jdbcType=INTEGER},
-      </if>
-      <if test="itemId != null" >
-        item_id = #{itemId,jdbcType=INTEGER},
-      </if>
-      <if test="itemCount != null" >
-        item_count = #{itemCount,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -107,8 +91,8 @@
   </update>
   <select id="getOrders" resultMap="orderMap" parameterType="map" >
     select 
-     o.id,o.user_id,o.shop_id,o.order_num,o.item_id,o.item_count,o.create_time,o.over_time,o.status,o.pre_send_time
-      form orderform
+     o.id,o.user_id,o.shop_id,o.order_num,o.order_price,o.create_time,o.over_time,o.status,o.pre_send_time,u.nick_name,u.phone
+      from orderform o left join user u on u.id = o.user_id
    where 1=1   
    		<if test="userId != null">
             and o.user_id = #{userId}
@@ -116,17 +100,17 @@
         <if test="shopId != null">
             and o.shop_id = #{shopId}
         </if>
-        <if test="orderum != null">
-            and o.order_num = #{shopGrade}
-        </if>
-        <if test="itemId != null">
-            and o.item_id = #{itemId}
+        <if test="orderNum != null">
+            and o.order_num = #{orderNum}
         </if>
         <if test="status != null">
             and o.status = #{status}
         </if>
           <if test="id != null">
             and o.id = #{id}
+        </if>
+        <if test="isDel != null">
+            and o.is_del = #{isDel}
         </if>
         <if test="startDate != null and startDate != ''">
 				<![CDATA[
@@ -157,14 +141,14 @@
         <if test="orderum != null">
             and o.order_num = #{shopGrade}
         </if>
-        <if test="itemId != null">
-            and o.item_id = #{itemId}
-        </if>
         <if test="status != null">
             and o.status = #{status}
         </if>
           <if test="id != null">
             and o.id = #{id}
+        </if>
+        <if test="isDel != null">
+            and o.is_del = #{isDel}
         </if>
         <if test="startDate != null and startDate != ''">
 				<![CDATA[

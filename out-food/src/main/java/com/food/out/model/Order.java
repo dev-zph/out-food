@@ -1,115 +1,145 @@
 package com.food.out.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class Order {
-    private Integer id;
+	private Integer id;
 
-    private Integer userId;
+	private Integer userId;
 
-    private Integer shopId;
+	private Integer shopId;
 
-    private String orderNum;
+	private String orderNum;
+	private BigDecimal orderPrice;
+	private Date createTime;
 
-    private Integer itemId;
+	private Date overTime;
 
-    private Integer itemCount;
+	private Integer status;
 
-    private Date createTime;
+	private Date preSendTime;
 
-    private Date overTime;
+	private String isDel;
+	
+	//非持久化属性
+	private String userName;
+	private String phone;
 
-    private Integer status;
+	public Integer getId() {
+		return id;
+	}
 
-    private Date preSendTime;
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    private String isDel;
+	public Integer getUserId() {
+		return userId;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Integer getShopId() {
+		return shopId;
+	}
 
-    public Integer getUserId() {
-        return userId;
-    }
+	public void setShopId(Integer shopId) {
+		this.shopId = shopId;
+	}
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+	public String getOrderNum() {
+		return orderNum;
+	}
 
-    public Integer getShopId() {
-        return shopId;
-    }
+	public void setOrderNum(String orderNum) {
+		this.orderNum = orderNum;
+	}
 
-    public void setShopId(Integer shopId) {
-        this.shopId = shopId;
-    }
+	/**
+	 * @return the orderPrice
+	 */
+	public BigDecimal getOrderPrice() {
+		return orderPrice;
+	}
 
-    public String getOrderNum() {
-        return orderNum;
-    }
+	/**
+	 * @param orderPrice
+	 *            the orderPrice to set
+	 */
+	public void setOrderPrice(BigDecimal orderPrice) {
+		this.orderPrice = orderPrice;
+	}
 
-    public void setOrderNum(String orderNum) {
-        this.orderNum = orderNum;
-    }
+	public Date getCreateTime() {
+		return createTime;
+	}
 
-    public Integer getItemId() {
-        return itemId;
-    }
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 
-    public void setItemId(Integer itemId) {
-        this.itemId = itemId;
-    }
+	public Date getOverTime() {
+		return overTime;
+	}
 
-    public Integer getItemCount() {
-        return itemCount;
-    }
+	public void setOverTime(Date overTime) {
+		this.overTime = overTime;
+	}
 
-    public void setItemCount(Integer itemCount) {
-        this.itemCount = itemCount;
-    }
+	public Integer getStatus() {
+		return status;
+	}
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+	public Date getPreSendTime() {
+		return preSendTime;
+	}
 
-    public Date getOverTime() {
-        return overTime;
-    }
+	public void setPreSendTime(Date preSendTime) {
+		this.preSendTime = preSendTime;
+	}
 
-    public void setOverTime(Date overTime) {
-        this.overTime = overTime;
-    }
+	public String getIsDel() {
+		return isDel;
+	}
 
-    public Integer getStatus() {
-        return status;
-    }
+	public void setIsDel(String isDel) {
+		this.isDel = isDel;
+	}
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+	/**
+	 * @return the userName
+	 */
+	public String getUserName() {
+		return userName;
+	}
 
-    public Date getPreSendTime() {
-        return preSendTime;
-    }
+	/**
+	 * @param userName the userName to set
+	 */
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public void setPreSendTime(Date preSendTime) {
-        this.preSendTime = preSendTime;
-    }
+	/**
+	 * @return the phone
+	 */
+	public String getPhone() {
+		return phone;
+	}
 
-    public String getIsDel() {
-        return isDel;
-    }
-
-    public void setIsDel(String isDel) {
-        this.isDel = isDel;
-    }
+	/**
+	 * @param phone the phone to set
+	 */
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
+	
 }

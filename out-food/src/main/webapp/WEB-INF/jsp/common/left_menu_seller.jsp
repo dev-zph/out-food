@@ -17,22 +17,25 @@
 	</ul>
 	<h4 class="sidebar-title"><i class="off"></i>订单管理</h4>
 	<ul>
-		<li <c:if test="${status eq 0}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=0">
+		<li <c:if test="${status eq 0}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html">
 			&nbsp;全部订单&nbsp;
 		</a></li>
-		<li  <c:if test="${status eq 1}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=1">
-			&nbsp;待付款&nbsp;
+		<li  <c:if test="${status eq 2}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=0">
+			&nbsp;待确认订单&nbsp;
 		</a></li>
-		<li  <c:if test="${status eq 2}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=2">
-			&nbsp;待发货&nbsp;
+		<li  <c:if test="${status eq 3}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=1">
+			&nbsp;已确认订单&nbsp;
 		</a></li>
-		<li  <c:if test="${status eq 3}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=3">
-			&nbsp;待买家确认收货&nbsp;
+		<li  <c:if test="${status eq 4}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=2">
+			&nbsp;骑士已接单&nbsp;
 		</a></li>
-		<li  <c:if test="${status eq 4}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=4">
-			&nbsp;完成交易&nbsp;
+		<li  <c:if test="${status eq 4}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=3">
+			&nbsp;买家签收&nbsp;
 		</a></li>
-		<li  <c:if test="${status eq 5}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=5">
+		<li  <c:if test="${status eq 5}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=4">
+			&nbsp;买家已评价&nbsp;
+		 </a></li> 
+		 <li  <c:if test="${status eq 5}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=5">
 			&nbsp;已取消订单&nbsp;
 		 </a></li> 
 		<li><a href="${ctx}/navigate_comment/seller.html">评价</a></li>

@@ -33,8 +33,6 @@ import com.food.out.model.querybeen.InsertCart;
 import com.food.out.service.CartItemService;
 import com.food.out.utils.JsonUtils;
 import com.food.out.utils.MoneyUtil;
-import com.xianguo.platform.common.Constatus;
-import com.xianguo.platform.model.Address;
 
 /**
  * @author 陈佳
@@ -101,7 +99,9 @@ public class CartController extends BaseController {
 			User user = this.getSessionUser(request);
 			String shopId = request.getParameter("shopId");
 			if (StringUtils.isEmpty(shopId)) {
-				throw new ApplicationException("请至少选择一家商店的购物车!");
+				//TODO
+				//throw new ApplicationException("请至少选择一家商店的购物车!");
+				shopId = "2";
 			}
 			Integer userId = user.getId();
 			Map<String, Object> param = new HashMap<String, Object>();
@@ -115,17 +115,6 @@ public class CartController extends BaseController {
 			BigDecimal packageMon = list.get(0).getPackageMon();
 			BigDecimal sendMon = list.get(0).getSendMon();
 			totalMoney = MoneyUtil.add(MoneyUtil.add(totalMoney, packageMon), sendMon);
-			List<Address> addressList = new ArrayList<Address>();
-			Address address = new Address();
-			address.setProvince("浙江");
-			address.setCity("杭州");
-			address.setArea("西湖区");
-			address.setAddressInfo("你好的街道");
-			address.setUserName("zph");
-			address.setPhone("15858331351");
-			address.setIsDefault("0");
-			addressList.add(address);
-			view.addObject("addressList", addressList);
 			view.addObject("itemList", list);
 			view.addObject("totalMoney", totalMoney);
 		} catch (ApplicationException e) {

@@ -11,7 +11,7 @@
 	<tag>
 		<description>display name by code for order status </description>
 		<name>order</name>
-		<tag-class>com.xianguo.platform.common.tag.DisplayOrderStatus</tag-class>
+		<tag-class>com.food.out.common.tag.DisplayOrderStatus</tag-class>
 		<body-content>JSP</body-content>
 		<attribute>
 			<description>order status code</description>

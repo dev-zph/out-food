@@ -17,7 +17,6 @@ $('.submit-order').click(function() {
 			shopId : shopId
 		},
 		success : function(data) {
-			alert(data.code);
 			if(data.code=="101"){
 				alert("提交成功")
 				alert("跳转我的订单!")
