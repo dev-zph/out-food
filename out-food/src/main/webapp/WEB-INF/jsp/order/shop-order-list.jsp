@@ -18,7 +18,6 @@
     <script src="${ctx}/resources/js/datepicker/WdatePicker.js"></script> <!--时间选择器 -->
     <script src="${ctx}/resources/js/jquery-1.10.1.min.js"></script>
     <script src="${ctx}/resources/js/main.js"></script>
-    <script src="${ctx}/resources/js/order/order-list.js"></script>
 </head>
 <body ctx="${ctx}">
 <%@ include file="../common/head1.jsp" %>
@@ -174,21 +173,16 @@
                             orderprice="${orderDetail.orderPrice}"
                             shopid="${orderDetail.shopId}"
                             ud="${orderDetail.userId}">
-                            <c:if test="${orderDetail.orderStatus eq 1}">
-                                <button class="layui-btn layui-btn-small order-detail" status="${orderDetail.orderStatus}"
-                                   id="shop-tips">订单详情</button>
+                            <c:if test="${order.status eq 0}">
+                                <button class="layui-btn layui-btn-small order-detail" status="${order.status}"
+                                   id="shop-tips" onclick="orderDetail(${order.id});" >订单详情</button>
+                                   <button id="receive_${order.id}" class="layui-btn layui-btn-small button-orange send-goods" onclick="receiveOrder(${order.id});">确认接单</button>
                             </c:if>
-                            <c:if test="${orderDetail.orderStatus eq 2}">
-                                <button class="layui-btn layui-btn-small button-orange send-goods">确认发货</button>
-                            </c:if>
-                            <c:if test="${orderDetail.orderStatus eq 3}">
-                                <button class="layui-btn layui-btn-small button-orange send-goods">上传发票</button>
-                            </c:if>
-                            <c:if test="${orderDetail.orderStatus eq 4}">
-                                <button class="layui-btn layui-btn-small button-orange send-goods">查看凭证</button>
-                            </c:if>
-                            <c:if test="${orderDetail.orderStatus ne 1}">
-                                <button class="layui-btn layui-btn-small button-red order-detail" status="${orderDetail.orderStatus}">订单详情</button>
+                            
+                            <c:if test="${order.status eq 1}">
+                                <button class="layui-btn layui-btn-small order-detail" status="${order.status}"
+                                   id="shop-tips" onclick="orderDetail(${order.id});">订单详情</button>
+                                   <button class="layui-btn layui-btn-small button-orange send-goods" style= "color:#330000;background-color:#F1F1F1;">待骑士接单</button>
                             </c:if>
                     </tr>
                 </table>
@@ -245,8 +239,38 @@
 <!-- 底部信息 -->
 </body>
 <script type="text/javascript">
-    $(document).ready(function () {
-        layer.tips('在这里可以修改订单金额、账期、首付比例哦！', '#shop-tips', {tips: 3, time: 8000,});
-    });
+function receiveOrder(id){
+	$.ajax({
+		type : 'POST',
+		url : ctx + '/order/receiveOrder.html',
+		dataType : 'json',
+		data : {
+			id : id,
+		},
+		success : function(data) {
+			if(data.code=="101"){
+				layer.msg(data.message,{offset: '200px'});
+				document.getElementById("receive_"+id).style.color="#330000";
+				 document.getElementById("receive_"+id).style.background="#F1F1F1";
+				document.getElementById("receive_"+id).innerHtml="待骑士接单";
+			}else if(data.code=="102"){
+				layer.msg(data.message, {
+				icon : 7,
+				time : 2000,
+				offset : '200px'})
+			}else{
+				layer.msg("系统故障!", {
+					icon : 7,
+					time : 2000,
+					offset : '200px'})
+			}
+		}
+	});
+}
+
+function orderDetail(id){
+	alert(id);
+	 window.open(ctx + '/order/getOrderDetail/' + id + ".html");
+}
 </script>
 </html>

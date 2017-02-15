@@ -16,6 +16,21 @@
     <result column="nick_name" property="userName" />
     <result column="phone" property="phone" />
   </resultMap>
+  <resultMap id="OrderDetailMap" type="com.food.out.model.querybeen.OrderDetailBean">
+		<result property="status" column="status" />
+		<result  property="orderNum" column="order_num"/>
+		<result property="price" column="order_price" />
+		<result property="nickName" column="nick_name" />
+		<result property="phone" column="phone" />
+		<result property="shopName" column="shop_name" />
+		<collection property="detailList" ofType="com.food.out.model.OrderDetail">
+			<result property="id" column="detail_id"  />
+    		<result property="itemId" column="item_id"  />
+    		<result property="itemCount" column="item_count"  />
+    		<result property="itemPrice" column="item_price"  />
+    		<result property="itemName" column="item_name"  />
+		</collection>
+	</resultMap>
   <sql id="Base_Column_List" >
     id, user_id, shop_id, order_num, create_time, over_time, status, 
     pre_send_time, is_del
@@ -162,4 +177,37 @@
 	</if>
         order by o.create_time desc 
   </select>
+  	<!-- 查看订单详情 -->
+	<select id="getOrderDetailList" resultMap="OrderDetailMap" parameterType="int">
+		select
+			o.id id,
+			o.status status,
+			o.order_price order_price,
+			o.shop_id  shop_id,
+			u.user_name user_name,
+			u.phone phone,
+			s.shop_name  shop_name,
+			s.contact_name  contact_name,
+			s.contact_cell contact_cell,
+			o.order_num order_num,
+			
+			d.id detail_id,
+			d.item_id item_id,
+			d.item_count item_count,
+			i.item_name item_name,
+			i.item_price item_price
+		FROM 
+			orderform o 
+		LEFT JOIN orderform_detail d
+			ON o.order_num = d.order_num
+		LEFT JOIN item i
+			ON d.item_id = i.id
+		LEFT JOIN shop s
+			ON s.id = o.shop_id
+		LEFT JOIN user u
+			ON u.id = o.user_id
+		where 
+			o.id = #{id}
+	</select>
+	
 </mapper>

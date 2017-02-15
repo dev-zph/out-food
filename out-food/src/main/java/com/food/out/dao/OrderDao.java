@@ -3,9 +3,11 @@ package com.food.out.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.food.out.model.Order;
+import com.food.out.model.querybeen.OrderDetailBean;
 @Repository("orderDao")
 public interface OrderDao {
 
@@ -20,4 +22,10 @@ public interface OrderDao {
     List<Order> getOrders(Map<String, Object> params);
     
     Integer getOrdersCount(Map<String, Object> params);
-}
+    /**
+	 * 查看订单详情
+	 * @param params
+	 * @return
+	 */
+	List<OrderDetailBean> getOrderDetailList(@Param(value = "id")Integer id);
+} 

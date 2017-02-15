@@ -15,15 +15,16 @@ import com.food.out.common.Status;
 import com.food.out.dao.CartItemDao;
 import com.food.out.dao.ItemDao;
 import com.food.out.dao.OrderDao;
-import com.food.out.dao.OrderformDetailDao;
+import com.food.out.dao.OrderDetailDao;
 import com.food.out.dao.ShopDao;
 import com.food.out.exception.ApplicationException;
 import com.food.out.model.CartItem;
 import com.food.out.model.Item;
 import com.food.out.model.Order;
 import com.food.out.model.Shop;
+import com.food.out.model.querybeen.OrderDetailBean;
 import com.food.out.model.querybeen.Query1;
-import com.food.out.model.OrderformDetail;
+import com.food.out.model.OrderDetail;
 import com.food.out.service.CartItemService;
 import com.food.out.service.OrderService;
 import com.food.out.service.ShopService;
@@ -45,7 +46,7 @@ public class OrderServiceImpl implements OrderService {
 	@Resource
 	private ItemDao itemDao;
 	@Resource
-	private OrderformDetailDao detailDao;
+	private OrderDetailDao detailDao;
 
 	@Override
 	public Integer getSellerOrderListCount(Map<String, Object> params) {
@@ -76,7 +77,7 @@ public class OrderServiceImpl implements OrderService {
 			Item item = itemDao.selectByPrimaryKey(itemId);
 			BigDecimal itemPrice = item.getItemPrice();
 			//订单明细
-			OrderformDetail detail = new OrderformDetail();
+			OrderDetail detail = new OrderDetail();
 			detail.setItemCount(buyCount);
 			detail.setItemId(itemId);
 			detail.setItemPrice(itemPrice);
@@ -151,6 +152,19 @@ public class OrderServiceImpl implements OrderService {
 		param.put("orderNum", query.getOrderNum());
 		List<Order> list = orderDao.getOrders(param);
 		return list;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.food.out.service.OrderService#updateOrder(com.food.out.model.Order)
+	 */
+	@Override
+	public void updateOrder(Order order) {
+		orderDao.updateOrder(order);
+	}
+
+	@Override
+	public List<OrderDetailBean> getOrderDetail(Integer id) {
+		return orderDao.getOrderDetailList(id);
 	}
 
 }

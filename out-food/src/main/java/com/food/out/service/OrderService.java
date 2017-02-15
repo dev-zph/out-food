@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.food.out.model.CartItem;
 import com.food.out.model.Order;
+import com.food.out.model.querybeen.OrderDetailBean;
 import com.food.out.model.querybeen.Query1;
 
 public interface OrderService {
@@ -53,4 +54,15 @@ public interface OrderService {
 	 * @throws Exception
 	 */
 	List<Order> getOrderListByUserId(Query1 query) throws Exception;
+	/**
+	 * 更新 订单
+	 * @param order
+	 */
+	void updateOrder(Order order);
+	/**
+	 * 查看订单详情
+	 * @param params
+	 * @return
+	 */
+	List<OrderDetailBean> getOrderDetail(Integer id);
 }

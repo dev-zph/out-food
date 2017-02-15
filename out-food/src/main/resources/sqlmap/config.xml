@@ -56,6 +56,6 @@
 	 	<mapper resource="sqlmap/mappers/userMapper.xml"/>
 	 	<mapper resource="sqlmap/mappers/shopItemClassMapper.xml"/>
 		<mapper resource="sqlmap/mappers/cartItemMapper.xml"/>
-		<mapper resource="sqlmap/mappers/orderformDetailMapper.xml"/>
+		<mapper resource="sqlmap/mappers/orderDetailMapper.xml"/>
 	</mappers>
 </configuration>
