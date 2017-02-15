@@ -67,7 +67,7 @@ public class OrderServiceImpl implements OrderService {
 	 * com.food.out.service.OrderService#insertOrderFromCart(java.util.List)
 	 */
 	@Override
-	public void insertOrderOrderFromCart(List<CartItem> list, BigDecimal totalMoney) throws Exception{
+	public void insertOrderOrderFromCart(List<CartItem> list, BigDecimal totalMoney,String address) throws Exception{
 		Order order = new Order();
 		String orderNum = OrderUtil.generateOrderNum(String.valueOf(list.get(0).getUserId()));
 		for (CartItem cartItem : list) {
@@ -85,6 +85,7 @@ public class OrderServiceImpl implements OrderService {
 			detailDao.insert(detail);
 		}
 		order.setOrderNum(orderNum);
+		order.setAddress(address);
 		order.setShopId(list.get(0).getShopId());
 		order.setStatus(OrderStatus.MAIJIA_QUREN.getCode());
 		order.setUserId(list.get(0).getUserId());
@@ -123,7 +124,7 @@ public class OrderServiceImpl implements OrderService {
 		if(list==null||list.size()==0){
 			throw new ApplicationException("您的购物车为空!");
 		}
-		insertOrderOrderFromCart(list,totalMoney);
+		insertOrderOrderFromCart(list,totalMoney,address);
 		
 	}
 

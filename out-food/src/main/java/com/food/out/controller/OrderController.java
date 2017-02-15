@@ -1,8 +1,6 @@
 package com.food.out.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -19,10 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.food.out.common.OrderStatus;
 import com.food.out.common.ResponseJsonResult;
 import com.food.out.common.Status;
-import com.food.out.dao.OrderDetailDao;
 import com.food.out.exception.ApplicationException;
 import com.food.out.model.Order;
-import com.food.out.model.OrderDetail;
 import com.food.out.model.User;
 import com.food.out.model.querybeen.OrderDetailBean;
 import com.food.out.model.querybeen.Query1;

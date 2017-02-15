@@ -11,7 +11,9 @@ public class Order {
 	private Integer shopId;
 
 	private String orderNum;
+
 	private BigDecimal orderPrice;
+
 	private Date createTime;
 
 	private Date overTime;
@@ -21,8 +23,10 @@ public class Order {
 	private Date preSendTime;
 
 	private String isDel;
-	
-	//非持久化属性
+
+	private String address;
+
+	// 非持久化属性
 	private String userName;
 	private String phone;
 
@@ -121,7 +125,8 @@ public class Order {
 	}
 
 	/**
-	 * @param userName the userName to set
+	 * @param userName
+	 *            the userName to set
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
@@ -135,11 +140,26 @@ public class Order {
 	}
 
 	/**
-	 * @param phone the phone to set
+	 * @param phone
+	 *            the phone to set
 	 */
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
-	
+
+	/**
+	 * @return the address
+	 */
+	public String getAddress() {
+		return address;
+	}
+
+	/**
+	 * @param address
+	 *            the address to set
+	 */
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 }

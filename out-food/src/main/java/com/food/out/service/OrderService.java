@@ -35,7 +35,7 @@ public interface OrderService {
 	 *            list 封装成 Order list
 	 * @throws Exception
 	 */
-	void insertOrderOrderFromCart(List<CartItem> list,BigDecimal totalMoney) throws Exception;
+	void insertOrderOrderFromCart(List<CartItem> list,BigDecimal totalMoney,String address) throws Exception;
 
 	/**
 	 * 提交订单
