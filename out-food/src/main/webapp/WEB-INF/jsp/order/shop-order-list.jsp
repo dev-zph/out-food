@@ -49,6 +49,11 @@
                             >
                             <d:order code="0"/>
                             </option>
+                            <option value="1"
+                            <c:if test="${status eq '1'}">selected</c:if>
+                            >
+                            <d:order code="1"/>
+                            </option>
                             <option value="2"
                             <c:if test="${status eq '2'}">selected</c:if>
                             >
@@ -267,9 +272,14 @@ function receiveOrder(id){
 		}
 	});
 }
-
+$('.search-seller').click(function () {
+    var orderNum = $('#keyword').val();
+    var start_date = $('#start-date').val();
+    var end_date = $('#end-date').val();
+    var status = $('.search-by-status').val();
+    window.location.href = ctx + '/order/getShopOrderList.html?orderNum=' + orderNum + '&startDate=' + start_date + '&endDate=' + end_date  + '&status=' + status;
+});
 function orderDetail(id){
-	alert(id);
 	 window.open(ctx + '/order/getOrderDetail/' + id + ".html");
 }
 </script>

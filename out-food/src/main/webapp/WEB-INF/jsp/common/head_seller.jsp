@@ -13,15 +13,6 @@
 			</li>
 			<li>
 				<c:if test="${empty shopStatus}">
-					<a href="javascript:;">账号管理</a>
-				</c:if>
-				<c:if test="${!empty shopStatus}">
-					<a href="${ctx}/navigate_shop/info.html">账号管理</a>
-				</c:if>
-			</li>
-			<li><a href="${ctx}/bill/shop/getBillList.html?status=1">商家统计</a></li>
-			<li>
-				<c:if test="${empty shopStatus}">
 					<a href="javascript:;">进入商铺</a>
 				</c:if>
 				<c:if test="${!empty shopStatus}">

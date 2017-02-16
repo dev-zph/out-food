@@ -137,7 +137,7 @@
 			<div class="container">
 				<div class="col-md-9 bottom-grids-left">
 					<div class="f-products">
-						<h2>Featured Products</h2>
+						<h2>新开店铺</h2>
 							<!----sreen-gallery-cursual---->
 						<div class="sreen-gallery-cursual">
 							 <!-- requried-jsfiles-for owl -->
@@ -158,108 +158,34 @@
 							 <!-- //requried-jsfiles-for owl -->
 							 <!-- start content_slider -->
 						       <div id="owl-demo" class="owl-carousel text-center">
+						       <c:forEach items="${mastShopList}" var="mshop" varStatus="status">
 					                <div class="item">
 					                	<div onclick="location.href='single-page.html';" class="product-grid">
 											<div class="product-pic">
 												<img src="${ctx}/resources/images/p1.jpg" title="Elliot Boots" />
 											</div>
 											<div class="product-pic-info">
-												<h3><a href="#">Elliot Boots</a></h3>
+												<h3><a onlick="toShop(${mshop.id})">${mshop.shopName}</a></h3>
 												<div class="product-pic-info-price-cart">
 													<div class="product-pic-info-price">
-														<span>$129</span>
+<!-- 														<span>$1</span> -->
 													</div>
 													<div class="product-pic-info-cart">
-														<a class="p-btn" href="#">Buy now</a>
+														<a class="p-btn" href="#">进入店铺</a>
 													</div>
 													<div class="clearfix"> </div>
 												</div>
 											</div>
 										</div>
 					                </div>
-					                 <div class="item">
-					                	<div onclick="location.href='single-page.html';" class="product-grid">
-											<div class="product-pic">
-												<img src="${ctx}/resources/images/p2.jpg" title="Elliot Boots" />
-											</div>
-											<div class="product-pic-info">
-												<h3><a href="#">Elliot Boots</a></h3>
-												<div class="product-pic-info-price-cart">
-													<div class="product-pic-info-price">
-														<span>$89</span>
-													</div>
-													<div class="product-pic-info-cart">
-														<a class="p-btn" href="#">Buy now</a>
-													</div>
-													<div class="clearfix"> </div>
-												</div>
-											</div>
-										</div>
-					                </div>
-					                 <div class="item">
-					                	<div onclick="location.href='single-page.html';" class="product-grid">
-											<div class="product-pic">
-												<img src="${ctx}/resources/images/p3.jpg" title="Elliot Boots" />
-											</div>
-											<div class="product-pic-info">
-												<h3><a href="#">Elliot Boots</a></h3>
-												<div class="product-pic-info-price-cart">
-													<div class="product-pic-info-price">
-														<span>$149</span>
-													</div>
-													<div class="product-pic-info-cart">
-														<a class="p-btn" href="#">Buy now</a>
-													</div>
-													<div class="clearfix"> </div>
-												</div>
-											</div>
-										</div>
-					                </div>
-					                 <div class="item">
-					                	<div onclick="location.href='single-page.html';" class="product-grid">
-											<div class="product-pic">
-												<img src="${ctx}/resources/images/p1.jpg" title="Elliot Boots" />
-											</div>
-											<div class="product-pic-info">
-												<h3><a href="#">Elliot Boots</a></h3>
-												<div class="product-pic-info-price-cart">
-													<div class="product-pic-info-price">
-														<span>$129</span>
-													</div>
-													<div class="product-pic-info-cart">
-														<a class="p-btn" href="#">Buy now</a>
-													</div>
-													<div class="clearfix"> </div>
-												</div>
-											</div>
-										</div>
-					                </div>
-					                 <div class="item">
-					                	<div onclick="location.href='single-page.html';" class="product-grid">
-											<div class="product-pic">
-												<img src="${ctx}/resources/images/p3.jpg" title="Elliot Boots" />
-											</div>
-											<div class="product-pic-info">
-												<h3><a href="#">Elliot Boots</a></h3>
-												<div class="product-pic-info-price-cart">
-													<div class="product-pic-info-price">
-														<span>$129</span>
-													</div>
-													<div class="product-pic-info-cart">
-														<a class="p-btn" href="#">Buy now</a>
-													</div>
-													<div class="clearfix"> </div>
-												</div>
-											</div>
-										</div>
-					                </div>
+					                 </c:forEach>
 				              </div>
 						<!--//sreen-gallery-cursual---->
 							
 					</div>
 				</div>
 				<div class="d-products f-products">
-						<h2>Discounts</h2>
+						<h2>销量排名</h2>
 							<!----sreen-gallery-cursual---->
 						<div class="sreen-gallery-cursual">
 							 <!-- requried-jsfiles-for owl -->
@@ -481,5 +407,10 @@
 		<!-- container -->
 	
 </body>
+<script type="text/javascript">
+function toShop(shopId){
+	window.open(ctx + "/shop/getItemList.html?shopId="+shopId);
+}
+</script>
 </html>
 

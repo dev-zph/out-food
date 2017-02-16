@@ -67,16 +67,16 @@ public class OrderServiceImpl implements OrderService {
 	 * com.food.out.service.OrderService#insertOrderFromCart(java.util.List)
 	 */
 	@Override
-	public void insertOrderOrderFromCart(List<CartItem> list, BigDecimal totalMoney,String address) throws Exception{
+	public void insertOrderOrderFromCart(List<CartItem> list, BigDecimal totalMoney, String address) throws Exception {
 		Order order = new Order();
 		String orderNum = OrderUtil.generateOrderNum(String.valueOf(list.get(0).getUserId()));
 		for (CartItem cartItem : list) {
 			Integer itemId = cartItem.getItemId();
 			Integer buyCount = cartItem.getBuyCount();
-			
+
 			Item item = itemDao.selectByPrimaryKey(itemId);
 			BigDecimal itemPrice = item.getItemPrice();
-			//订单明细
+			// 订单明细
 			OrderDetail detail = new OrderDetail();
 			detail.setItemCount(buyCount);
 			detail.setItemId(itemId);
@@ -91,23 +91,23 @@ public class OrderServiceImpl implements OrderService {
 		order.setUserId(list.get(0).getUserId());
 		order.setOrderPrice(totalMoney);
 		orderDao.insert(order);
-		//清空购物车
+		// 清空购物车
 		cartItemDao.emptyCartItem(list.get(0).getUserId());
 	}
 
 	@Override
 	public void submitOrder(String address, Integer userId, Integer shopId) throws Exception {
-		//判断 买家 是否就是卖家
-//		if(shopService.isSameShop(userId, shopId)){
-//			throw new ApplicationException("您不可以在自己店家下订单哦！");
-//		}
+		// 判断 买家 是否就是卖家
+		// if(shopService.isSameShop(userId, shopId)){
+		// throw new ApplicationException("您不可以在自己店家下订单哦！");
+		// }
 		// 订单金额
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("userId", userId);
 		param.put("deleted", Status.DELETED_NO);
 		param.put("shopId", Integer.valueOf(shopId));
 		BigDecimal totalMoney = cartItemService.getCartTotalMoney(param);
-		if(totalMoney==null){
+		if (totalMoney == null) {
 			throw new ApplicationException("您的购物车为空!");
 		}
 		Shop shop = shopDao.selectByPrimaryKey(shopId);
@@ -121,42 +121,56 @@ public class OrderServiceImpl implements OrderService {
 			throw new ApplicationException("您的订单金额小于起送价，请继续添加商品!");
 		}
 		List<CartItem> list = cartItemService.getCartDetail(param);
-		if(list==null||list.size()==0){
+		if (list == null || list.size() == 0) {
 			throw new ApplicationException("您的购物车为空!");
 		}
-		insertOrderOrderFromCart(list,totalMoney,address);
-		
+		insertOrderOrderFromCart(list, totalMoney, address);
+
 	}
 
-	/* (non-Javadoc)
-	 * @see com.food.out.service.OrderService#getOrderListByUserId(java.lang.Integer, java.lang.Integer)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.food.out.service.OrderService#getOrderListByUserId(java.lang.Integer,
+	 * java.lang.Integer)
 	 */
 	@Override
-	public List<Order> getOrderListByUserId(Query1 query) throws Exception{
-		Map<String,Object> param = new HashMap<String,Object>();
+	public List<Order> getOrderListByUserId(Query1 query) throws Exception {
+		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("userId", query.getUserId());
 		param.put("status", Status.SHOP_APPLY_STATUS_YES);
 		param.put("isDel", Status.DELETED_NO);
 		List<Shop> shopList = shopDao.selectListByUserId(param);
-		if(shopList==null||shopList.size()==0){
+		if (shopList == null || shopList.size() == 0) {
 			throw new ApplicationException("未查询到您相关的店铺信息!");
 		}
 		Shop shop = shopList.get(0);
 		Integer shopId = shop.getId();
-		param = new HashMap<String,Object>();
+		param = new HashMap<String, Object>();
 		param.put("shopId", shopId);
-		if(!StringUtils.isEmpty(query.getStatus())){
-		param.put("status", Integer.valueOf(query.getStatus()));}
+		if (!StringUtils.isEmpty(query.getStatus())) {
+			param.put("status", Integer.valueOf(query.getStatus()));
+		}
 		param.put("isDel", Status.DELETED_NO);
-		param.put("startDate", query.getStartDate());
-		param.put("endDate", query.getEndDate());
-		param.put("orderNum", query.getOrderNum());
+		if (!StringUtils.isEmpty(query.getStartDate())) {
+			param.put("startDate", query.getStartDate());
+		}
+		if (!StringUtils.isEmpty(query.getEndDate())) {
+			param.put("endDate", query.getEndDate());
+		}
+		if (!StringUtils.isEmpty(query.getOrderNum())) {
+			param.put("orderNum", query.getOrderNum());
+		}
 		List<Order> list = orderDao.getOrders(param);
 		return list;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.food.out.service.OrderService#updateOrder(com.food.out.model.Order)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.food.out.service.OrderService#updateOrder(com.food.out.model.Order)
 	 */
 	@Override
 	public void updateOrder(Order order) {

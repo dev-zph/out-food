@@ -122,7 +122,7 @@
         <if test="shopId != null">
             and o.shop_id = #{shopId}
         </if>
-        <if test="orderNum != null">
+        <if test="orderNum != null and orderNum!='' ">
             and o.order_num = #{orderNum}
         </if>
         <if test="status != null">
@@ -217,5 +217,8 @@
 		where 
 			o.id = #{id}
 	</select>
-	
+	<select id="selectOrderMastShops" resultType="int" parameterType="int">
+	select o.shop_id  from orderform o GROUP BY o.shop_id ORDER BY COUNT(o.shop_id) desc
+			limit 0,#{count}
+	</select>
 </mapper>

@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import com.food.out.dao.OrderDao;
 import com.food.out.dao.ShopDao;
 import com.food.out.model.Shop;
 import com.food.out.model.User;
@@ -18,6 +19,9 @@ public class ShopServiceImpl implements ShopService{
 
 	@Resource
 	private ShopDao shopDao;
+	@Resource
+	private OrderDao orderDao;
+	
 	@Override
 	public int deleteByPrimaryKey(Integer id) {
 		// TODO Auto-generated method stub
@@ -81,6 +85,18 @@ public class ShopServiceImpl implements ShopService{
 			result = (shopId==shop1.getId());//相等是true
 		}
 		return result;
+	}
+
+	@Override
+	public List<Shop> selectOrderMastShops(Integer count) {
+		List<Integer> shopIds =  orderDao.selectOrderMastShops(count);
+		List<Shop> shopList =  shopDao.selectShopsByShopIds(shopIds);
+		return shopList;
+	}
+
+	@Override
+	public List<Shop> selectNewShops(Integer count) {
+		return shopDao.selectNewShops(count);
 	}
 
 }

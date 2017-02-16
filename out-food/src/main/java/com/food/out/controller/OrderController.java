@@ -97,6 +97,7 @@ public class OrderController extends BaseController {
 			List<Order> orderList = orderService.getOrderListByUserId(query);
 			view.addObject("orderList", orderList);
 			view.addObject("status", status);
+			view.addObject("orderNum", orderNum);
 			view.addObject("startDate", startDate);
 			view.addObject("endDate", endDate);
 		} catch (Exception e) {

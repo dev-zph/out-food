@@ -30,6 +30,9 @@ public class Shop {
 
     private Integer isDel;
     
+    private Date updateTime;
+    
+    private Date createTime;
     
     private String businessScope;
     
@@ -213,6 +216,34 @@ public class Shop {
 
 	public void setContactUrl(String contactUrl) {
 		this.contactUrl = contactUrl;
+	}
+
+	/**
+	 * @return the updateTime
+	 */
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	/**
+	 * @param updateTime the updateTime to set
+	 */
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+
+	/**
+	 * @return the createTime
+	 */
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	/**
+	 * @param createTime the createTime to set
+	 */
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
     
     

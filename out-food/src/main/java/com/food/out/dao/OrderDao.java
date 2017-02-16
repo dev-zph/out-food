@@ -28,4 +28,10 @@ public interface OrderDao {
 	 * @return
 	 */
 	List<OrderDetailBean> getOrderDetailList(@Param(value = "id")Integer id);
+	/**
+	 * 找出销量最好的前n家的  id list
+	 * @param count
+	 * @return
+	 */
+	List<Integer> selectOrderMastShops(@Param(value = "count") Integer count);
 } 

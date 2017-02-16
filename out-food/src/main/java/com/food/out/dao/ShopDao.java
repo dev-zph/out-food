@@ -3,6 +3,7 @@ package com.food.out.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.food.out.model.Shop;
@@ -30,4 +31,17 @@ public interface ShopDao {
      * @return
      */
     Shop selectShopByUserId(Integer userId);
+    /**
+     * 根据传入的shopIds
+     * @param shopIds
+     * @return
+     */
+    List<Shop> selectShopsByShopIds(@Param(value = "shopIds")List<Integer> shopIds);
+    
+    /**
+     * 获取最新开出的shop
+     * @param count
+     * @return
+     */
+    List<Shop> selectNewShops(@Param(value = "count") Integer count);
 }

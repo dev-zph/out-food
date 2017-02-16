@@ -49,9 +49,7 @@ $(function($) {
                 done : function (e, data) {
                     $(this).attr('file-filename',data.result.tmpFileName);
                     $(this).parent().siblings('.fileupload-process').html('');
-                    $(this).prev("span").find("img").attr('src','../'+data.result.tmpFileRouting+data.result.tmpFileName);
-                    //$(this).parent().siblings('img').remove();
-                    //$(this).parent().siblings('.fileupload-process').after('<img width="80px" height="45px" src="../'+data.result.tmpFileRouting+data.result.tmpFileName+'"/>');
+                    $(this).prev("span").find("img").attr('src',server+data.result.tmpFileName);
                 },
                 fail : function (e, data) {
                     

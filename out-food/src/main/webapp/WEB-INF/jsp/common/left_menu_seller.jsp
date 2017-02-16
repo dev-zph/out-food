@@ -18,55 +18,9 @@
 	<h4 class="sidebar-title"><i class="off"></i>订单管理</h4>
 	<ul>
 		<li <c:if test="${status eq 0}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html">
-			&nbsp;全部订单&nbsp;
+			&nbsp;订单管理&nbsp;
 		</a></li>
-		<li  <c:if test="${status eq 2}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=0">
-			&nbsp;待确认订单&nbsp;
-		</a></li>
-		<li  <c:if test="${status eq 3}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=1">
-			&nbsp;已确认订单&nbsp;
-		</a></li>
-		<li  <c:if test="${status eq 4}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=2">
-			&nbsp;骑士已接单&nbsp;
-		</a></li>
-		<li  <c:if test="${status eq 4}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=3">
-			&nbsp;买家签收&nbsp;
-		</a></li>
-		<li  <c:if test="${status eq 5}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=4">
-			&nbsp;买家已评价&nbsp;
-		 </a></li> 
-		 <li  <c:if test="${status eq 5}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html?status=5">
-			&nbsp;已取消订单&nbsp;
-		 </a></li> 
 		<li><a href="${ctx}/navigate_comment/seller.html">评价</a></li>
-	</ul>
-	<h4 class="sidebar-title"> <i class="off"></i>
-		账期管理
-	</h4>
-	<ul>
-		<li <c:if test="${index eq 7}">class="active"</c:if>
-		>
-		<a href="${ctx}/accountPeriod/businessList.html?index=7">账期订单</a>
-		</li>
-	</ul>
-	<h4 class="sidebar-title"> <i class="off"></i>
-		报表管理
-	</h4>
-	<ul>
-		<li <c:if test="${index eq 11}">class="active"</c:if>>
-		<a href="${ctx}/reportServer/orderReport.html?index=11" target="_blank">查看已导出报表</a>
-		</li>
-	</ul>
-	<h4 class="sidebar-title"><i class="off"></i>咨询/售后</h4>
-	<ul>
-		<li><a href="${ctx}/getShopConsulting.html">咨询</a></li>
-		<li><a href="${ctx}/navigate_aftersale/change.html">待处理换货</a></li>
-		<li><a href="${ctx}/navigate_aftersale/return.html">待处理退货</a></li>
-	</ul>
-	<h4 class="sidebar-title"><i class="off"></i>开票管理</h4>
-	<ul>
-		<li><a href="${ctx }/getInvoiceInfo.html?status=0">未开票订单</a></li>
-		<li><a href="${ctx }/getInvoiceInfo.html?status=1">已开票订单</a></li>
 	</ul>
 
 </div>

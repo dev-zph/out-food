@@ -134,6 +134,7 @@ public class ShopController extends BaseController {
 				BeanUtils.populate(shop, request.getParameterMap());
 				shop.setStatus(Status.SHOP_APPLY_STATUS_READ);
 				shop.setIsDel(Integer.valueOf(Status.DELETED_NO));
+				shop.setUserId(user.getId());
 				String userId = String.valueOf(user.getId());// 获取当前用户id
 				shop.setUserId(user.getId());
 				// 信息校验 - 一用户仅可开一店铺
@@ -196,5 +197,12 @@ public class ShopController extends BaseController {
 			log.error(printWriter.getString());
 		}
 		ResponseUtil.printJson(response, data);
+	}
+	
+	@RequestMapping(value = { "/getItemList" })
+	public ModelAndView getItems(HttpServletRequest request,
+			HttpServletResponse response) {
+		ModelAndView view = new ModelAndView("template/gold/item_list");
+		return view;
 	}
 }

@@ -104,7 +104,9 @@
                     layer.msg('注册成功！正在跳转...', {icon: 1, time: 1000}, function () {
                         window.location.href = ctx + "/home.html";
                     });
-                } else {
+                } else if(data == "204"){
+                    layer.msg('用户已经存在!', {icon: 2});
+                }else {
                     layer.msg('注册失败，请重试!', {icon: 2});
                 }
             }

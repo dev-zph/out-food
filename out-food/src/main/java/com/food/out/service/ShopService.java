@@ -2,6 +2,8 @@ package com.food.out.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.food.out.model.Shop;
 
 public interface ShopService {
@@ -29,5 +31,16 @@ public interface ShopService {
      * @return true :是同一家店,false:不是同一家店，可以购物
      */
     Boolean isSameShop(Integer userId , Integer shopId);
+    /**
+     * 获取销量最好的三家店
+     * @return
+     */
+    List<Shop> selectOrderMastShops(Integer count);
+    /**
+     * 获取最新开出的shop
+     * @param count
+     * @return
+     */
+    List<Shop> selectNewShops(Integer count);
 
 }
