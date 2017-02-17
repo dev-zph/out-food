@@ -48,7 +48,7 @@ public class Shop {
     
     private String contactUrl;
     
-    
+    private Integer orderCount;
 
     public Integer getId() {
         return id;
@@ -244,6 +244,20 @@ public class Shop {
 	 */
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
+	}
+
+	/**
+	 * @return the orderCount
+	 */
+	public Integer getOrderCount() {
+		return orderCount;
+	}
+
+	/**
+	 * @param orderCount the orderCount to set
+	 */
+	public void setOrderCount(Integer orderCount) {
+		this.orderCount = orderCount;
 	}
     
     

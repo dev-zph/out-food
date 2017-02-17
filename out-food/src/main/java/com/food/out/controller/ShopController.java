@@ -1,7 +1,5 @@
 package com.food.out.controller;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +23,7 @@ import com.food.out.common.Status;
 import com.food.out.common.StringPrintWriter;
 import com.food.out.model.Shop;
 import com.food.out.model.User;
+import com.food.out.service.ItemService;
 import com.food.out.service.ShopService;
 
 
@@ -34,6 +33,8 @@ public class ShopController extends BaseController {
 	
 	@Resource
 	private ShopService shopService;
+	@Resource
+	private ItemService itemService;
 	
 	/**
 	 * 根据页面名称 跳转页面
@@ -202,6 +203,7 @@ public class ShopController extends BaseController {
 	@RequestMapping(value = { "/getItemList" })
 	public ModelAndView getItems(HttpServletRequest request,
 			HttpServletResponse response) {
+		
 		ModelAndView view = new ModelAndView("template/gold/item_list");
 		return view;
 	}

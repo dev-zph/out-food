@@ -25,6 +25,8 @@
 		<result column="contact_name" property="contactName" />
 		<result column="contact_cell" property="contactCell" />
 		<result column="contact_url" property="contactUrl" />
+		
+		<result column="order_count" property="orderCount" />
 	</resultMap>
 	<sql id="Base_Column_List">
 		id, user_id, shop_name, shop_log_url, shop_type, least_mon, send_mon,
@@ -343,11 +345,14 @@
 	</select>
 	<select id="selectShopsByShopIds" resultMap="BaseResultMap"
 		parameterType="map">
-		select * from shop where shop_id in
+		select s.*, count(*) as order_count from shop s 
+		left join orderform o on o.shop_id = s.id
+		where s.id in
 			<foreach collection="shopIds" index="index" item="item"
 				open="(" separator="," close=")">
 				#{item}
 			</foreach>
+			order by count(*) desc
 	</select>
 	
 	<select id="selectNewShops"  resultMap="BaseResultMap" parameterType="int">

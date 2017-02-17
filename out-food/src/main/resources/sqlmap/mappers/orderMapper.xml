@@ -219,6 +219,6 @@
 	</select>
 	<select id="selectOrderMastShops" resultType="int" parameterType="int">
 	select o.shop_id  from orderform o GROUP BY o.shop_id ORDER BY COUNT(o.shop_id) desc
-			limit 0,#{count}
+			limit 0,#{count} 
 	</select>
 </mapper>

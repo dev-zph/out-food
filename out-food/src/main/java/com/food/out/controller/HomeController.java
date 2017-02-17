@@ -30,10 +30,10 @@ private static Integer LEAST_SHOP_COUNT = 5;
 	@RequestMapping("home")
 	public ModelAndView home() {
 		ModelAndView view = new ModelAndView("index");
-//		List<Shop> mastShopList = shopService.selectOrderMastShops(MOST_SHOP_COUNT);
-//		List<Shop> leastShopList = shopService.selectNewShops(LEAST_SHOP_COUNT);
-//		view.addObject("mastShopList",mastShopList);
-//		view.addObject("leastShopList",leastShopList);
+		List<Shop> mastShopList = shopService.selectOrderMastShops(MOST_SHOP_COUNT);
+		List<Shop> leastShopList = shopService.selectNewShops(LEAST_SHOP_COUNT);
+		view.addObject("mastShopList",mastShopList);
+		view.addObject("leastShopList",leastShopList);
 		return view;
 	}
 }
