@@ -352,7 +352,7 @@
 				open="(" separator="," close=")">
 				#{item}
 			</foreach>
-			order by count(*) desc
+			GROUP BY s.id desc
 	</select>
 	
 	<select id="selectNewShops"  resultMap="BaseResultMap" parameterType="int">

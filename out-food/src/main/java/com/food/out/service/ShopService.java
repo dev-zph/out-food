@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.food.out.model.Item;
 import com.food.out.model.Shop;
 
 public interface ShopService {
@@ -42,5 +43,10 @@ public interface ShopService {
      * @return
      */
     List<Shop> selectNewShops(Integer count);
+    /**
+     * 获取评价最好的三家店
+     * @return
+     */
+    List<Shop> selectOrderGoodestShops(Integer count);
 
 }

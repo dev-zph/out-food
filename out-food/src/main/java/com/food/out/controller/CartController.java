@@ -61,7 +61,7 @@ public class CartController extends BaseController {
 			HttpServletResponse response) {
 		ResponseJsonResult result = new ResponseJsonResult();
 		try {
-			if (StringUtils.isEmpty(itemId) || StringUtils.isEmpty(addCount)) {
+			if (StringUtils.isEmpty(itemId) || StringUtils.isEmpty(addCount)||StringUtils.isEmpty(shopId)) {
 				throw new ApplicationException("验证信息不全，未接收到数据!");
 			}
 			User user = this.getSessionUser(request);

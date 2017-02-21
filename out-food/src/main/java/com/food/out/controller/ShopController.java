@@ -21,21 +21,25 @@ import org.springframework.web.servlet.ModelAndView;
 import com.food.out.common.ResponseUtil;
 import com.food.out.common.Status;
 import com.food.out.common.StringPrintWriter;
+import com.food.out.exception.ApplicationException;
+import com.food.out.model.Item;
 import com.food.out.model.Shop;
+import com.food.out.model.ShopItemClass;
 import com.food.out.model.User;
 import com.food.out.service.ItemService;
+import com.food.out.service.ShopItemClassService;
 import com.food.out.service.ShopService;
-
 
 @Controller
 public class ShopController extends BaseController {
 	private final static Logger log = Logger.getLogger(ShopController.class);
-	
+
 	@Resource
 	private ShopService shopService;
 	@Resource
 	private ItemService itemService;
-	
+	@Resource
+	private ShopItemClassService itemClassService;
 	/**
 	 * 根据页面名称 跳转页面
 	 * 
@@ -45,7 +49,7 @@ public class ShopController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	
+
 	@RequestMapping(value = "/navigate_apply/{view}.html")
 	public ModelAndView navigateToView(HttpServletRequest request, HttpServletResponse response, HttpSession session,
 			@PathVariable(value = "view") String view) throws Exception {
@@ -85,7 +89,6 @@ public class ShopController extends BaseController {
 		request.getSession().setAttribute("requestUrl", realView);
 		return mav;
 	}
-	
 
 	/**
 	 * 用户店铺数据查询
@@ -113,7 +116,7 @@ public class ShopController extends BaseController {
 		}
 		com.food.out.common.ResponseUtil.printJson(response, data);
 	}
-	
+
 	/**
 	 * 申请流程店铺信息 - 保存
 	 * 
@@ -154,8 +157,7 @@ public class ShopController extends BaseController {
 		}
 		com.food.out.common.ResponseUtil.printJson(response, data);
 	}
-	
-	
+
 	/**
 	 * 申请流程店铺信息 - 修改
 	 * 
@@ -199,12 +201,29 @@ public class ShopController extends BaseController {
 		}
 		ResponseUtil.printJson(response, data);
 	}
-	
-	@RequestMapping(value = { "/getItemList" })
-	public ModelAndView getItems(HttpServletRequest request,
-			HttpServletResponse response) {
-		
+
+	@RequestMapping(value = { "shop/getItemList" })
+	public ModelAndView getItems(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView view = new ModelAndView("template/gold/item_list");
+		try {
+			String shopId = request.getParameter("shopId");
+			if (StringUtils.isEmpty(shopId)) {
+				throw new ApplicationException("请选择一家店铺！");
+			}
+			List<Item> itemList = itemService.getItemsByShopId(Integer.valueOf(shopId));
+			List<ShopItemClass>  itemClass = itemClassService.selectClassListByShopId(Integer.valueOf(shopId));
+			view.addObject("code", Status.SUCCESS);
+			view.addObject("itemList", itemList);
+			view.addObject("itemClass", itemClass);
+		} catch (ApplicationException e) {
+			view.addObject("code", Status.FAIL);
+			view.addObject("message", e.getMessage());
+			log.error(e);
+		} catch (Exception e) {
+			view.addObject("code", Status.FAIL);
+			view.addObject("message", e.getMessage());
+			log.error(e);
+		}
 		return view;
 	}
 }

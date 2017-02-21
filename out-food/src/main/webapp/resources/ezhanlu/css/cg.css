@@ -1,0 +1,647 @@
+
+.sys-purchaselist-csstest {
+	min-height: 1px
+}
+.sys-purchaselist {
+	display: none;
+	width: 900px;
+	padding: 5px;
+	background: #ccc;
+	background: rgba(122,122,122,.5);
+	line-height: 1.5;
+	font-size: 12px;
+	font-family: Tahoma,Arial,"\5b8b\4f53",sans-serif;
+	z-index: 100
+}
+.sys-purchaselist ul {
+	list-style: none;
+	margin: 0;
+	padding: 0
+}
+.sys-purchaselist em {
+	font-style: normal
+}
+.sys-purchaselist .orange {
+	color: #ff7300
+}
+.sys-purchaselist .gray {
+	color: #999
+}
+.sys-purchaselist .money {
+	color: #ff7300;
+	font-weight: 600;
+	margin: 0 4px
+}
+.sys-purchaselist .fd-clr {
+	zoom: 1
+}
+.sys-purchaselist .fd-clr: after {
+	display: block;
+	clear: both;
+	height: 0;
+	content: "\0020"
+}
+.sys-purchaselist .fd-right {
+	float: right
+}
+.sys-purchaselist .text-right {
+	text-align: right
+}
+.sys-purchaselist .no-content {
+	display: none
+}
+.sys-purchaselist .d-head .close {
+	background: url(//cbu01.alicdn.com/cms/upload/2012/346/433/334643_1070828466.png) no-repeat
+}
+.sys-purchaselist .d-head {
+	height: 32px;
+	padding: 0 8px;
+	line-height: 32px;
+	background-color: #f5faff;
+	border: 1px solid #c3d2dc;
+	border-bottom: 1px solid #e1e6f5
+}
+.sys-purchaselist .d-head h2 {
+	float: left;
+	margin: 0;
+	font-size: 14px;
+	font-weight: 700;
+	color: #000
+}
+.sys-purchaselist .d-head .close {
+	float: right;
+	margin-top: 10px;
+	width: 21px;
+	height: 22px;
+	cursor: pointer;
+	background-position: -48px 0
+}
+.sys-purchaselist .d-body {
+	padding: 20px;
+	background-color: #fff;
+	border: 1px solid #c3d2dc;
+	border-top: none
+}
+.sys-purchaselist .d-content {
+	text-align: center;
+
+}
+.overflow-lb{
+		height: 300px;
+    display: block; 
+overflow-y: auto;
+width: 858px;
+}
+.sys-purchaselist .d-foot {
+	text-align: center
+}
+.sys-purchaselist .d-foot .purchase-button {
+	margin: 0 8px
+}
+.sys-purchaselist .purchase-button,.sys-purchaselist .purchase-button em {
+	display: inline-block;
+	height: 26px;
+	color: #444;
+	background: url(//cbu01.alicdn.com/cms/upload/2012/346/433/334643_1070828466.png) no-repeat 0 -220px;
+	cursor: pointer;
+	text-decoration: none!important;
+	text-align: center;
+	font-style: normal;
+	outline: 0
+}
+.sys-purchaselist .purchase-button {
+	padding-left: 2px;
+	background-position: 0 -340px
+}
+.sys-purchaselist .purchase-button em {
+	line-height: 26px;
+	padding: 0 10px 0 8px;
+	background-position: right -710px
+}
+.sys-purchaselist .purchase-button: hover {
+	background-position: -2px -340px
+}
+.sys-purchaselist .purchase-button: hover em {
+	background-position: right -740px
+}
+.sys-purchaselist .purchase-button: active {
+	background-position: -4px -340px
+}
+.sys-purchaselist .purchase-button: active em {
+	background-position: right -770px
+}
+.sys-purchaselist .purchase-button-y {
+	height: 32px;
+	background-position: 0 -220px
+}
+.sys-purchaselist .purchase-button-y em {
+	height: 32px;
+	line-height: 32px;
+	padding: 0 20px 0 18px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #fff;
+	background-position: right -380px
+}
+.sys-purchaselist .purchase-button-y: hover {
+	background-position: -2px -220px
+}
+.sys-purchaselist .purchase-button-y: hover em {
+	background-position: right -420px
+}
+.sys-purchaselist .purchase-button-y: active {
+	background-position: -4px -220px
+}
+.sys-purchaselist .purchase-button-y: active em {
+	background-position: right -460px
+}
+.sys-purchaselist .purchase-button-g {
+	height: 32px;
+	background-position: 0 -260px
+}
+.sys-purchaselist .purchase-button-g em {
+	height: 32px;
+	line-height: 32px;
+	padding: 0 20px 0 18px;
+	font-size: 14px;
+	background-position: right -500px
+}
+.sys-purchaselist .purchase-button-g: hover {
+	background-position: -2px -260px
+}
+.sys-purchaselist .purchase-button-g: hover em {
+	background-position: right -540px
+}
+.sys-purchaselist .purchase-button-g: active {
+	background-position: -4px -260px
+}
+.sys-purchaselist .purchase-button-g: active em {
+	background-position: right -580px
+}
+.sys-purchaselist .purchase-button-o {
+	background-position: 0 -300px
+}
+.sys-purchaselist .purchase-button-o em {
+	color: #fff;
+	background-position: right -620px
+}
+.sys-purchaselist .purchase-button-o: hover {
+	background-position: -2px -300px
+}
+.sys-purchaselist .purchase-button-o: hover em {
+	background-position: right -650px
+}
+.sys-purchaselist .purchase-button-o: active {
+	background-position: -4px -300px
+}
+.sys-purchaselist .purchase-button-o: active em {
+	background-position: right -680px
+}
+.sys-purchaselist .d-content .col34567,.sys-purchaselist .d-content .col356,.sys-purchaselist .d-content .col4567,.sys-purchaselist .d-content .col56,.sys-purchaselist .d-content .col1,.sys-purchaselist .d-content .col2,.sys-purchaselist .d-content .col3,.sys-purchaselist .d-content .col4,.sys-purchaselist .d-content .col5,.sys-purchaselist .d-content .col6,.sys-purchaselist .d-content .col7 {
+	float: left
+}
+.sys-purchaselist .d-content .col1 {
+	width: 30px
+}
+.sys-purchaselist .d-content .col1-mid {
+	width: 30px;
+}
+.sys-purchaselist .d-content .col2 {
+	width: 250px
+}
+.sys-purchaselist .d-content .col3 {
+	width: 200px;
+}
+.sys-purchaselist .d-content .col3-mid {
+	width: 200px;
+	height: inherit;
+	line-height: 15px;
+}
+.sys-purchaselist .d-content .col4 {
+	width: 115px
+}
+.sys-purchaselist .d-content .col6 {
+	width: 120px
+}
+.sys-purchaselist .d-content .col6-mid {
+	width: 130px;
+	line-height: 15px;
+}
+.sys-purchaselist .d-content .col7 {
+	width: 100px
+}
+.sys-purchaselist-small {
+	width: 542px
+}
+.sys-purchaselist .col34567 {
+	width: 490px
+}
+.sys-purchaselist .col34567 .col3 {
+	width: 90px
+}
+.sys-purchaselist .col34567 .col4 {
+	width: 90px
+}
+.sys-purchaselist .col34567 .col5 {
+	width: 90px
+}
+.sys-purchaselist .col34567 .col7 {
+	width: 100px
+}
+.sys-purchaselist .sku-list-limit .col34567 {
+	width: 470px
+}
+
+.sys-purchaselist .sku-list-limit .col34567 .col4,.sys-purchaselist .sku-list-limit .col34567 .col5 {
+	width: 80px
+}
+.sys-purchaselist .col356 {
+	width: 390px
+}
+.sys-purchaselist .col356 .col3,.sys-purchaselist .col356 .col5 {
+	width: 135px
+}
+.sys-purchaselist .sku-list-limit .col356 {
+	width: 370px
+}
+.sys-purchaselist .sku-list-limit .col356 .col3,.sys-purchaselist .sku-list-limit .col356 .col5 {
+	width: 125px
+}
+.sys-purchaselist .col4567 {
+	width: 490px
+}
+.sys-purchaselist .col4567 .col4,.sys-purchaselist .col4567 .col5 {
+	width: 125px
+}
+.sys-purchaselist .col4567 .col7 {
+	width: 120px
+}
+.sys-purchaselist .sku-list-limit .col4567 {
+	width: 370px
+}
+.sys-purchaselist .sku-list-limit .col4567 .col4,.sys-purchaselist .sku-list-limit .col4567 .col5 {
+	width: 115px
+}
+.sys-purchaselist .col56 {
+	width: 390px
+}
+.sys-purchaselist .col56 .col5 {
+	width: 270px
+}
+.sys-purchaselist .sku-list-limit .col56 {
+	width: 370px
+}
+.sys-purchaselist .sku-list-limit .col56 .col5 {
+	width: 250px
+}
+.sys-purchaselist .col-title {
+	font-weight: 700;
+	color: #666;
+	border-bottom: 1px solid #C9C9C9;
+	height: 38px;
+}
+.sys-purchaselist .col-title .col6 {
+	position: relative
+}
+.sys-purchaselist .col-title .col6-tips {
+	position: absolute;
+	left: -40px;
+	top: -24px;
+	width: 210px;
+	text-align: center
+}
+.sys-purchaselist .col-title .col6-tips-span {
+	padding: 2px 4px;
+	background-color: #ffd;
+	border: 1px solid #dfc690;
+	color: #444;
+	font-weight: 400
+}
+.sys-purchaselist .col-title .col6-line {
+	padding-left: 35px;
+	text-align: left
+}
+.sys-purchaselist .sku-list li {
+	*margin-bottom: -3px
+}
+.sys-purchaselist .sku-list .sku-item {
+	line-height: 32px;
+	border-bottom: 1px solid #E4E4E4
+}
+.sys-purchaselist .sku-list .sku-item-selected {
+	background-color: #FFF2DF
+}
+.sys-purchaselist .sku-list .sku-detail-item {
+	border-top: 1px solid #E4E4E4
+}
+.sys-purchaselist .sku-list .first-item {
+	border-top: none
+}
+.sys-purchaselist .minus,.sys-purchaselist .plus {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin: 0 4px;
+	line-height: 12px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	text-decoration: none;
+	color: #666;
+	text-align: center;
+	font-family: Arial
+}
+.sys-purchaselist .minus a:link,.sys-purchaselist .plus a:link {
+	color: #666;
+}
+.sys-purchaselist .minus a:visited,.sys-purchaselist .plus a:visited{
+	color: #666;
+}
+.sys-purchaselist .minus a:hover,.sys-purchaselist .plus a:hover {
+	color: #666;
+}
+.sys-purchaselist .minus a:active,.sys-purchaselist .plus a:active{
+	color: #FEA910;
+}
+.sys-purchaselist .amount-input {
+	width: 60px;
+	height: 18px;
+	padding: 2px;
+	text-align: right;
+	background: #eee;
+	border: 1px solid #ccc
+}
+.sys-purchaselist .sku-item-selected .amount-input {
+	background-color: #fff
+}
+.sys-purchaselist .stat-info {
+	text-align: left
+}
+.sys-purchaselist .msg-tips,.sys-purchaselist .total-error,.sys-purchaselist .icon-mixed {
+	background: url(//cbu01.alicdn.com/cms/upload/2012/346/433/334643_1070828466.png) no-repeat
+}
+.sys-purchaselist .stat-info .total-error-line {
+	text-align: center;
+	padding: 6px 0
+}
+.sys-purchaselist .stat-info .total-error {
+	display: inline-block;
+	line-height: 14px;
+	padding: 0 2px 0 18px;
+	color: #FF7300;
+	background-position: -186px 1px
+}
+.sys-purchaselist .stat-info .total-error {
+	*display: inline;
+	display: none
+}
+.sys-purchaselist .stat-info .span-type-stat,.sys-purchaselist .stat-info .span-money-stat {
+	margin-right: 20px;
+	line-height: 26px;
+	color: #666
+}
+.sys-purchaselist .stat-info .total-type {
+	margin: 0 4px;
+	font-weight: 700
+}
+.sys-purchaselist .showtips {
+	position: relative;
+	z-index: 9;
+	zoom: 1
+}
+.sys-purchaselist .showtips .msg-tips {
+	display: inline-block
+}
+.sys-purchaselist .col5 .msg-tips {
+	left: 90px
+}
+.sys-purchaselist .msg-tips {
+	display: none;
+	position: absolute;
+	z-index: 10;
+	left: 0;
+	top: 26px;
+	height: 18px;
+	line-height: 18px;
+	padding: 0 2px 0 16px;
+	border: 1px solid #C00;
+	background-color: #fff;
+	background-position: -186px 3px;
+	text-align: left;
+	white-space: nowrap
+}
+.sys-purchaselist .valid-error {
+	background-position: -186px 0;
+	padding-left: 18px
+}
+.sys-purchaselist .valid-warn {
+	background-position: -186px -43px;
+	padding-left: 18px
+}
+.sys-purchaselist .icon-mixed {
+	display: inline-block;
+	width: 38px;
+	height: 14px;
+	margin-right: 4px;
+	vertical-align: text-bottom;
+	background-position: 0 0
+}
+.sys-purchaselist .mixed-condition {
+	margin: 8px 0
+}
+.sys-purchaselist .loading img {
+	vertical-align: middle;
+	margin-right: 6px
+}
+.sys-purchaselist-small .price-range {
+	margin-top: 16px;
+	text-align: center;
+	vertical-align: middle
+}
+.sys-purchaselist-small .price-range .price-range-list {
+	display: inline-block;
+	width: 240px;
+	border: 1px solid #ccc;
+	vertical-align: middle
+}
+.sys-purchaselist-small .price-range .price-range-list {
+	*display: inline
+}
+.sys-purchaselist-small .price-range-list dl {
+	border-top: 1px dashed #ccc;
+	margin: 0;
+	line-height: 28px
+}
+.sys-purchaselist-small .price-range-list .price-selected {
+	color: #ff7300
+}
+.sys-purchaselist-small .price-range-list .first-item {
+	border-top: none
+}
+.sys-purchaselist-small .price-range-list dt {
+	float: left;
+	width: 110px
+}
+.sys-purchaselist-small .price-range-list dd {
+	float: left;
+	width: 126px;
+	margin: 0
+}
+.sys-purchaselist .sku-list-limit .sku-list {
+	height: 60px;
+	*position: relative;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	width:660px;
+}
+.sys-purchaselist .add-purchase-info {
+	display: inline-block;
+	padding-left: 40px;
+	padding-top: 2px;
+	background: url(//cbu01.alicdn.com/cms/upload/2012/346/433/334643_1070828466.png) no-repeat;
+	color: #666;
+	text-align: left
+}
+.sys-purchaselist .add-purchase-info {
+	*display: inline
+}
+.sys-purchaselist .add-purchase-info h3 {
+	font-size: 14px;
+	margin: 0
+}
+.sys-purchaselist .d-content .lottery-wrap {
+	padding-left: 16px;
+	text-align: left;
+	display: inline-block
+}
+.sys-purchaselist .d-content .lottery-wrap img {
+	width: 214px;
+	height: 41px;
+	display: inline-block
+}
+.sys-purchaselist .d-promotion-wrap {
+	display: inline-block
+}
+.sys-purchaselist .d-promotion-wrap .login-tips-info {
+	width: 180px
+}
+.sys-purchaselist .d-promotion-wrap .add-purchase-info {
+	float: left
+}
+.sys-purchaselist .d-content .lottery-wrap .btn-lottery {
+	display: block;
+	width: 163px;
+	height: 44px;
+	background: url(//cbu01.alicdn.com/cms/upload/2013/627/538/1835726_959437983.png) no-repeat;
+	line-height: 200px;
+	overflow: hidden
+}
+.sys-purchaselist .d-content .lottery-wrap p {
+	margin-bottom: 0
+}
+.sys-purchaselist .d-content .lottery-wrap .lottery-desc {
+	padding: 2px 0 4px 10
+}
+.sys-purchaselist .d-content .lottery-wrap .lottery-warning {
+	color: #999;
+	padding-left: 16px
+}
+.sys-purchaselist .add-purchase-info .sub-info {
+	line-height: 30px
+}
+.sys-purchaselist .add-purchase-info .login-tips-info {
+	background: url(//cbu01.alicdn.com/cms/upload/2012/346/433/334643_1070828466.png) no-repeat scroll -179px 8px #FFFBDD;
+	border: 1px solid #E9DAB5;
+	margin: 10px 0 20px 0;
+	padding: 4px 18px 4px 28px
+}
+.sys-purchaselist .add-purchase-info .purchase-button {
+	margin-right: 8px
+}
+.sys-purchaselist .add-purchase-info .text-right {
+	padding-top: 12px
+}
+.sys-purchaselist .add-purchase-info .text-right .purchase-button {
+	margin-right: 0;
+	margin-left: 8px
+}
+.sys-purchaselist .add-ok {
+	background-position: -144px -100px
+}
+.sys-purchaselist .add-warn {
+	background-position: -175px -70px
+}
+.sys-purchaselist .add-error {
+	background-position: -115px -130px
+}
+.sys-purchaselist .add-error h3 {
+	color: red
+}
+.sys-purchaselist .batch-add-sku {
+	display: none;
+	height: 0
+}
+.sys-purchaselist-error {
+	width: 362px
+}
+.sys-purchaselist-error a {
+	color: #369;
+	text-decoration: none
+}
+.sys-purchaselist-error a: hover {
+	color: #ff7300;
+	text-decoration: underline
+}
+.sys-purchaselist-error .add-purchase-info h3 {
+	font-weight: 400
+}
+.sys-purchaselist-min {
+	width: 360px
+}
+.sys-purchaselist-min .mixed-condition {
+	margin-top: 0
+}
+.sys-purchaselist-min .normal-offer {
+	text-align: left
+}
+.sys-purchaselist-min .normal-offer .input-span {
+	position: relative;
+	display: inline-block;
+	width: 75px;
+	height: 23px;
+	border: 1px solid #ccc;
+	margin-right: 2px
+}
+.sys-purchaselist-min .normal-offer .arrow {
+	position: absolute;
+	height: 11px;
+	width: 17px;
+	right: 0;
+	top: 0;
+	margin-right: 1px;
+	border: none;
+	background: url(//cbu01.alicdn.com/cms/upload/2012/346/433/334643_1070828466.png) no-repeat
+}
+.sys-purchaselist-min .normal-offer .arrow-plus {
+	background-position: -70px 1px
+}
+.sys-purchaselist-min .normal-offer .arrow-plus: hover,.sys-purchaselist-min .normal-offer .arrow-plus: active {
+	background-position: -94px 1px
+}
+.sys-purchaselist-min .normal-offer .arrow-minus {
+	top: 11px;
+	background-position: -70px -19px
+}
+.sys-purchaselist-min .normal-offer .arrow-minus: hover,.sys-purchaselist-min .normal-offer .arrow-minus: active {
+	background-position: -94px -19px
+}
+.sys-purchaselist-min .normal-offer .amount-input {
+	background: #fff;
+	border: 0 none;
+	width: 52px
+}
+.sys-purchaselist-min .normal-offer .stat-info {
+	padding: 6px 0
+}
+.sys-purchaselist-min .normal-offer .total-error {
+	margin-left: 0
+}

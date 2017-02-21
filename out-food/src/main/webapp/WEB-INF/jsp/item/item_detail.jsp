@@ -81,33 +81,13 @@
 						<ul id="etalage" class="etalage" style="display: block; width: 314px; height: 552px;">
 							<li class="etalage_thumb thumb_1" style="display: none; opacity: 0; background-image: none;">
 								<a href="optionallink.html">
-									<img class="etalage_thumb_image" src="${ctx}/resources/images/product-slide/image1_thumb.jpg" style="display: inline; width: 300px; height: 400px; opacity: 1;">
-									<img class="etalage_source_image" src="${ctx}/resources/images/product-slide/image1_large.jpg">
+									<img class="etalage_thumb_image" src="${server}${item.itemImg}" style="display: inline; width: 300px; height: 400px; opacity: 1;">
+									<img class="etalage_source_image" src="${server}${item.itemImg}">
 								</a>
 							</li>
-							<li class="etalage_thumb thumb_2" style="display: none; opacity: 0; background-image: none;">
-								<img class="etalage_thumb_image" src="${ctx}/resources/images/product-slide/image2_thumb.jpg" style="display: inline; width: 300px; height: 400px; opacity: 1;">
-								<img class="etalage_source_image" src="${ctx}/resources/images/product-slide/image2_large.jpg">
-							</li>
 							<li class="etalage_thumb thumb_3 etalage_thumb_active" style="display: list-item; opacity: 1; background-image: none;">
-								<img class="etalage_thumb_image" src="${ctx}/resources/images/product-slide/image3_thumb.jpg" style="display: inline; width: 300px; height: 400px; opacity: 1;">
-								<img class="etalage_source_image" src="${ctx}/resources/images/product-slide/image3_large.jpg">
-							</li>
-							<li class="etalage_thumb thumb_4" style="display: none; opacity: 0; background-image: none;">
-								<img class="etalage_thumb_image" src="${ctx}/resources/images/product-slide/image4_thumb.jpg" style="display: inline; width: 300px; height: 400px; opacity: 1;">
-								<img class="etalage_source_image" src="${ctx}/resources/images/product-slide/image4_large.jpg">
-							</li>
-							<li class="etalage_thumb thumb_5" style="display: none; opacity: 0; background-image: none;">
-								<img class="etalage_thumb_image" src="${ctx}/resources/images/product-slide/image5_thumb.jpg" style="display: inline; width: 300px; height: 400px; opacity: 1;">
-								<img class="etalage_source_image" src="${ctx}/resources/images/product-slide/image5_large.jpg">
-							</li>
-							<li class="etalage_thumb thumb_6" style="display: none; opacity: 0; background-image: none;">
-								<img class="etalage_thumb_image" src="${ctx}/resources/images/product-slide/image6_thumb.jpg" style="display: inline; width: 300px; height: 400px; opacity: 1;">
-								<img class="etalage_source_image" src="${ctx}/resources/images/product-slide/image6_large.jpg">
-							</li>
-							<li class="etalage_thumb thumb_7" style="display: none; opacity: 0; background-image: none;">
-								<img class="etalage_thumb_image" src="${ctx}/resources/images/product-slide/image1_thumb.jpg" style="display: inline; width: 300px; height: 400px; opacity: 1;">
-								<img class="etalage_source_image" src="${ctx}/resources/images/product-slide/image1_large.jpg">
+								<img class="etalage_thumb_image" src="${server}${item.itemImg}" style="display: inline; width: 300px; height: 400px; opacity: 1;">
+								<img class="etalage_source_image" src="${server}${item.itemImg}">
 							</li>
 					</div>
 					<div class="details-left-info">

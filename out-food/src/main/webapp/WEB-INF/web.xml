@@ -168,6 +168,10 @@
 		<error-code>404</error-code>
 		<location>/WEB-INF/jsp/index1.jsp</location>
 	</error-page>
+	<error-page>
+		<error-code>205</error-code>
+		<location>/WEB-INF/jsp/loginPage.jsp</location>
+	</error-page>
 
 	<!-- 内部服务器错误-->
 	<error-page>

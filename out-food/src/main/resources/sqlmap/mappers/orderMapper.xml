@@ -221,4 +221,8 @@
 	select o.shop_id  from orderform o GROUP BY o.shop_id ORDER BY COUNT(o.shop_id) desc
 			limit 0,#{count} 
 	</select>
+		<select id="selectOrderGoodestShops" resultType="int" parameterType="int">
+	select o.shop_id from orderform o where o.is_good=1 GROUP BY o.shop_id ORDER BY count(*) desc 
+			limit 0,#{count} 
+	</select>
 </mapper>

@@ -1,0 +1,233 @@
+@charset "utf-8";
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+
+
+.dd-pro-info{
+	height: auto;
+	overflow: hidden;
+	margin-top: 10px;
+}
+.dd-pro-con{
+	width: 814px;
+	height: auto;
+	overflow: hidden;
+	border: 1px solid #eee;
+	padding: 15px 52px;
+	background-color: #fff;
+}
+.dd-pro-con-title{
+	font-size: 20px;
+	color: #333333;
+	font-weight: bold;
+	padding: 15px 0 10px;
+}
+.dd-pro-con-sub{
+	font-size: 14px;
+	color: #999;
+	line-height: 20px;
+	height: auto;
+	overflow: hidden;
+}
+.con-tip{
+	margin-left: 20px;
+}
+.con-tip span{
+	display: inline-block;
+	background-color: #ff7835;
+	font-size: 12px;
+	color: #fff;
+	border-radius: 10px;
+	height: 20px;
+	line-height: 20px;
+	padding: 0 10px;
+	margin-right: 10px;
+}
+.dd-pro-con-price{
+	margin-top: 17px;
+	padding: 0 20px;
+	background-color: #fafafa;
+	height: 75px;
+	line-height: 75px;
+}
+.con-price{
+	font-size: 16px;
+	height: auto;
+	overflow: hidden;
+}
+.con-price .con-price-new{
+	color: #ff1111;
+	font-size: 36px;
+	margin-right: 5px;
+}
+.con-price  .con-price-old{
+	color: #a0a0a0;
+	font-size: 12px;
+	text-decoration: line-through;
+	margin-left: 20px;
+}
+.con-volume{
+	font-size: 12px;
+	color: #666;
+}
+.con-volume span{
+	color: #0d6fb8;
+}
+.dd-pro-con-area, .dd-pro-con-remarks{
+	height: auto;
+	overflow: hidden;
+	font-size: 12px;
+	color: #666;
+	line-height: 20px;;
+	margin-top: 18px;
+}
+.dd-pro-con-remarks{
+	margin-top: 10px;
+}
+.dd-pro-con-operation{
+	height: auto;
+	overflow: hidden;
+	margin-top: 15px;
+	border-top:1px solid #dddddd;
+	padding-top: 22px;
+}
+.dd-pro-con-choose, .dd-pro-con-type{
+	height: auto;
+	overflow: hidden;
+	width: 600px;
+	font-size: 12px;
+	color: #666;
+	line-height: 28px;
+}
+.dd-pro-con-num .nums{
+	position: relative;
+	width: 70px;
+}
+.dd-pro-con-num .nums input{
+	display: inline-block;
+	height: 26px;
+	border: 1px solid #999;
+	width: 29px;
+	padding: 0 5px 0 5px;
+	color: #333;
+}
+.dd-pro-con-num .nums span{
+	width: 14px;
+	height: 10px;
+	border: 1px solid #999999;
+	position: absolute;
+	left: 48px;
+	background-position: center;
+	cursor: pointer;
+}
+.dd-pro-con-num .nums span.a{
+	top: 0;
+	background-image: url("../images/pro-info/upArrow1.png");
+}
+.dd-pro-con-num .nums span.b{
+	bottom: 0;
+	background-image: url("../images/pro-info/bottomArrow1.png");
+}
+.dd-pro-con-type table{
+	margin-top: 17px;
+}
+.dd-pro-con-type table a{
+	display: inline-block;
+	width: auto;
+	height: 26px;
+	border: 1px solid #999;
+	color: #333;
+	line-height: 26px;
+	padding: 0 10px;
+	margin-right: 10px;
+	text-decoration: none;
+	margin-bottom: 10px;
+}
+.dd-pro-con-type table a:hover{
+	border: 1px solid #ff7835;
+	color: #ff7835;
+}
+.dd-pro-con-type table a.active{
+	border: 1px solid #ff7835;
+	color: #ff7835;
+	background-image: url("../images/pro-info/type_active.png");
+	background-position: right bottom;
+	background-repeat: no-repeat; 
+}
+.dd-pro-con-link{
+	height: auto;
+	overflow: hidden;
+}
+.dd-pro-con-link a{
+	width: 175px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #ec1515;
+    margin: 0px 0px 12px;
+    color: #FFF;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+}
+.dd-pro-con-link a.add-car{
+	background-color: #ff7835;
+}
+.dd-shop-con-title{
+	height: 54px;
+	width: 260px;
+	text-align: center;
+	line-height: 54px;
+	color: #fff;
+	background-image: url("../images/pro-info/dd_shop_title.jpg");
+}
+.dd-shop-con-list{
+	height: auto;
+	overflow: hidden;
+	width: 220px;
+	border: 1px solid #eee;
+	padding:4px 19px 0;	
+	background-color:#fff;
+}
+.dd-shop-con-list table{
+	color: #999;
+	font-size: 12px;
+	line-height: 20px;
+	width: 100%;
+}
+.dd-shop-con-list table td{
+	padding: 19px 0;
+	border-bottom: 1px solid #eee;
+}
+.dd-shop-con-list table .tit{
+	color: #333;
+}
+.dd-shop-con-list table td span{
+	color: #ff7835;
+	font-size: 14px;
+	font-style:initial
+}
+.dd-shop-con-link{
+	width: 258px;
+	border: 1px solid #eee;
+	border-bottom: 0;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	display: block;
+	background-color: #45403d;
+	color: #fff;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+}
+
+.dd-shop-con-link  img{
+	position: relative;
+	left: 5px;
+	
+}

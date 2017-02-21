@@ -21,11 +21,13 @@
 	<import resource="classpath*:applicationEhcahe.xml" />
 	<import resource="classpath*:dataAccessContext.xml" />
 
-	<!-- Configures Handler Interceptors -->
 	<mvc:interceptors>
-		<!-- Changes the locale when a 'locale' request parameter is sent; e.g. 
-			/?locale=de -->
-		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+	<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+		<bean class="com.food.out.support.PrivilegeInterceptor" >
+			<property name="notcheck">
+					<value>/toLogin.html;/toReg.html;/Reg.html;/Login.html;/toExit.html;/valiUserName.html;/home.html;/item/getItemById.html;/shop/getItemList.html;/public/loginPage.html;</value>
+			</property>
+		</bean>
 	</mvc:interceptors>
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 

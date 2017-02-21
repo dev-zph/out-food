@@ -263,7 +263,7 @@
         </if>
     </select>
     
-    <select id="getItems" parameterType="map" resultMap="BaseResultMap">
+    <select id="getItems" parameterType="java.util.Map" resultMap="BaseResultMap">
         select a.* from item as a
         LEFT JOIN shop shop
         ON shop.id = a.shop_id
@@ -287,6 +287,12 @@
         <if test="startNum != null and startNum >= 0 and pageSize != null and pageSize >= 0">
             limit #{startNum},#{pageSize}
         </if>
+    </select>
+    
+    <select id="getItemsByShopId" parameterType="int" resultMap="BaseResultMap">
+        select a.* from item a
+        where a.shop_id = #{shopId}
+        
     </select>
     
 </mapper>

@@ -16,13 +16,7 @@
 			<div class="container">
 				<span class="menu"> </span>
 				<ul>
-					<li class="active"><a href="index.html">Home<span> </span></a></li>
-					<li><a href="collections.html">Collections<span> </span></a></li>
-					<li><a href="404.html">New Arrivals<span> </span></a></li>
-					<li><a href="404.html">Sale<span> </span></a></li>
-					<li><a href="404.html">Accessories<span> </span></a></li>
-					<li><a href="about.html">About Us<span> </span></a></li>
-					<li><a href="contact.html">Contact Us<span> </span></a></li>
+					<li class="active"><a href="index.html">热榜<span> </span></a></li>
 					<div class="clearfix"> </div>
 				</ul>
 			</div>
@@ -99,35 +93,20 @@
 		</div>
 		<!-- banner -->
 		<!-- top-grids -->
-		<div class="top-grids">
+		<div class="d-products f-products">
+						<h2>好评榜</h2>
 			<div class="container">
+				<c:forEach items="${goodestShopList}" var="gshop" varStatus="status">
 				<div class="col-md-4 top-grid text-center">
 					<div class="top-grid-pic">
-						<img src="${ctx}/resources/images/pic01.png" title="Boots" />
-						<span>Boots</span>
+						<img src="${server}${gshop.shopLogUrl}" width="380" height="336" title="Boots" />
+						<span>${gshop.shopName}</span>
 					</div>
 					<div class="top-grid-pic-info">
-						<a href="single-page.html">Seeall</a>
+						<a  onclick="toShop(${gshop.id})">进入店铺</a>
 					</div>
 				</div>
-				<div class="col-md-4 top-grid text-center">
-					<div class="top-grid-pic">
-						<img src="${ctx}/resources/images/pic02.png" title="Boots" />
-						<span>Casual</span>
-					</div>
-					<div class="top-grid-pic-info">
-						<a href="single-page.html">Seeall</a>
-					</div>
-				</div>
-				<div class="col-md-4 top-grid text-center">
-					<div class="top-grid-pic">
-						<img src="${ctx}/resources/images/pic03.png" title="Boots" />
-						<span>Formal</span>
-					</div>
-					<div class="top-grid-pic-info">
-						<a href="single-page.html">Seeall</a>
-					</div>
-				</div>
+				</c:forEach>
 				<div class="clearfix"> </div>
 			</div>
 		</div>
@@ -158,20 +137,20 @@
 							 <!-- //requried-jsfiles-for owl -->
 							 <!-- start content_slider -->
 						       <div id="owl-demo" class="owl-carousel text-center">
-						       <c:forEach items="${leastShopList}" var="mshop" varStatus="status">
+						       <c:forEach items="${leastShopList}" var="lshop" varStatus="status">
 					                <div class="item">
 					                	<div onclick="location.href='single-page.html';" class="product-grid">
 											<div class="product-pic">
-												<img src="${server}${mshop.shopLogUrl}" width="224" height="200" title="Elliot Boots" />
+												<img src="${server}${lshop.shopLogUrl}" width="224" height="200" title="Elliot Boots" />
 											</div>
 											<div class="product-pic-info">
-												<h3><a onlick="toShop(${mshop.id})">${mshop.shopName}</a></h3>
+												<h3><a onlick="toShop(${lshop.id})">${lshop.shopName}</a></h3>
 												<div class="product-pic-info-price-cart">
 													<div class="product-pic-info-price">
 <!-- 														<span>$1</span> -->
 													</div>
 													<div class="product-pic-info-cart">
-														<a class="p-btn" href="#">进入店铺</a>
+														<a class="p-btn" onclick="toShop(${lshop.id})">进入店铺</a>
 													</div>
 													<div class="clearfix"> </div>
 												</div>
@@ -219,7 +198,7 @@
 														<span>总销量： ${mshop.orderCount}</span>
 													</div>
 													<div class="product-pic-info-cart">
-														<a class="p-btn" href="#">进入店铺</a>
+														<a class="p-btn" onclick="toShop(${mshop.id})">进入店铺</a>
 													</div>
 													<div class="clearfix"> </div>
 												</div>
@@ -234,15 +213,15 @@
 				</div>
 				</div>
 				<div class="col-md-3 bottom-grids-right">
-					<h2>Exclusive Offers</h2>
-					<p>Sign Up for Our Newsletter and get the exclusive offers directly into your inbox.</p>
+					<h2>意见箱</h2>
+					<p>投出你宝贵的意见，我们将会认真查阅，共同努力，更好的服务！.</p>
 					<form>
 						<input type="text" class="text" value="Type your email address ..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type your email address ...';}">
 						<input type="submit" value="" />
 					</form>
 					<div class="shhiping text-center">
-						<h2>Free Shipping</h2>
-						<a href="#"><img src="${ctx}/resources/images/offer-pic.png" title="$250" /></a>
+						<h2>平台总交易额</h2>
+						<a href="#"><img src="${ctx}/resources/images/offer-pic.png" title="￥23421.12" /></a>
 					</div>
 				</div>
 				<div class="clearfix"> </div>
@@ -250,80 +229,8 @@
 		</div>
 		<!-- bottom-grids -->
 		<!-- footer -->
-		<div class="footer">
-			<div class="container">
-				<div class="footer-grids">
-					<div class="col-md-3 footer-grid">
-						<h3>Information</h3>
-						<ul>
-							<li><a href="about.html">About Us</a></li>
-							<li><a href="#">Return</a></li>
-							<li><a href="#">Delivery Information</a></li>
-							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Terms & Conditions</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3 footer-grid">
-						<h3>Extras</h3>
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="collections.html">Collections</a></li>
-							<li><a href="404.html">New Arrivals</a></li>
-							<li><a href="404.html">Sale</a></li>
-							<li><a href="404.html">Accessories</a></li>
-							<li><a href="about.html">About Us</a></li>
-							<li><a href="contact.html">Contact Us</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3 footer-grid testmonial">
-						<h3>Testimonials</h3>
-						<div class="testmonial-grid">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-							<a href="#">John Smith,<span>Occupation</span></a>
-						</div>
-						<div class="clearfix"> </div>
-						<div class="testmonial-grid">
-							<p>In reprehenderit in voluptate velit esse cillum.</p>
-							<a href="#">John Smith,<span>Occupation</span></a>
-						</div>
-					</div>
-					<div class="col-md-3 footer-grid about-grid">
-						<h3>About Us</h3>
-						<p>Aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<!-- social-icons -->
-				<div class="social-icons text-center">
-					<ul>
-						<li><a href="#"><span class="facebook"> </span></a></li>
-						<li><a href="#"><span class="twitter"> </span></a></li>
-						<li><a href="#"><span class="gpluse"> </span></a></li>
-						<li><a href="#"><span class="pin"> </span></a></li>
-						<li><a href="#"><span class="ens"> </span></a></li>
-						<li><a href="#"><span class="you"> </span></a></li>
-					</ul>
-				</div>
-				<!-- social-icons -->
-				<!-- footer-bottom -->
-				<div class="footer-bottom">
-					<div class="footer-bottom-left">
-						<p>Copyright &copy; 2014.Company name All rights reserved.
-<a href="http://www.moke8.com/" target="_blank">moke8</a></p>
-					</div>
-					<div class="footer-bottom-right">
-						<ul>
-							<li><span class="visa"> </span></li>
-							<li><span class="master"> </span></li>
-							<li><span class="paypla"> </span></li>
-							<li><span class="ami"> </span></li>
-						</ul>
-					</div>
-					<div class="clearfix"> </div>
-					<!-- footer-bottom -->
-				</div>
-			</div>
-		</div>
+		<!-- 底部信息 -->
+<%@ include file="common/footer.jsp" %>
 		<!-- footer -->
 		<!-- container -->
 	

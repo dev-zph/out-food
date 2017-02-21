@@ -129,6 +129,7 @@ public class UserController {
 	@RequestMapping("toExit")
 	public ModelAndView toExit(HttpServletRequest request, HttpServletResponse response) {
 		request.getSession().removeAttribute("user");
+		request.getSession().removeAttribute(Status.SYSTEM_SHOP_KEYWORD);
 		return new ModelAndView("login");
 	}
 	

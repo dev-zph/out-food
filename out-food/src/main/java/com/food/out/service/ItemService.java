@@ -3,6 +3,8 @@ package com.food.out.service;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.food.out.model.Item;
 import com.food.out.page.Page;
 
@@ -37,4 +39,10 @@ public interface ItemService {
     public Page<Item> getItemsByPage(Page<Item> page);
     
     List<Item>  getItems(Map<String, Object> params);
+    /**
+     * 根据shopId 查询出所有的Item list
+     * @param shopId
+     * @return
+     */
+    public List<Item> getItemsByShopId(Integer shopId);
 }

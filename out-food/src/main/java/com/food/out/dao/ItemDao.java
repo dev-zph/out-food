@@ -3,6 +3,7 @@ package com.food.out.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.food.out.model.Item;
@@ -37,4 +38,10 @@ public interface ItemDao {
      * @return
      */
     public List<Item> getItems(Map<String, Object> params);
+    /**
+     * 根据shopId 查询出所有的Item list
+     * @param shopId
+     * @return
+     */
+    public List<Item> getItemsByShopId(@Param(value = "shopId") Integer shopId);
 }

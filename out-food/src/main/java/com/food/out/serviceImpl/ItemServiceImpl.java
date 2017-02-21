@@ -95,4 +95,9 @@ public class ItemServiceImpl implements ItemService{
 		return itemDao.getItems(params);
 	}
 
+	@Override
+	public List<Item> getItemsByShopId(Integer shopId) {
+		return itemDao.getItemsByShopId(shopId);
+	}
+
 }

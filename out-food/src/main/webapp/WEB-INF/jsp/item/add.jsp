@@ -56,12 +56,8 @@
 											</c:forEach>
 											</select>
                                         </p>
-                                        <p>
-                                            <label><font style="color: red">*</font>每日供量:</label>
-                                            <input id="dayStock" type="text" class="shortInput" " /><span class="tips">如：100、998、3001</span>
-                                        </p>
                                          <p>
-                                            <label><font style="color: red">*</font>每日供量:</label>
+                                            <label><font style="color: red">*</font>单价:</label>
                                             <input id="itemPrice" type="text" class="shortInput" " /><span class="tips">保留两位小数</span>
                                         </p>
                                         </p>
@@ -131,12 +127,12 @@
                             				layer.msg('请求网络失败，请重试!', {icon: 7});
                             			},
                             			success:function(data){
-                            				if(data.data == "101"){
+                            				if(data.code == "101"){
                             	                        layer.msg('添加成功！', {icon: 1,time: 2000}, function(index){
                             	                         // window.location.href = $('body').attr('ref') + "/item/toAdd.html";
                             	                        });
                             					
-                            				}else if(data.data == "205"){
+                            				}else if(data.code == "205"){
                             	                        layer.msg('登录过期，需重新登录!', {icon: 2,time: 2000}, function(index){
                             	                         window.location.href = $('body').attr('ref') + "/toLogin.html";
                             	                        });

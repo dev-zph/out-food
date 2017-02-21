@@ -20,6 +20,7 @@ private ShopService shopService;
 
 private static Integer MOST_SHOP_COUNT = 5;
 private static Integer LEAST_SHOP_COUNT = 5;
+private static Integer GOODEST_SHOP_COUNT = 3;
 	/**
 	 * 跳转首页
 	 * 
@@ -32,8 +33,10 @@ private static Integer LEAST_SHOP_COUNT = 5;
 		ModelAndView view = new ModelAndView("index");
 		List<Shop> mastShopList = shopService.selectOrderMastShops(MOST_SHOP_COUNT);
 		List<Shop> leastShopList = shopService.selectNewShops(LEAST_SHOP_COUNT);
+		List<Shop> goodestShopList = shopService.selectOrderGoodestShops(GOODEST_SHOP_COUNT);
 		view.addObject("mastShopList",mastShopList);
 		view.addObject("leastShopList",leastShopList);
+		view.addObject("goodestShopList",goodestShopList);
 		return view;
 	}
 }

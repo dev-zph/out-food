@@ -67,14 +67,15 @@ public class ItemController {
 			Integer shopId = shop.getId();
 			String itemName = request.getParameter("itemName");
 			String shopItemClassId = request.getParameter("shopItemClassId");
-			String dayStock = request.getParameter("dayStock");
 			String itemImg = request.getParameter("itemImg");
 			String itemPrice = request.getParameter("itemPrice");
 			String status = request.getParameter("status");
 			Item item = new Item();
 			item.setItemName(itemName);
+			if (StringUtils.isEmpty(shopItemClassId)) {
+				throw new ApplicationException("请选择商品的类别!");
+			}
 			item.setShopItemClassId(Integer.valueOf(shopItemClassId));
-			item.setDayStock(dayStock);
 			item.setItemImg(itemImg);
 			item.setItemPrice(new BigDecimal(itemPrice));
 			item.setDescribe("test");
@@ -84,12 +85,14 @@ public class ItemController {
 			itemService.insert(item);
 			result.setCode(Status.SUCCESS);
 			result.setMessage("添加成功!");
+		} catch (ApplicationException e) {
+			result.setCode(Status.FAIL);
+			result.setMessage(e.getMessage());
 		} catch (Exception e) {
 			result.setCode(Status.FAIL);
 			result.setMessage("添加失败!");
 			log.error("item/addItem.json---Exception: " + e.getMessage());
 		}
-
 		JsonUtils.render(response, JSONObject.toJSONString(result), Status.JSON_TYPE);
 	}
 
@@ -214,37 +217,34 @@ public class ItemController {
 	@RequestMapping("getItemById")
 	public ModelAndView getItemById(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView modelAndView = new ModelAndView("/item/item_detail");
-		try{
-		User user = (User) request.getSession().getAttribute(Status.SYSTEM_USER_KEYWORD);
-		Integer userId = user.getId();
-		List<Shop> shops = shopService.selectListByUserId(String.valueOf(userId), Status.SHOP_APPLY_STATUS_YES, Status.DELETED_NO);
-		String itemId = request.getParameter("itemId");
-		if(StringUtils.isEmpty(itemId)){
-			throw new ApplicationException("未接受前台数据!");
-		}
-		// 获取商品信息
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("id", itemId);
-		List<Item> list = itemService.getItems(con);
-		if(shops==null||shops.size()==0){
-			throw new ApplicationException(Status.SHOP_NOT_FOUND);
-		}
-		if(list==null||list.size()==0){
-			throw new ApplicationException("未查询da");
-		}
-		modelAndView.addObject("shop", shops.get(0));
-		modelAndView.addObject("item", list.get(0));
-		
-		modelAndView.addObject("code",Status.SUCCESS);
-		modelAndView.addObject("message","查询成功");
-		}catch(ApplicationException e){
-			log.error("item/getItemById.html---ApplicationException",e);
-			modelAndView.addObject("code",Status.FAIL);
-			modelAndView.addObject("message","查询失败");
-		}catch(Exception e){
-			log.error("item/getItemById.html---Exception",e);
-			modelAndView.addObject("code",Status.FAIL);
-			modelAndView.addObject("message","查询失败");
+		try {
+			String itemId = request.getParameter("itemId");
+			if (StringUtils.isEmpty(itemId)) {
+				throw new ApplicationException("未接受前台数据!");
+			}
+			// 获取商品信息
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("id", itemId);
+			List<Item> list = itemService.getItems(con);
+			Item item = list.get(0);
+			Integer shopId = item.getShopId();
+			Shop shop = shopService.selectByPrimaryKey(shopId);
+			if (list == null || list.size() == 0) {
+				throw new ApplicationException("未查询到相关信息！");
+			}
+			modelAndView.addObject("shop", shop);
+			modelAndView.addObject("item", list.get(0));
+
+			modelAndView.addObject("code", Status.SUCCESS);
+			modelAndView.addObject("message", "查询成功");
+		} catch (ApplicationException e) {
+			log.error("item/getItemById.html---ApplicationException", e);
+			modelAndView.addObject("code", Status.FAIL);
+			modelAndView.addObject("message", "查询失败");
+		} catch (Exception e) {
+			log.error("item/getItemById.html---Exception", e);
+			modelAndView.addObject("code", Status.FAIL);
+			modelAndView.addObject("message", "查询失败");
 		}
 		return modelAndView;
 	}

@@ -17,7 +17,11 @@ function addCartItem() {
 		success:function(data){
 			if(data.code=="101"){alert(data.message);}
 			else if(data.code=="102"){alert(data.message);}
-			else{layer.msg("系统错误！",{icon:7});}
+			else if(data.code=="205"){
+				alert("请先登入");
+				window.location.href=ctx+"toLogin.html"
+			}
+			else {layer.msg("系统错误！",{icon:7});}
 		}
 	});
 }
