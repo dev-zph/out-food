@@ -12,7 +12,9 @@
     <result column="status" property="status" jdbcType="TINYINT" />
     <result column="pre_send_time" property="preSendTime" jdbcType="TIMESTAMP" />
     <result column="is_del" property="isDel" jdbcType="TINYINT" />
-    
+     <result column="is_good" property="idGood"  />
+      <result column="comment" property="comment"  />
+      
     <result column="nick_name" property="userName" />
     <result column="phone" property="phone" />
   </resultMap>
@@ -34,7 +36,7 @@
 	</resultMap>
   <sql id="Base_Column_List" >
     id, user_id, shop_id, order_num, create_time, over_time, status, 
-    pre_send_time, is_del
+    pre_send_time, is_del , is_good,comment
   </sql>
   <select id="selectByKey" resultMap="orderMap" parameterType="java.lang.Integer" >
     select 
@@ -107,6 +109,12 @@
       </if>
       <if test="isDel != null" >
         is_del = #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="isGood != null" >
+        is_good = #{isGood},
+      </if>
+      <if test="comment != null and comment != ''" >
+        comment = #{comment},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}

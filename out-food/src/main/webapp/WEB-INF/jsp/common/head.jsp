@@ -40,11 +40,11 @@
 						<p>食上最权威的 校园订餐平台 </p>
 					</div>
 					<div class="logo">
-						<a href="index.html"><img src="${ctx}/resources/images/logo.png" title="gaia" /></a>
+						<a href="${ctx} "><img src="${ctx}/resources/images/logo.png" title="gaia" /></a>
 					</div>
 					<div class="bottom-header-left">
 					<ul>
-						<li><a href="#">进入首页</a></li>
+						<li><a href="${ctx}">进入首页</a></li>
 							<li><a href="#">我的订单</a></li>
 							<li><a href="${ctx}/cart/toPersonShopCart.html">我的购物车</a></li>
 							<c:if test="${shop != null}">
@@ -57,7 +57,7 @@
 									<a href="${ctx}/navigate_apply/index.html" <c:if test='${user ne null}'></c:if>>我要开店</a>
 								</div>
 							</c:if>
-							<li><a href="#">个人中心</a></li>
+							<li><a href="${ctx}/order/getPersonOrderList.html">个人中心</a></li>
 							<div class="search-box">
 								<form>
 									<input type="text" value="店铺搜索" />

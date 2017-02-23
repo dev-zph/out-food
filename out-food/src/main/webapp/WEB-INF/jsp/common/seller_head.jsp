@@ -1,9 +1,9 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <!--Logo及 搜索-->
 <div class="header container">
-	<div class="logo fl" style="margin-bottom: 15px;">
-		<img  src="${ctx}/resources/images/logo.jpg"  alt="爱养牛" class="fl">
-	</div>
+<!-- 	<div class="logo fl" style="margin-bottom: 15px;"> -->
+<%-- 		<img  src="${ctx}/resources/images/logo.jpg"  alt="爱养牛" class="fl"> --%>
+<!-- 	</div> -->
 	<!--<div class="search fr">-->
 		<!--<div class="seller-search-box" style="border:0px;">-->
 			<!--<input type="text" style="color:#7F7F7F;width:250px;float:left;border-right:0" class="search-key">-->

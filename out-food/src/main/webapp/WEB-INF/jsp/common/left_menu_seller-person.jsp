@@ -1,23 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <div class="sidebar-seller seller-center-sidebar float-left">
-	<h4 class="sidebar-title"><i class="off"></i>店铺管理</h4>
 	<ul>
-		<li><a href="${ctx}/navigate_apply/index.html">我要开店</a></li>
-		<li><a href="${ctx}/shopClassify/toList.html">商品分类</a></li>
-		 <!--<li><a href="${ctx}/shop/toBanner.html">店铺广告</a></li>-->
-	</ul>
-
-	<h4 class="sidebar-title"><i class="off"></i>商品管理</h4>
-	<ul>
-		<li><a href="${ctx}/item/toAdd.html">发布商品</a></li>
-		<li><a href="${ctx}/item/get/3.html">销售中的商品</a></li>
-		<li><a href="${ctx}/item/get/1.html">仓库中的商品</a></li>
-		<li><a href="${ctx}/item/get/2.html">待审核</a></li>
-		<li><a href="${ctx}/item/get/4.html">违规下架</a></li>
-	</ul>
-	<h4 class="sidebar-title"><i class="off"></i>订单管理</h4>
-	<ul>
-		<li <c:if test="${status eq 0}">class="active"</c:if>><a href="${ctx}/order/getShopOrderList.html">
+		<li <c:if test="${status eq 0}">class="active"</c:if>><a href="${ctx}/order/getPersonOrderList.html">
 			&nbsp;订单管理&nbsp;
 		</a></li>
 	</ul>

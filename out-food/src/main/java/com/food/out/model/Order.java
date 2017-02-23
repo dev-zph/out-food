@@ -4,28 +4,58 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class Order {
+	/**
+	 * 订单编号
+	 */
 	private Integer id;
-
+	/**
+	 * 买家id
+	 */
 	private Integer userId;
-
+	/**
+	 * 店铺id
+	 */
 	private Integer shopId;
-
+	/**
+	 * 订单号
+	 */
 	private String orderNum;
-
+	/**
+	 * 订单价格
+	 */
 	private BigDecimal orderPrice;
-
+	/**
+	 * 添加时间
+	 */
 	private Date createTime;
-
+	/**
+	 * 预期时间
+	 */
 	private Date overTime;
-
+	/**
+	 * 订单状态
+	 */
 	private Integer status;
-
+	/**
+	 * 
+	 */
 	private Date preSendTime;
-
+	/**
+	 * 逻辑
+	 */
 	private String isDel;
-
+	/**
+	 * 配送地址
+	 */
 	private String address;
-
+	/**
+	 * 评价状态
+	 */
+	private Integer isGood;
+	/**
+	 * 评价信息
+	 */
+	private String comment;
 	// 非持久化属性
 	private String userName;
 	private String phone;
@@ -160,6 +190,36 @@ public class Order {
 	 */
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	/**
+	 * @return the isGood
+	 */
+	public Integer getIsGood() {
+		return isGood;
+	}
+
+	/**
+	 * @param isGood
+	 *            the isGood to set
+	 */
+	public void setIsGood(Integer isGood) {
+		this.isGood = isGood;
+	}
+
+	/**
+	 * @return the comment
+	 */
+	public String getComment() {
+		return comment;
+	}
+
+	/**
+	 * @param comment
+	 *            the comment to set
+	 */
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
 }

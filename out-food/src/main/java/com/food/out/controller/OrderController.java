@@ -94,6 +94,37 @@ public class OrderController extends BaseController {
 			String startDate = request.getParameter("startDate");
 			String endDate = request.getParameter("endDate");
 			Query1 query = new Query1(user.getId(), status, startDate, endDate, orderNum);
+			List<Order> orderList = orderService.getOrderListByShopUserId(query);
+			view.addObject("orderList", orderList);
+			view.addObject("status", status);
+			view.addObject("orderNum", orderNum);
+			view.addObject("startDate", startDate);
+			view.addObject("endDate", endDate);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("查询订单失败!", e);
+		}
+		return view;
+	}
+	
+	/**
+	 * 查询 个人中心订单列表信息
+	 * 
+	 * @param request
+	 * @param response
+	 * @param status
+	 *            订单的状态
+	 */
+	@RequestMapping("getPersonOrderList")
+	public ModelAndView getPersonOrderList(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView view = new ModelAndView("order/shop-order-list-person");
+		try {
+			User user = getSessionUser(request);
+			String status = request.getParameter("status");
+			String orderNum = request.getParameter("orderNum");
+			String startDate = request.getParameter("startDate");
+			String endDate = request.getParameter("endDate");
+			Query1 query = new Query1(user.getId(), status, startDate, endDate, orderNum);
 			List<Order> orderList = orderService.getOrderListByUserId(query);
 			view.addObject("orderList", orderList);
 			view.addObject("status", status);
@@ -137,6 +168,46 @@ public class OrderController extends BaseController {
 		}
 		JsonUtils.renderJSON(response, result);
 	}
+	
+
+	/**
+	 * 买家确认收货并做出评价
+	 * 
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping("arriveAndEvaluateOrder")
+	public void arriveAndEvaluateOrder(HttpServletRequest request, HttpServletResponse response) {
+		ResponseJsonResult result = new ResponseJsonResult();
+		try {
+			String id = request.getParameter("id");
+			String isGood = request.getParameter("isGood");
+			String comment = request.getParameter("comment");
+			if (StringUtils.isEmpty(id)) {
+				throw new ApplicationException("请选择一个订单进行操作！");
+			}
+			if (StringUtils.isEmpty(isGood)||StringUtils.isEmpty(comment)) {
+				throw new ApplicationException("请对订单做出评价!");
+			}
+			Order order = new Order();
+			order.setId(Integer.valueOf(id));
+			order.setStatus(OrderStatus.EVALUATE.getCode());
+			order.setIsGood(Integer.valueOf(isGood));
+			order.setComment(comment);
+			orderService.updateOrder(order);
+			result.setCode(Status.SUCCESS);
+			result.setMessage("订单收货并且评价成功!");
+		} catch (ApplicationException e) {
+			result.setCode(Status.FAIL);
+			result.setMessage(e.getMessage());
+		} catch (Exception e) {
+			result.setCode(Status.FAIL);
+			result.setMessage("确认订单失败!");
+			logger.error(e);
+		}
+		JsonUtils.renderJSON(response, result);
+	}
+	
 
 	@RequestMapping("getOrderDetail/{id}")
 	public ModelAndView getOrderDetail(@PathVariable("id") String id, HttpServletRequest request,

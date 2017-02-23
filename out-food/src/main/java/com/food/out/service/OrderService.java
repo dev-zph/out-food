@@ -53,7 +53,7 @@ public interface OrderService {
 	 * @return
 	 * @throws Exception
 	 */
-	List<Order> getOrderListByUserId(Query1 query) throws Exception;
+	List<Order> getOrderListByShopUserId(Query1 query) throws Exception;
 	/**
 	 * 更新 订单
 	 * @param order
@@ -65,4 +65,12 @@ public interface OrderService {
 	 * @return
 	 */
 	List<OrderDetailBean> getOrderDetail(Integer id);
+
+	/**
+	 *根据登入用户的userId查询跟他相关的订单列表
+	 * @param query
+	 * @return
+	 * @throws Exception
+	 */
+	List<Order> getOrderListByUserId(Query1 query) throws Exception;
 }

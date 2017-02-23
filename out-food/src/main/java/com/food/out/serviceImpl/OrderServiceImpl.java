@@ -136,7 +136,7 @@ public class OrderServiceImpl implements OrderService {
 	 * java.lang.Integer)
 	 */
 	@Override
-	public List<Order> getOrderListByUserId(Query1 query) throws Exception {
+	public List<Order> getOrderListByShopUserId(Query1 query) throws Exception {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("userId", query.getUserId());
 		param.put("status", Status.SHOP_APPLY_STATUS_YES);
@@ -155,6 +155,29 @@ public class OrderServiceImpl implements OrderService {
 		param.put("isDel", Status.DELETED_NO);
 		if (!StringUtils.isEmpty(query.getStartDate())) {
 			param.put("startDate", query.getStartDate());
+		}
+		if (!StringUtils.isEmpty(query.getEndDate())) {
+			param.put("endDate", query.getEndDate());
+		}
+		if (!StringUtils.isEmpty(query.getOrderNum())) {
+			param.put("orderNum", query.getOrderNum());
+		}
+		List<Order> list = orderDao.getOrders(param);
+		return list;
+	}
+	
+	@Override
+	public List<Order> getOrderListByUserId(Query1 query) throws Exception {
+		Map<String, Object> param = new HashMap<String, Object>();
+		if (!StringUtils.isEmpty(query.getStatus())) {
+			param.put("status", Integer.valueOf(query.getStatus()));
+		}
+		param.put("isDel", Status.DELETED_NO);
+		if (!StringUtils.isEmpty(query.getStartDate())) {
+			param.put("startDate", query.getStartDate());
+		}
+		if (!StringUtils.isEmpty(query.getUserId())) {
+			param.put("userId", query.getUserId());
 		}
 		if (!StringUtils.isEmpty(query.getEndDate())) {
 			param.put("endDate", query.getEndDate());

@@ -42,7 +42,7 @@
 						<p>The Finest Genuine Leather meet with Ingenious  Craftsmen Shoes </p>
 					</div>
 					<div class="logo">
-						<a href="index.html"><img src="${ctx}/resources/images/logo.png" title="gaia" /></a>
+						<a href="${ctx }"><img src="${ctx}/resources/images/logo.png" title="gaia" /></a>
 					</div>
 					<div class="bottom-header-right">
 						<ul>

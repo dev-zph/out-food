@@ -34,5 +34,41 @@
 			</div>
 			<!-- /top-header -->
 			<!-- /bottom-header -->
+			<!-- bottom-header -->
+			<div class="bottom-header">
+				<div class="container">
+					<div class="bottom-header-left">
+						<p>食上最权威的 校园订餐平台 </p>
+					</div>
+					<div class="logo">
+						<a href="${ctx }"><img src="${ctx}/resources/images/logo.png" title="gaia" /></a>
+					</div>
+					<div class="bottom-header-left">
+					<ul>
+						<li><a href="${ctx}">进入首页</a></li>
+							<li><a href="#">我的订单</a></li>
+							<li><a href="${ctx}/cart/toPersonShopCart.html">我的购物车</a></li>
+							<c:if test="${shop != null}">
+								<div class="top-menu-hd">
+									<a href="${ctx}/item/get/1.html" <c:if test='${user ne null}'></c:if>>商铺管理</a>
+								</div>
+							</c:if>
+							<c:if test="${shop eq null}">
+								<div class="top-menu-hd">
+									<a href="${ctx}/navigate_apply/index.html" <c:if test='${user ne null}'></c:if>>我要开店</a>
+								</div>
+							</c:if>
+							<li><a href="${ctx}/order/getPersonOrderList.html">个人中心</a></li>
+							<div class="search-box">
+								<form>
+									<input type="text" value="店铺搜索" />
+									<input type="submit" value="" />
+								</form>
+							</div>
+							</ul>
+					</div>
+				</div>
+			</div>
+			<!-- /bottom-header -->
 		</div>
 		<!-- header -->
