@@ -44,4 +44,10 @@ public interface ShopDao {
      * @return
      */
     List<Shop> selectNewShops(@Param(value = "count") Integer count);
+    
+    /**
+     * 获取 赞助商信息
+     * @return
+     */
+    List<Shop> selectSponsorShop();
 }

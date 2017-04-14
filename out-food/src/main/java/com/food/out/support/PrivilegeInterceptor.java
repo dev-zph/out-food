@@ -1,5 +1,7 @@
 package com.food.out.support;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,7 +12,7 @@ import com.food.out.common.Status;
 import com.food.out.model.User;
 import com.food.out.utils.JsonUtils;
 
-
+ 
 public class PrivilegeInterceptor extends HandlerInterceptorAdapter {
 
 	private String notcheck;
@@ -25,11 +27,11 @@ public class PrivilegeInterceptor extends HandlerInterceptorAdapter {
 			}
 			User user = (User) request.getSession().getAttribute(Status.SYSTEM_USER_KEYWORD);
 			if (user == null) {
-				ResponseJsonResult result = new ResponseJsonResult();
-				result.setCode(Status.NEED_LOGIN);
-				result.setMessage("登录已失效，请重新登陆！");
-				JsonUtils.renderJSON(response, result);
-				return false;
+				try {
+					response.sendRedirect(contextpath+"/toLogin.html");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 			return true;
 		}

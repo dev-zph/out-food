@@ -14,6 +14,7 @@
     <result column="is_del" property="isDel" jdbcType="TINYINT" />
      <result column="is_good" property="idGood"  />
       <result column="comment" property="comment"  />
+      <result column="update_time" property="updateTime"  />
       
     <result column="nick_name" property="userName" />
     <result column="phone" property="phone" />
@@ -86,18 +87,6 @@
   <update id="updateOrder" parameterType="com.food.out.model.Order" >
     update orderform
     <set >
-      <if test="userId != null" >
-        user_id = #{userId,jdbcType=INTEGER},
-      </if>
-      <if test="shopId != null" >
-        shop_id = #{shopId,jdbcType=INTEGER},
-      </if>
-      <if test="orderNum != null" >
-        order_num = #{orderNum,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
       <if test="overTime != null" >
         over_time = #{overTime,jdbcType=TIMESTAMP},
       </if>
@@ -116,6 +105,7 @@
       <if test="comment != null and comment != ''" >
         comment = #{comment},
       </if>
+      update_time = now()
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>

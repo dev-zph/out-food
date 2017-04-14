@@ -8,7 +8,7 @@ request.setAttribute("MENU_INDEX", "storeindex");
 <head>
     <meta charset="utf-8">
     <%@ include file="../../common/init.jsp"%>
-    <title>爱养牛</title>
+    <title>陈佳_外卖系统</title>
     <!--轮播图样式-->
     <link rel="stylesheet" type="text/css" href="${ctx}/resources/styleCss/sellerSlides.css">
     <!--轮播图jq-->

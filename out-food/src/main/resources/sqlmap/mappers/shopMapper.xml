@@ -359,4 +359,8 @@
 	select * from shop order by create_time desc
 			limit 0,#{count}
 	</select>
+	
+	<select id="selectSponsorShop"  resultMap="BaseResultMap" >
+	select * from shop s left join sponsor_shop ss on ss.shop_id = s.id where ss.id is not null and ss.deleted = '0' order by ss.sponsor_mon desc
+	</select>
 </mapper>

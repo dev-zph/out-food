@@ -169,9 +169,6 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<Order> getOrderListByUserId(Query1 query) throws Exception {
 		Map<String, Object> param = new HashMap<String, Object>();
-		if (!StringUtils.isEmpty(query.getStatus())) {
-			param.put("status", Integer.valueOf(query.getStatus()));
-		}
 		param.put("isDel", Status.DELETED_NO);
 		if (!StringUtils.isEmpty(query.getStartDate())) {
 			param.put("startDate", query.getStartDate());
@@ -184,6 +181,9 @@ public class OrderServiceImpl implements OrderService {
 		}
 		if (!StringUtils.isEmpty(query.getOrderNum())) {
 			param.put("orderNum", query.getOrderNum());
+		}
+		if (!StringUtils.isEmpty(query.getStatus())) {
+			param.put("status", query.getStatus());
 		}
 		List<Order> list = orderDao.getOrders(param);
 		return list;

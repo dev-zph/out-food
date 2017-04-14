@@ -1,13 +1,21 @@
 package com.food.out.model;
 
+/**
+ * 订单和配送人员的关系表格
+ * @author 陈佳
+ * @createTime 2017年3月5日 下午12:39:44
+ *
+ */
 public class OrderSender {
     private Integer id;
 
     private Integer orderId;
+    
+    private Integer userId;
+    
+    private Integer isGood;
 
-    private Byte isGood;
-
-    private Byte isDel;
+    private Integer isDel;
 
     public Integer getId() {
         return id;
@@ -17,27 +25,60 @@ public class OrderSender {
         this.id = id;
     }
 
-    public Integer getOrderId() {
-        return orderId;
-    }
+	/**
+	 * @return the orderId
+	 */
+	public Integer getOrderId() {
+		return orderId;
+	}
 
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
-    }
+	/**
+	 * @param orderId the orderId to set
+	 */
+	public void setOrderId(Integer orderId) {
+		this.orderId = orderId;
+	}
 
-    public Byte getIsGood() {
-        return isGood;
-    }
+	/**
+	 * @return the userId
+	 */
+	public Integer getUserId() {
+		return userId;
+	}
 
-    public void setIsGood(Byte isGood) {
-        this.isGood = isGood;
-    }
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 
-    public Byte getIsDel() {
-        return isDel;
-    }
+	/**
+	 * @return the isGood
+	 */
+	public Integer getIsGood() {
+		return isGood;
+	}
 
-    public void setIsDel(Byte isDel) {
-        this.isDel = isDel;
-    }
+	/**
+	 * @param isGood the isGood to set
+	 */
+	public void setIsGood(Integer isGood) {
+		this.isGood = isGood;
+	}
+
+	/**
+	 * @return the isDel
+	 */
+	public Integer getIsDel() {
+		return isDel;
+	}
+
+	/**
+	 * @param isDel the isDel to set
+	 */
+	public void setIsDel(Integer isDel) {
+		this.isDel = isDel;
+	}
+
 }

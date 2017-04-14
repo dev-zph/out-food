@@ -13,8 +13,8 @@
 <body>
 <div class="loginPage">
     <div class="header">
-        <a href="${ctx}/home.html" title="爱养牛" target="_top">
-            <img class="ayn-logo" src="${ctx}/resources/images/login/logo.jpg">
+        <a href="${ctx}/home.html" title="陈佳_外卖系统" target="_top">
+            <img class="ayn-logo" src="${ctx}/resources/images/bigLogo.jpg">
         </a>
     </div>
     <div class="loginContent">

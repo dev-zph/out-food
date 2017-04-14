@@ -18,8 +18,10 @@ $('.submit-order').click(function() {
 		},
 		success : function(data) {
 			if(data.code=="101"){
-				alert("提交成功")
-				alert("跳转我的订单!")
+				layer.msg("提交成功", {
+					time : 2000,
+					offset : '200px'})
+			
 			}else if(data.code=="102"){
 				layer.msg(data.message, {
 				icon : 7,

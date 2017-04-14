@@ -210,11 +210,13 @@ public class ShopController extends BaseController {
 			if (StringUtils.isEmpty(shopId)) {
 				throw new ApplicationException("请选择一家店铺！");
 			}
+			Shop shop = shopService.selectByPrimaryKey(Integer.valueOf(shopId));
 			List<Item> itemList = itemService.getItemsByShopId(Integer.valueOf(shopId));
 			List<ShopItemClass>  itemClass = itemClassService.selectClassListByShopId(Integer.valueOf(shopId));
 			view.addObject("code", Status.SUCCESS);
 			view.addObject("itemList", itemList);
 			view.addObject("itemClass", itemClass);
+			view.addObject("shop", shop);
 		} catch (ApplicationException e) {
 			view.addObject("code", Status.FAIL);
 			view.addObject("message", e.getMessage());

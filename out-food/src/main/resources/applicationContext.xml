@@ -20,12 +20,12 @@
 	<import resource="classpath*:applicationContext-service.xml" />
 	<import resource="classpath*:applicationEhcahe.xml" />
 	<import resource="classpath*:dataAccessContext.xml" />
-
 	<mvc:interceptors>
-	<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
-		<bean class="com.food.out.support.PrivilegeInterceptor" >
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+		<bean class="com.food.out.support.PrivilegeInterceptor">
 			<property name="notcheck">
-					<value>/toLogin.html;/toReg.html;/Reg.html;/Login.html;/toExit.html;/valiUserName.html;/home.html;/item/getItemById.html;/shop/getItemList.html;/public/loginPage.html;</value>
+				<value>/toLogin.html;/toReg.html;/Reg.html;/Login.html;/toExit.html;/valiUserName.html;/home.html;/item/getItemById.html;/shop/getItemList.html;/public/loginPage.html;
+				</value>
 			</property>
 		</bean>
 	</mvc:interceptors>

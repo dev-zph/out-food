@@ -34,9 +34,11 @@ private static Integer GOODEST_SHOP_COUNT = 3;
 		List<Shop> mastShopList = shopService.selectOrderMastShops(MOST_SHOP_COUNT);
 		List<Shop> leastShopList = shopService.selectNewShops(LEAST_SHOP_COUNT);
 		List<Shop> goodestShopList = shopService.selectOrderGoodestShops(GOODEST_SHOP_COUNT);
+		List<Shop> sponsorList  =  shopService.selectSponsorShop();
 		view.addObject("mastShopList",mastShopList);
 		view.addObject("leastShopList",leastShopList);
 		view.addObject("goodestShopList",goodestShopList);
+		view.addObject("sponsorList",sponsorList);
 		return view;
 	}
 }

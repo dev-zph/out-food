@@ -46,7 +46,6 @@
 					<div class="bottom-header-left">
 					<ul>
 						<li><a href="${ctx}">进入首页</a></li>
-							<li><a href="#">我的订单</a></li>
 							<li><a href="${ctx}/cart/toPersonShopCart.html">我的购物车</a></li>
 							<c:if test="${shop != null}">
 								<div class="top-menu-hd">
@@ -59,12 +58,6 @@
 								</div>
 							</c:if>
 							<li><a href="${ctx}/order/getPersonOrderList.html">个人中心</a></li>
-							<div class="search-box">
-								<form>
-									<input type="text" value="店铺搜索" />
-									<input type="submit" value="" />
-								</form>
-							</div>
 							</ul>
 					</div>
 				</div>

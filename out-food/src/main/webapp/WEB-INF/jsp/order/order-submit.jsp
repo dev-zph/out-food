@@ -21,7 +21,7 @@
 	<div class="header container">
 		<div class="pay-top">
 			<div class="logo fl" style="margin-left: 0px;">
-				<img src="${ctx}/resources/images/logo.jpg" width="287" height="60" alt="爱养牛" class="fl">
+				<img src="${ctx}/resources/images/bigLogo.jpg" alt="外卖" class="fl">
 				<h1 class="fl" style="text-indent: 15px;color: #3D3C3D;text-decoration: none;font-size: 20px;font-weight: bold;margin-top: 15px;">结算页</h1>
 			</div>
 			<div class="stepflex" id="#sflex03">
@@ -94,7 +94,7 @@
 															<th class="tube-price"style="color: black;font-size:15px"">${cart.itemName}</th>
 										<th class="tube-price"style="color: black;font-size:15px">${cart.itemPrice}</th>
 										<th class="tube-amount"style="color: black;font-size:15px">${cart.buyCount}</th>
-										<th class="tube-sum"style="font-size:15px"><fmt:formatNumber value="${cart.itemPrice * cart.buyCount+itemList[0].sendMon+itemList[0].packageMon}"  type="currency"  pattern="0.00"></fmt:formatNumber></th>
+										<th class="tube-sum"style="font-size:15px"><fmt:formatNumber value="${cart.itemPrice * cart.buyCount}"  type="currency"  pattern="0.00"></fmt:formatNumber></th>
 													<div class="group">
                 		<div class="inner">
                 			<button type="submit" onclick="deleteCart(${cart.id})" >
@@ -132,29 +132,6 @@
 		</div>
 	</div>
 
-
-
-			<div style="margin-bottom: 20px;">
-				<div>
-					<div class="step-tit">
-						<h3>电子合同信息</h3>
-					</div>
-					<div class="step-content">
-						<div class="invoice-cont">
-							<div class="ht-left">
-								<input type="checkbox" id="checkbox_a1" class="chk_1"/><label for="checkbox_a1"></label>
-							</div>
-								
-							<div class="ht-left">
-								<span>我已同意《商品购买协议》</span>
-							</div>
-							<a href="${ctx}/public/purchase-agreement.html" class="ht-pdleft ht-hover xyxq" target="_blank">查看协议详情</a>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		
 	</div>
 </div>
 

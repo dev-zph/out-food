@@ -20,7 +20,7 @@
     <script src="${ctx}/resources/js/main.js"></script>
 </head>
 <body ctx="${ctx}">
-<%@ include file="../common/head1.jsp" %>
+<%@ include file="../common/head.jsp" %>
 <%@ include file="../common/seller_head.jsp" %>
 <%@ include file="../common/head_seller.jsp" %>
 <div class="content content-box clear-float">
@@ -170,7 +170,7 @@
                             orderprice="${orderDetail.orderPrice}"
                             shopid="${orderDetail.shopId}"
                             ud="${orderDetail.userId}">
-                            <label style="color:#7F7F7F"><d:order code="${orderDetail.orderStatus}"/></label>
+                            <label style="color:#7F7F7F"><d:order code="${order.status}"/></label>
                         </td>
                         <td class="text-center"
                             orderid="${orderDetail.orderId}"
@@ -188,6 +188,10 @@
                                 <button class="layui-btn layui-btn-small order-detail" status="${order.status}"
                                    id="shop-tips" onclick="orderDetail(${order.id});">订单详情</button>
                                    <button class="layui-btn layui-btn-small button-orange send-goods" style= "color:#330000;background-color:#F1F1F1;">待骑士接单</button>
+                            </c:if>
+                            <c:if test="${order.status eq 2}">
+                                <button class="layui-btn layui-btn-small order-detail" status="${order.status}"
+                                   id="shop-tips" onclick="orderDetail(${order.id});">订单详情</button>
                             </c:if>
                     </tr>
                 </table>

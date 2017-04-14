@@ -3,24 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <%@ include file="../common/init.jsp" %>
-    <link href="${ctx}/resources/css/bootstrap.css" rel='stylesheet' type='text/css' />
-		<script src="${ctx}/resources/js/jquery.min.js"></script>
-		<link href="${ctx}/resources/css/style.css" rel='stylesheet' type='text/css' />
-    <title>
-        <c:out value="${pageTitle}"/>
-    </title>
-    <link rel="stylesheet" href="${ctx}/resources/css/webBase.css"/>
-    <link rel="stylesheet" href="${ctx}/resources/css/base.css"/>
-    <%--
-    <link rel="stylesheet" href="${ctx}/resources/home/css/head.css"/><!-- DD版 --> --%>
-    <script src="${ctx}/resources/js/datepicker/WdatePicker.js"></script> <!--时间选择器 -->
-    <script src="${ctx}/resources/js/jquery-1.10.1.min.js"></script>
-    <script src="${ctx}/resources/js/main.js"></script>
-   <script src="${ctx}/resources/js/shop-apply-index.js"></script>
-   <script src="${ctx}/resources/js/pfa-base.js"></script>
-<script src="../resources/js/shop-apply-read.js"></script>
+	<meta charset="utf-8">
+	<%@ include file="../common/init.jsp" %>
+<link href="${ctx}/resources/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<script src="${ctx}/resources/js/jquery.min.js"></script>
+<link href="${ctx}/resources/css/style.css" rel='stylesheet' type='text/css' />
+	<title><c:out value="${pageTitle}"/></title>
+	<link rel="stylesheet" href="${ctx}/resources/css/base.css"/>
+	<script src="${ctx}/resources/js/main.js"></script>
+	<script src="${ctx}/resources/home/js/nav.js"></script><!-- DD版 -->
 </head>
 
 <body ctx="${ctx}">

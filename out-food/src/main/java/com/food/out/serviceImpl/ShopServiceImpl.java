@@ -117,5 +117,10 @@ public class ShopServiceImpl implements ShopService {
 		}
 		return shopList;
 	}
+	
+	@Override
+	public List<Shop> selectSponsorShop() {
+		return shopDao.selectSponsorShop();
+	}
 
 }

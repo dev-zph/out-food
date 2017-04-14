@@ -8,7 +8,7 @@ request.setAttribute("MENU_INDEX", "storeinfo");
 <head>
 <meta charset="utf-8">
 <%@ include file="../../common/init.jsp"%>
-<title>爱养牛</title>
+<title>陈佳_外卖系统</title>
 <%-- <link rel="stylesheet" type="text/css"
 	href="${ctx}/resources/template/gold/gold01/css/cssreset.css">
 <link rel="stylesheet" type="text/css"

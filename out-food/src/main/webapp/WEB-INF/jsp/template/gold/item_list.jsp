@@ -16,7 +16,7 @@ request.setAttribute("MENU_INDEX", "storeitemclass");
      <link href="${ctx}/resources/css/bootstrap.css" rel='stylesheet' type='text/css' />
 		<script src="${ctx}/resources/js/jquery.min.js"></script>
 		<link href="${ctx}/resources/css/style.css" rel='stylesheet' type='text/css' />
-    <title>爱养牛</title>
+    <title>陈佳_外卖系统</title>
     <%--
     <link rel="stylesheet" type="text/css"
           href="${ctx}/resources/template/gold/gold01/css/cssreset.css">
@@ -43,28 +43,12 @@ request.setAttribute("MENU_INDEX", "storeitemclass");
 <div class="">
     <div class="container">
         <div class="pro">
-            <!--<div class="filter">-->
-            <!--<ul class="fl">-->
-            <!--<li class="on">综合排序<i class="icon icon-fd"></i>-->
-            <!--</li>-->
-            <!--<li>人气<i class="icon icon-fd"></i>-->
-            <!--</li>-->
-            <!--<li>销量<i class="icon icon-fd"></i>-->
-            <!--</li>-->
-            <!--<li>信用<i class="icon icon-fd"></i>-->
-            <!--</li>-->
-            <!--<li><span class="fl">价格</span>-->
-            <!--<div class="pricedown fl">-->
-            <!--<i class="icon icon-pup"></i><i class="icon icon-pdown"></i>-->
-            <!--</div>-->
-            <!--</li>-->
-            <!--</ul>-->
-            <!--<div class="pricerang fl">-->
-            <!--<input name="min-price"> — <input name="max-price">-->
-            <!--</div>-->
-            <!--<div class="simplepage fr">-->
-            <!--</div>-->
-            <!--</div>-->
+            <div class="filter">
+            <ul class="fl">
+            <li class="on"><a href="${ctx}/cart/toPersonShopCart.html?shopId=${shop.id}">本店购物车</a><i class="icon icon-fd"></i>
+            </li>
+            </ul>
+            </div>
 
 <c:forEach items="${itemClass}" var="itemc" varStatus="res">
                     <div class="pro-list-sub clear-float">

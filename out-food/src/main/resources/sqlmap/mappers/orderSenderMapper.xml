@@ -1,82 +1,108 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.food.out.dao.OrderSenderDao" >
-  <resultMap id="BaseResultMap" type="com.food.out.model.OrderSender" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="order_id" property="orderId" jdbcType="INTEGER" />
-    <result column="is_good" property="isGood" jdbcType="TINYINT" />
-    <result column="is_del" property="isDel" jdbcType="TINYINT" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    id, order_id, is_good, is_del
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from order_sender
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from order_sender
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.food.out.model.OrderSender" >
-    insert into order_sender (id, order_id, is_good, 
-      is_del)
-    values (#{id,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, #{isGood,jdbcType=TINYINT}, 
-      #{isDel,jdbcType=TINYINT})
-  </insert>
-  <insert id="insertSelective" parameterType="com.food.out.model.OrderSender" >
-    insert into order_sender
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="orderId != null" >
-        order_id,
-      </if>
-      <if test="isGood != null" >
-        is_good,
-      </if>
-      <if test="isDel != null" >
-        is_del,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="orderId != null" >
-        #{orderId,jdbcType=INTEGER},
-      </if>
-      <if test="isGood != null" >
-        #{isGood,jdbcType=TINYINT},
-      </if>
-      <if test="isDel != null" >
-        #{isDel,jdbcType=TINYINT},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.food.out.model.OrderSender" >
-    update order_sender
-    <set >
-      <if test="orderId != null" >
-        order_id = #{orderId,jdbcType=INTEGER},
-      </if>
-      <if test="isGood != null" >
-        is_good = #{isGood,jdbcType=TINYINT},
-      </if>
-      <if test="isDel != null" >
-        is_del = #{isDel,jdbcType=TINYINT},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.food.out.model.OrderSender" >
-    update order_sender
-    set order_id = #{orderId,jdbcType=INTEGER},
-      is_good = #{isGood,jdbcType=TINYINT},
-      is_del = #{isDel,jdbcType=TINYINT}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+<mapper namespace="com.food.out.dao.OrderSenderDao">
+	<resultMap id="BaseResultMap" type="com.food.out.model.OrderSender">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="user_id" property="userId" jdbcType="INTEGER" />
+		<result column="order_id" property="orderId" />
+		<result column="is_good" property="isGood" jdbcType="TINYINT" />
+		<result column="is_del" property="isDel" jdbcType="TINYINT" />
+	</resultMap>
+
+	<resultMap id="OrderBeanForSenderMap"
+		type="com.food.out.model.querybeen.OrderBeanForSender">
+		<result column="order_id" property="orderId" />
+		<result column="order_num" property="orderNum" />
+		<result column="user_name" property="userName" />
+		<result column="user_address" property="userAddress" />
+		<result column="user_phone" property="userPhone" />
+		<result column="shop_name" property="shopName" />
+		<result column="shop_address" property="shopAddress" />
+		<result column="shop_phone" property="shopPhone" />
+		<result column="shop_phone" property="shopPhone" />
+		<result column="order_status" property="orderStatus" />
+		<result column="add_time" property="addTime" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, user_id,order_id, is_good, is_del
+	</sql>
+	<select id="selectByKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from orderform_sender
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+
+	<select id="getSenderOrderByOrderId" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from orderform_sender
+		where order_id = #{orderId,jdbcType=INTEGER} and is_del = 0
+	</select>
+
+	<insert id="insert" parameterType="com.food.out.model.OrderSender">
+		insert into orderform_sender
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="orderId != null">
+				order_id,
+			</if>
+			<if test="isGood != null">
+				is_good,
+			</if>
+			<if test="isDel != null">
+				is_del,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userId != null">
+				#{userId},
+			</if>
+			<if test="orderId != null and orderId!=''">
+				#{orderId},
+			</if>
+			<if test="isGood != null">
+				#{isGood},
+			</if>
+			<if test="isDel != null">
+				#{isDel},
+			</if>
+		</trim>
+	</insert>
+
+	<select id="getOrderListForSender" resultMap="OrderBeanForSenderMap" 
+		parameterType="map">
+		SELECT
+			DISTINCT u.nick_name user_name, 
+			o.address user_address, 
+			o.order_num,
+			u.phone user_phone, 
+			s.shop_name, 
+			s.address shop_address, 
+			s.contact_cell shop_phone,
+			o.status order_status,
+			o.create_time ,
+			o.id order_id
+		FROM
+		orderform o 
+		LEFT JOIN orderform_sender os ON os.order_id = o.id
+		LEFT JOIN shop s ON s.id = o.shop_id
+		LEFT JOIN USER u ON u.id = o.user_id
+		WHERE 1=1 
+		<if test="userId != null">
+			and u.id = #{userId}
+		</if>
+		<if test="status != null">
+			AND o.`status` = #{status}	
+		</if>
+		<if test="orderNum != null">
+			AND o.order_num = #{orderNum}	
+		</if>
+		AND o.is_del = 0 order by o.create_time desc 
+	</select>
+	
 </mapper>

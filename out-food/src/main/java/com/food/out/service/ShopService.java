@@ -48,5 +48,10 @@ public interface ShopService {
      * @return
      */
     List<Shop> selectOrderGoodestShops(Integer count);
-
+    
+    /**
+     * 获取赞助商家
+     * @return
+     */
+    List<Shop> selectSponsorShop();
 }

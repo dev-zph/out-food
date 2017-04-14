@@ -56,6 +56,10 @@ public class Order {
 	 * 评价信息
 	 */
 	private String comment;
+	/**
+	 * 更新时间
+	 */
+	private Date updateTime;
 	// 非持久化属性
 	private String userName;
 	private String phone;
@@ -220,6 +224,20 @@ public class Order {
 	 */
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+
+	/**
+	 * @return the updateTime
+	 */
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	/**
+	 * @param updateTime the updateTime to set
+	 */
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
 }

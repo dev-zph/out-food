@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <%@ include file="../../common/init.jsp"%>
-<title>${empty title?'爱养牛':title}壹路通商家</title>
+<title>${empty title?'陈佳_外卖系统':title}壹路通商家</title>
 <link rel="stylesheet" type="text/css"
 	href="${ctx}/resources/template/vip/vip01/css/cssreset.css">
 <link rel="stylesheet" type="text/css"

@@ -59,31 +59,24 @@
 					
 					    });
 					  </script>
-					<!----//End-slider-script---->
+					<!----//End-slider-script----> 
 					<!-- Slideshow 4 -->
 					    <div  id="top" class="callbacks_container">
 					      <ul class="rslides" id="slider4">
+					      <c:forEach items="${sponsorList}" var="sShop" varStatus="status">
 					        <li>
-					          <img class="img-responsive" src="${ctx}/resources/images/slide1.jpg" alt="">
+					        <div class="top-grid-pic">
+					          <img width="1140" height="485" onclick="toShop(${sShop.id})" src="${server}${sShop.shopLogUrl}" alt="">
+					          <span>${sShop.shopName}</span>
+					         </div>
+					         <div class="top-grid-pic-info">
+							<a  onclick="toShop(${sShop.id})">进入店铺</a>
+							</div>
 					          <div class="slider-caption">
-					          	<h1>Beautiful & durable</h1>
-					          	<p>Classically simple and beautifully elegant Hard wearing leather shoes and hand-made with heart </p>
+					          	<h1>${sShop.businessScope}</h1>
 					          </div>
 					        </li>
-					        <li>
-					          <img src="${ctx}/resources/images/slide1.jpg" alt="">
-					           <div class="slider-caption">
-					          	<h1>Beautiful & durable</h1>
-					          		<p>Classically simple and beautifully elegant Hard wearing leather shoes and hand-made with heart </p>
-					          </div>
-					        </li>
-					        <li>
-					          <img src="${ctx}/resources/images/slide1.jpg" alt="">
-					           <div class="slider-caption">
-					           	<h1>Beautiful & durable</h1>
-					           	<p>Classically simple and beautifully elegant Hard wearing leather shoes and hand-made with heart </p>
-					          </div>
-					        </li>
+					        </c:forEach>
 					      </ul>
 					    </div>
 					    <div class="clearfix"> </div>
@@ -187,7 +180,7 @@
 						       <div id="owl-demo1" class="owl-carousel text-center">
 						       <c:forEach items="${mastShopList}" var="mshop" varStatus="status">
 					                <div class="item">
-					                	<div onclick="location.href='single-page.html';" class="product-grid">
+					                	<div class="product-grid">
 											<div class="product-pic">
 												<img src="${server}${mshop.shopLogUrl}" width="224" height="200" title="Elliot Boots" />
 											</div>

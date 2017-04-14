@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>${empty title?'爱养牛':title}</title>
+	<title>${empty title?'陈佳_外卖系统':title}</title>
 	<meta charset="utf-8">
 	<%@ include file="../common/init.jsp" %>
 	<link rel="stylesheet" href="${ctx}/resources/css/reset.css"/>

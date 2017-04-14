@@ -4,25 +4,13 @@
 <head>
 	<meta charset="utf-8">
 	<%@ include file="../common/init.jsp" %>
-	
+<link href="${ctx}/resources/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<script src="${ctx}/resources/js/jquery.min.js"></script>
+<link href="${ctx}/resources/css/style.css" rel='stylesheet' type='text/css' />
 	<title><c:out value="${pageTitle}"/></title>
-	
-	 <link href="${ctx}/resources/css/bootstrap.css" rel='stylesheet' type='text/css' />
-	<script src="${ctx}/resources/js/jquery.min.js"></script>
-	<link href="${ctx}/resources/css/style.css" rel='stylesheet' type='text/css' />
-	<link rel="stylesheet" href="../resources/css/base.css"/>
-	<link rel="stylesheet" href="../resources/css/jquery.fileupload.css"/>
-	<script src="../resources/js/main.js"></script>
-	<script src="../resources/js/pfa-base.js"></script>
-	<script src="../resources/js/jquery.ui.widget.js"></script>
-	<script src="../resources/js/jquery.iframe-transport.js"></script>
-	<script src="../resources/js/jquery.fileupload.js"></script>
-	<script src="../resources/js/jquery.fileupload-process.js"></script>
-	<script src="../resources/js/jquery.fileupload-validate.js"></script>
-	<script src="${ctx}/resources/js/datepicker/WdatePicker.js"></script> 
-<%-- 	<script charset="utf-8" src="${ctx}/resources/kindeditor/kindeditor.js"></script>
-	<script charset="utf-8" src="${ctx}/resources/kindeditor/lang/zh_CN.js"></script>
-	<script charset="utf-8" src="${ctx}/resources/kindeditor/plugins/code/prettify.js"></script> --%>
+	<link rel="stylesheet" href="${ctx}/resources/css/base.css"/>
+	<script src="${ctx}/resources/js/main.js"></script>
+	<script src="${ctx}/resources/home/js/nav.js"></script><!-- DD版 -->
 </head>
 <body ctx="${ctx}">
 	<%@ include file="../common/head1.jsp" %>
