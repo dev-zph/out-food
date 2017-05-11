@@ -70,7 +70,7 @@
                            placeholder="请输入验证码">
                 </div>
                 <div class="layui-form-mid layui-word-aux" style="padding: 2px 0;">
-                    <img id="code-Img" alt="验证码" src="/out-food/code.html" onclick="changCode()">
+                    <img id="code-Img" alt="验证码" src="${ctx}/code.html" onclick="changCode()">
                 </div>
             </div>
 <!--             <div class="layui-form-item"> -->

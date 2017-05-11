@@ -24,7 +24,7 @@
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
 		<bean class="com.food.out.support.PrivilegeInterceptor">
 			<property name="notcheck">
-				<value>/toLogin.html;/toReg.html;/Reg.html;/Login.html;/toExit.html;/valiUserName.html;/home.html;/item/getItemById.html;/shop/getItemList.html;/public/loginPage.html;
+				<value>/toLogin.html;/toReg.html;/Reg.html;/Login.html;/toExit.html;/valiUserName.html;/home.html;/item/getItemById.html;/shop/getItemList.html;/public/loginPage.html;/code.html:
 				</value>
 			</property>
 		</bean>

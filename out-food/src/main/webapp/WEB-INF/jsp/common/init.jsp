@@ -6,7 +6,7 @@
 <%-- <%@ taglib uri="/tags/fn" prefix="fn"%> --%>
 <%-- <%@ taglib uri="/tags/d" prefix="d" %> --%>
 <c:set value="<%=request.getContextPath() %>" var="ctx" scope="session" />
-<c:set value="http://16y63440o2.51mypc.cn/" var="server" scope="session" />
+<c:set value="http://localhost/" var="server" scope="session" />
 <c:set value="zph_校园订餐平台" var="pageTitle" />
 <c:set value="zph_校园订餐平台" var="title" />
 <meta name="keywords" content="校园订餐">
