@@ -128,6 +128,9 @@
   	<if test="userId != null and userId != ''" >
   		c.user_id = #{userId} and 
   	</if>
+  	<if test="shopId != null and shopId != ''" >
+  		c.shop_id = #{shopId} and 
+  	</if>
   	<if test="deleted != null" >
   		c.deleted = #{deleted} and 
   	</if>
@@ -146,6 +149,9 @@
   <trim prefix="where" suffixOverrides="and">
   	<if test="userId != null and userId != ''" >
   		c.user_id = #{userId} and 
+  	</if>
+  	<if test="shopId != null and shopId != ''" >
+  		c.shop_id = #{shopId} and 
   	</if>
   	<if test="deleted != null" >
   		c.deleted = #{deleted} and 

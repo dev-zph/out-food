@@ -62,6 +62,9 @@
 			<if test="address != null">
 				address,
 			</if>
+			<if test="orderPrice != null">
+				order_price,
+			</if>
 			create_time,
 			is_del
 		)values(
@@ -80,8 +83,11 @@
 			<if test="address != null">
 				#{address},
 			</if>
+			<if test="orderPrice != null">
+				#{orderPrice},
+			</if>
 			now(),
-			#{isDel}
+			0
 		)
 	</insert>
   <update id="updateOrder" parameterType="com.food.out.model.Order" >

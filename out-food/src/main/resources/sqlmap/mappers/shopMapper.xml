@@ -40,7 +40,7 @@
 		select
 		<include refid="Base_Column_List" />
 		from shop
-		where id = #{id,jdbcType=INTEGER}
+		where id = #{id,jdbcType=INTEGER} and is_del = 0 
 	</select>
 	<select id="selectShopByUserId" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">

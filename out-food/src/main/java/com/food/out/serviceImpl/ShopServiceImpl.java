@@ -47,7 +47,7 @@ public class ShopServiceImpl implements ShopService {
 	@Override
 	public Shop selectByPrimaryKey(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return shopDao.selectByPrimaryKey(id);
 	}
 
 	@Override

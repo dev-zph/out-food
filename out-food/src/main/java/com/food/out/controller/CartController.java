@@ -65,6 +65,9 @@ public class CartController extends BaseController {
 				throw new ApplicationException("验证信息不全，未接收到数据!");
 			}
 			User user = this.getSessionUser(request);
+			if(null == user) {
+				throw new ApplicationException("登入失效，请重新登入!");
+			}
 			Integer userId = user.getId();
 			InsertCart param = new InsertCart();
 			param.setAddCount(Integer.valueOf(addCount));

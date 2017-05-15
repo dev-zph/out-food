@@ -48,7 +48,6 @@
 			<div class="bottom-header-left">
 				<ul>
 					<li><a href="${ctx}">进入首页</a></li>
-					<li><a href="${ctx}/cart/toPersonShopCart.html">我的购物车</a></li>
 					<c:if test="${shop != null}">
 						<div class="top-menu-hd">
 							<a href="${ctx}/item/get/1.html"

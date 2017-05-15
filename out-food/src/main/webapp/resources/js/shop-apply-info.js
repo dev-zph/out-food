@@ -65,9 +65,9 @@ $(function($) {
             info.shopName = $("#shopName").val();//店铺名字
             info.shopLogUrl = $('#shopLogUrl').attr('file-filename');//	店铺logo	
             info.shopType = $(".selector").val();
-            info.leastMon = $("#leastMon").val();//最低起送价
-            info.sendMon = $("#sendMon").val();//配送费
-            info.packageMon = $("#packageMon").val();//配送费
+            info.leastMon = parseFloat($("#leastMon").val());//最低起送价
+            info.sendMon = parseFloat($("#sendMon").val());//配送费
+            info.packageMon = parseFloat($("#packageMon").val());//配送费
             info.businessScope = $("#businessScope").val();//店铺简介
             info.licenseUrl = $('#licenseUrl').attr('file-filename');//	营业执照
             info.licenseNum = $("#licenseNum").val();//营业执照号contactCell
@@ -107,7 +107,7 @@ $(function($) {
                     if(data){
                         var result = data.data || 'fail';
                         if(result == 'success'){
-                            layer.msg('提交成功！',{icon:2});
+                            layer.msg('提交成功！',{icon:1});
                             if(info.next == 'next'){
                                 location.href = $.pfa.hostName+__url.view_verify;
                             }
