@@ -124,9 +124,6 @@ function addCartItem(itemId,shopId) {
 			shopId : shopId
 		},
 	    dataType: 'json',
-	    error:function(){
-			layer.msg("请求网络失败,请重试！",{icon:7});
-		},
 		success:function(data){
 			if(data.code=="101"){alert(data.message);}
 			else if(data.code=="102"){alert(data.message);}

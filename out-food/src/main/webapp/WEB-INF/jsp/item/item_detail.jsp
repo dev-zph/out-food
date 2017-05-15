@@ -13,22 +13,7 @@
 		 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	</head>
 	<body>
-<%@ include file="../common/head.jsp" %>
-		<div class="top-nav">
-			<div class="container">
-				<span class="menu"> </span>
-				<ul>
-					<li class="active"><a href="index.html">Home<span> </span></a></li>
-					<li><a href="collections.html">Collections<span> </span></a></li>
-					<li><a href="404.html">New Arrivals<span> </span></a></li>
-					<li><a href="404.html">Sale<span> </span></a></li>
-					<li><a href="404.html">Accessories<span> </span></a></li>
-					<li><a href="about.html">About Us<span> </span></a></li>
-					<li><a href="contact.html">Contact Us<span> </span></a></li>
-					<div class="clearfix"> </div>
-				</ul>
-			</div>
-		</div>
+<%@ include file="../common/head1.jsp" %>
 		<!--- top-nav -->
 		<!-- script-for-nav -->
 		<script>
@@ -116,24 +101,12 @@
                                 </dl>
 							</ul>
 							<input type="button" value="添加至购物车" onclick="addCartItem()">
-							<ul class="product-share">
-								<h3>All so Share On</h3>
-								<ul>
-									<li><a class="share-face" href="#"><span> </span> </a></li>
-									<li><a class="share-twitter" href="#"><span> </span> </a></li>
-									<li><a class="share-google" href="#"><span> </span> </a></li>
-									<li><a class="share-rss" href="#"><span> </span> </a></li>
-									<div class="clearfix"> </div>
-								</ul>
-							</ul>
 						</div>
 					</div>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
-				<div class="details-right">
 					
-				</div>
 				<div class="clearfix"> </div>
 			</div>
 			<!---//End-product-details--->
@@ -142,79 +115,8 @@
 		</div>
 		<!-- /Product-Details-page -->
 		<!-- footer -->
-		<div class="footer">
-			<div class="container">
-				<div class="footer-grids">
-					<div class="col-md-3 footer-grid">
-						<h3>Information</h3>
-						<ul>
-							<li><a href="about.html">About Us</a></li>
-							<li><a href="#">Return</a></li>
-							<li><a href="#">Delivery Information</a></li>
-							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Terms & Conditions</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3 footer-grid">
-						<h3>Extras</h3>
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="collections.html">Collections</a></li>
-							<li><a href="404.html">New Arrivals</a></li>
-							<li><a href="404.html">Sale</a></li>
-							<li><a href="404.html">Accessories</a></li>
-							<li><a href="about.html">About Us</a></li>
-							<li><a href="contact.html">Contact Us</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3 footer-grid testmonial">
-						<h3>Testimonials</h3>
-						<div class="testmonial-grid">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-							<a href="#">John Smith,<span>Occupation</span></a>
-						</div>
-						<div class="clearfix"> </div>
-						<div class="testmonial-grid">
-							<p>In reprehenderit in voluptate velit esse cillum.</p>
-							<a href="#">John Smith,<span>Occupation</span></a>
-						</div>
-					</div>
-					<div class="col-md-3 footer-grid about-grid">
-						<h3>About Us</h3>
-						<p>Aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<!-- social-icons -->
-				<div class="social-icons text-center">
-					<ul>
-						<li><a href="#"><span class="facebook"> </span></a></li>
-						<li><a href="#"><span class="twitter"> </span></a></li>
-						<li><a href="#"><span class="gpluse"> </span></a></li>
-						<li><a href="#"><span class="pin"> </span></a></li>
-						<li><a href="#"><span class="ens"> </span></a></li>
-						<li><a href="#"><span class="you"> </span></a></li>
-					</ul>
-				</div>
-				<!-- social-icons -->
-				<!-- footer-bottom -->
-				<div class="footer-bottom">
-					<div class="footer-bottom-left">
-						<p>Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
-					</div>
-					<div class="footer-bottom-right">
-						<ul>
-							<li><span class="visa"> </span></li>
-							<li><span class="master"> </span></li>
-							<li><span class="paypla"> </span></li>
-							<li><span class="ami"> </span></li>
-						</ul>
-					</div>
-					<div class="clearfix"> </div>
-					<!-- footer-bottom -->
-				</div>
-			</div>
-		</div>
+	<!-- 底部信息 -->
+<%@ include file="../common/footer.jsp" %>
 		<!-- footer -->
 		<!-- container -->
 		<script src="${ctx}/resources/js/item/item_detail.js"></script>
