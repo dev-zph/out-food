@@ -205,18 +205,6 @@
 					</div>
 				</div>
 				</div>
-				<div class="col-md-3 bottom-grids-right">
-					<h2>意见箱</h2>
-					<p>投出你宝贵的意见，我们将会认真查阅，共同努力，更好的服务！.</p>
-					<form>
-						<input type="text" class="text" value="Type your email address ..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type your email address ...';}">
-						<input type="submit" value="" />
-					</form>
-					<div class="shhiping text-center">
-						<h2>平台总交易额</h2>
-						<a href="#"><img src="${ctx}/resources/images/offer-pic.png" title="￥23421.12" /></a>
-					</div>
-				</div>
 				<div class="clearfix"> </div>
 			</div>
 		</div>
