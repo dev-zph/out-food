@@ -5,6 +5,9 @@
 	<meta charset="utf-8">
 	<%@ include file="../common/init.jsp" %>
 	<title><c:out value="${pageTitle}"/></title>
+	<link href="${ctx}/resources/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<script src="${ctx}/resources/js/jquery.min.js"></script>
+<link href="${ctx}/resources/css/style.css" rel='stylesheet' type='text/css' />
 	<link rel="stylesheet" href="../resources/css/base.css"/>
 	<script src="../resources/js/main.js"></script>
 	<script src="../resources/js/pfa-base.js"></script>

@@ -17,7 +17,6 @@ $(function($) {
                                 var result = data.data || 'fail',
                                     message = data.message || '';
                                 if(result == 'success'){
-                                	alert("1");
                                     //跳转到消息完善页
                                     location.href = $.pfa.hostName+__url.view_info;
                                 }else if(message == 'exists'){

@@ -81,7 +81,7 @@ public class ShopController extends BaseController {
 			}
 		}
 		String realView = VIEW_TABLE.get("apply_" + view);
-		if (StringUtils.isEmpty(realView)) {
+ 		if (StringUtils.isEmpty(realView)) {
 			realView = VIEW_TABLE.get("404");
 		}
 		ModelAndView mav = new ModelAndView(realView);

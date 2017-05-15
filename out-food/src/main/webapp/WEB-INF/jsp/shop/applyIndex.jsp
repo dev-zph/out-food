@@ -12,6 +12,8 @@
 	<link rel="stylesheet" href="${ctx}/resources/css/base.css"/>
 	<script src="${ctx}/resources/js/main.js"></script>
 	<script src="${ctx}/resources/home/js/nav.js"></script><!-- DD版 -->
+	<script src="${ctx}/resources/js/shop-apply-index.js"></script>
+	<script src="${ctx}/resources/js/pfa-base.js"></script>
 </head>
 <body ctx="${ctx}">
 <%@ include file="../common/head1.jsp"%>
