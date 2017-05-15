@@ -228,4 +228,26 @@ public class ShopController extends BaseController {
 		}
 		return view;
 	}
+	
+	/**
+	 * 获取所有的店铺列表
+	 * 
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping(value = { "shop/getShopList" })
+	public ModelAndView getShopList (HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView view = new ModelAndView("template/gold/shop_list");
+		try{
+			List<Shop> shopList = shopService.selectAllShops();
+			view.addObject("code", Status.SUCCESS);
+			view.addObject("shopList", shopList);
+		} catch (Exception e) {
+			view.addObject("code", Status.FAIL);
+			view.addObject("message", "数据获取失败!");
+			log.error(e);
+		}
+		return view;
+	}
 }

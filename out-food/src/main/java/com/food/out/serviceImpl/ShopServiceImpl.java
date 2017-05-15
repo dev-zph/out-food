@@ -123,4 +123,9 @@ public class ShopServiceImpl implements ShopService {
 		return shopDao.selectSponsorShop();
 	}
 
+	@Override
+	public List<Shop> selectAllShops() {
+		return shopDao.selectAllShops();
+	}
+
 }

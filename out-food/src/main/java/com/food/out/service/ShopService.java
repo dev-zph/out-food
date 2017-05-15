@@ -54,4 +54,9 @@ public interface ShopService {
      * @return
      */
     List<Shop> selectSponsorShop();
+    
+    /**
+     * 获取所有的店铺列表
+     */
+    List<Shop> selectAllShops();
 }

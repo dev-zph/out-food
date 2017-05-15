@@ -44,8 +44,8 @@
                             </div>
                         </div>
                         <div class="loginTops">
-                            <a href="${ctx}/toFindPwd.html" class="forget-pwd" target="_blank">
-                                忘记密码</a>
+<%--                             <a href="${ctx}/toFindPwd.html" class="forget-pwd" target="_blank"> --%>
+<!--                                 忘记密码</a> -->
                             <a href="${ctx}/toReg.html" class="register" target="_blank">免费注册</a>
                         </div>
                     </form>

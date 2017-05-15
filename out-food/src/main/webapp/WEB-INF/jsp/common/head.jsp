@@ -66,6 +66,7 @@
 							<c:if test='${user ne null}'></c:if>>去接单</a>
 					</div>
 					<li><a href="${ctx}/order/getPersonOrderList.html">个人中心</a></li>
+					<li><a href="${ctx}/shop/getShopList.html">店铺列表</a></li>
 				</ul>
 			</div>
 		</div>

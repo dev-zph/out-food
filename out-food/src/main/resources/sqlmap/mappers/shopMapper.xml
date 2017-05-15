@@ -352,7 +352,7 @@
 				open="(" separator="," close=")">
 				#{item}
 			</foreach>
-			GROUP BY s.id desc
+			GROUP BY s.id order by count(*) desc
 	</select>
 	
 	<select id="selectNewShops"  resultMap="BaseResultMap" parameterType="int">
@@ -362,5 +362,10 @@
 	
 	<select id="selectSponsorShop"  resultMap="BaseResultMap" >
 	select * from shop s left join sponsor_shop ss on ss.shop_id = s.id where ss.id is not null and ss.deleted = '0' order by ss.sponsor_mon desc
+	</select>
+	
+	
+	<select id="selectAllShops"  resultMap="BaseResultMap" >
+	select * from shop s where s.is_del = 0 order by s.create_time desc 
 	</select>
 </mapper>
