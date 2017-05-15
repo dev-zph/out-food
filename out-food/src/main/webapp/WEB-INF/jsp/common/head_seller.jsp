@@ -12,12 +12,6 @@
 				</c:if>
 			</li>
 			<li>
-				<c:if test="${empty shopStatus}">
-					<a href="javascript:;">进入商铺</a>
-				</c:if>
-				<c:if test="${!empty shopStatus}">
-					<a href="${ctx}/order/getStore.html" target="_black">进入商铺</a>
-				</c:if>
 			</li>
 		</ul>
 	</div>

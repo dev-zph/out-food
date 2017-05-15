@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.alibaba.fastjson.JSON;
 import com.food.out.common.Constants;
 import com.food.out.common.Status;
+import com.food.out.exception.ApplicationException;
 import com.food.out.model.Shop;
 import com.food.out.model.User;
 import com.food.out.service.CartItemService;
@@ -75,7 +76,11 @@ public class UserController {
 						pwd = EncryptMD5.getMD5(pwd);
 						user.setPwd(pwd);
 						if (userService.insert(user)) {
-							request.getSession().setAttribute(Status.SYSTEM_USER_KEYWORD, user);
+							List<User> lists  = userService.selectByUserName(userName);
+							if(lists==null || lists.size()==0){
+								throw new ApplicationException("注册失败!");
+							}
+							request.getSession().setAttribute(Status.SYSTEM_USER_KEYWORD, lists.get(0));
 							result = Status.SUCCESS;
 						}
 					} else {

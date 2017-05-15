@@ -69,9 +69,7 @@
       <if test="status != null" >
         status,
       </if>
-      <if test="creatTime != null" >
         creat_time,
-      </if>
       <if test="updateTime != null" >
         update_time,
       </if>
@@ -110,9 +108,7 @@
       <if test="status != null" >
         #{status,jdbcType=CHAR},
       </if>
-      <if test="creatTime != null" >
-        #{creatTime,jdbcType=TIMESTAMP},
-      </if>
+        now(),
       <if test="updateTime != null" >
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
