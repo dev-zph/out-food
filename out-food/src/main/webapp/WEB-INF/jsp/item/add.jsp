@@ -110,6 +110,10 @@
                             		var dayStock = $.trim($("#dayStock").val());
                             		var itemImg = $('#itemImg').attr('file-filename');
                             		var itemPrice = $.trim($("#itemPrice").val());
+                            		if(shopItemClassId=="") {
+                            			alert("请选择一个分类!");
+                            			return false ;
+                            		}
                             		var params = {
                             			itemName : itemName,
                             			shopItemClassId : shopItemClassId,

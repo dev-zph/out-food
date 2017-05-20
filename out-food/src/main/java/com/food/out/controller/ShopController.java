@@ -55,7 +55,7 @@ public class ShopController extends BaseController {
 			@PathVariable(value = "view") String view) throws Exception {
 		User user = getSessionUser(request);
 		if (null == user) {
-			return new ModelAndView("redirect:/toLogin.html");
+			return new ModelAndView("login");
 		}
 		// 根据店铺状态，判断是否可进对应page
 		String userId = String.valueOf(user.getId());// 获取当前用户id

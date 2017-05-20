@@ -21,7 +21,6 @@ $('.submit-order').click(function() {
 				layer.msg("提交成功", {
 					time : 2000,
 					offset : '200px'})
-					alert("1");
 					location.reload();
 			}else if(data.code=="102"){
 				layer.msg(data.message, {

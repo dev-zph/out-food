@@ -106,6 +106,7 @@
                             				if(data.code == "101"){
                             	                        layer.msg('添加成功！', {icon: 1,time: 2000}, function(index){
                             	                         // window.location.href = $('body').attr('ref') + "/item/toAdd.html";
+                            	                        	$("#classifyName").val("");
                             	                        });
                             					
                             				}else if(data.code == "205"){

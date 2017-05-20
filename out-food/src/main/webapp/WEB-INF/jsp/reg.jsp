@@ -37,7 +37,7 @@
                             class="layui-icon"></i></div>
                 </div>
                 <div class="layui-form-mid layui-word-aux">
-                    <a href="${ctx}/item/two.html" target="_blank">《用户注册协议》</a>
+<%--                     <a href="${ctx}/item/two.html" target="_blank">《用户注册协议》</a> --%>
                 </div>
             </div>
             <div class="buttonStep">

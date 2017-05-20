@@ -132,7 +132,7 @@
 						       <div id="owl-demo" class="owl-carousel text-center">
 						       <c:forEach items="${leastShopList}" var="lshop" varStatus="status">
 					                <div class="item">
-					                	<div onclick="location.href='single-page.html';" class="product-grid">
+					                	<div class="product-grid">
 											<div class="product-pic">
 												<img src="${server}${lshop.shopLogUrl}" width="224" height="200" title="Elliot Boots" />
 											</div>
