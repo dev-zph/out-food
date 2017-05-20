@@ -3,7 +3,7 @@
 	<h4 class="sidebar-title"><i class="off"></i>店铺管理</h4>
 	<ul>
 		<li><a href="${ctx}/navigate_apply/index.html">我要开店</a></li>
-		<li><a href="${ctx}/shopClassify/toList.html">商品分类</a></li>
+		<li><a href="${ctx}/item/toAddClassify.html">商品分类</a></li>
 		 <!--<li><a href="${ctx}/shop/toBanner.html">店铺广告</a></li>-->
 	</ul>
 
