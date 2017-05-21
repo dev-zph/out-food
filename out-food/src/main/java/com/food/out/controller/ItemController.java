@@ -58,6 +58,47 @@ public class ItemController {
 		model.addObject("classList", classList);
 		return model;
 	}
+	@RequestMapping("toAddClassify")
+	public ModelAndView toAddClassify(HttpServletRequest request, HttpServletResponse response) {
+		User user = (User) request.getSession().getAttribute(Status.SYSTEM_USER_KEYWORD);
+		if (StringUtils.isEmpty(user)) {
+			return new ModelAndView("redirect://toLogin.html");
+		}
+		ModelAndView model = new ModelAndView("item/addItemClassify");
+		return model;
+	}
+	@RequestMapping("addClassify")
+	public void addClassify(HttpServletRequest request, HttpServletResponse response) {
+		ResponseJsonResult result = new ResponseJsonResult();
+		try{
+		User user = (User) request.getSession().getAttribute(Status.SYSTEM_USER_KEYWORD);
+		if (StringUtils.isEmpty(user)) {
+			throw new ApplicationException("登入失效，请重新登入!");
+		}
+		String classifyName = request.getParameter("classifyName");
+		if("".endsWith(classifyName)) {
+			throw new ApplicationException("请输入你要添加的分类名称!");
+		}		
+		List<Shop> shopList = shopService.selectListByUserId(user.getId().toString(),0,"0");
+		if(null == shopList|| 0 == shopList.size()) {
+			throw new ApplicationException("未获取到您的店铺信息!");
+		}
+		Integer shopId = shopList.get(0).getId();
+		ShopItemClass classify = new ShopItemClass();
+		classify.setClassName(classifyName);
+		classify.setShopId(shopId);
+		shopItemClassService.insert(classify);
+		result.setCode(Status.SUCCESS);
+		} catch(ApplicationException e) {
+			result.setCode(Status.FAIL);
+			result.setMessage(e.getMessage());
+		} catch(Exception e) {
+			result.setCode(Status.FAIL);
+			result.setMessage("添加失败!");
+			log.error("item/addItem.json---Exception: " + e.getMessage());
+		}
+		JsonUtils.render(response, JSONObject.toJSONString(result), Status.JSON_TYPE);
+	}
 
 	@RequestMapping("addItem")
 	public void addItem(HttpServletRequest request, HttpServletResponse response) {
@@ -113,7 +154,7 @@ public class ItemController {
 			String itemName = request.getParameter("itemName");
 			Shop shop = (Shop) request.getSession().getAttribute(Status.SYSTEM_SHOP_KEYWORD);
 			if (shop == null) {
-				throw new ApplicationException(Status.SHOP_NOT_FOUND);
+				response.sendRedirect(request.getContextPath()+"/toLogin.html");
 			}
 			String shopId = String.valueOf(shop.getId());
 			String pageNo = request.getParameter("pageNo");

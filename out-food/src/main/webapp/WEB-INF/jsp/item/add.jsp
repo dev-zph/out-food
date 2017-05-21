@@ -41,7 +41,7 @@
                                 </p>
                                 <div class="box-content">
                                     <div class="upload-pro">
-                                        <font style="color: red">(提醒：刷新页面会丢失已填写的内容,城市不选默认是全国)</font>
+                                        <font style="color: red"></font>
                                         <p>
                                             <label><font style="color: red">*</font>商品名称:</label>
                                             <input id="name" type="text" />
@@ -110,6 +110,10 @@
                             		var dayStock = $.trim($("#dayStock").val());
                             		var itemImg = $('#itemImg').attr('file-filename');
                             		var itemPrice = $.trim($("#itemPrice").val());
+                            		if(shopItemClassId=="") {
+                            			alert("请选择一个分类!");
+                            			return false ;
+                            		}
                             		var params = {
                             			itemName : itemName,
                             			shopItemClassId : shopItemClassId,

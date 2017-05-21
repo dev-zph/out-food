@@ -23,7 +23,7 @@ public class ShopItemClassServiceImpl implements ShopItemClassService{
 	@Override
 	public int insert(ShopItemClass record) {
 		// TODO Auto-generated method stub
-		return 0;
+		return shopItemClassDao.insert(record);
 	}
 
 	@Override

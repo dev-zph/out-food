@@ -114,10 +114,6 @@
 						</div>
 						<div class="pure-u-1 pure-u-md-1-8" style="width: auto;">
 							<label>&nbsp;</label>
-							<button
-								class="listOrderExport layui-btn layui-btn-small button-orange"
-								style="margin-left: 20px;" target="_blank" shop="true">批量导出
-							</button>
 						</div>
 					</div>
 				</fieldset>
@@ -169,8 +165,7 @@
 								style="color: #CC2433">${order.orderNum}</label></td>
 							<td style="text-align: center;" class="border-right"><fmt:formatDate
 									value="${order.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
-							<td class="text-center border-right"><label>${order.userName}</label><br />
-								<label>${order.phone}</label></td>
+							<td class="text-center border-right"><label>${order.userName}</label><br/>
 
 							<td class="text-center border-right"><label
 								style="color: #CC2433; font-weight: 700;">￥${order.orderPrice}</label><br />

@@ -105,7 +105,6 @@ request.setAttribute("MENU_INDEX", "storeitemclass");
                     </div>
             </c:forEach>
         </div>
-        <%@ include file="../../template/gold/bottom_gold01.jsp" %>
     </div>
 </div>
 

@@ -22,10 +22,10 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.food.out.model.ShopItemClass" >
-    insert into shop_item_class (id, shop_id, class_name, 
+    insert into shop_item_class (shop_id, class_name, 
       sort, creat_time)
-    values (#{id,jdbcType=INTEGER}, #{shopId,jdbcType=INTEGER}, #{className,jdbcType=VARCHAR}, 
-      #{sort,jdbcType=INTEGER}, #{creatTime,jdbcType=TIMESTAMP})
+    values (#{shopId,jdbcType=INTEGER}, #{className,jdbcType=VARCHAR}, 
+      #{sort,jdbcType=INTEGER}, now())
   </insert>
   <insert id="insertSelective" parameterType="com.food.out.model.ShopItemClass" >
     insert into shop_item_class
