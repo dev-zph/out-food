@@ -323,8 +323,9 @@
 				contact_cell = #{contactCell},
 			</if>
 			<if test="contactUrl != null">
-				contact_url = #{contactUrl}
+				contact_url = #{contactUrl},
 			</if>
+			update_time = now() 
 			where id = #{id,jdbcType=INTEGER}
 		</set>
 	</update>
