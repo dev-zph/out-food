@@ -58,7 +58,6 @@ public class ShopServiceImpl implements ShopService {
 
 	@Override
 	public int updateByPrimaryKey(Shop record) {
-		// TODO Auto-generated method stub
 		return shopDao.updateByPrimaryKey(record);
 	}
 

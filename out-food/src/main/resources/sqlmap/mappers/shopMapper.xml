@@ -71,7 +71,7 @@
 		,#{contactUrl},now(),now()
 		)
 	</insert>
-	<insert id="insertSelective" parameterType="com.food.out.model.Shop">
+	<insert id="insertSelective" parameterType="com.food.out.model.Shop" useGeneratedKeys="true" keyProperty="id">
 		insert into shop
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -323,7 +323,10 @@
 				contact_cell = #{contactCell},
 			</if>
 			<if test="contactUrl != null">
-				contact_url = #{contactUrl}
+				contact_url = #{contactUrl},
+			</if>
+			<if test="shopName != null and shopName != ''">
+				address = #{shopName}
 			</if>
 			where id = #{id,jdbcType=INTEGER}
 		</set>

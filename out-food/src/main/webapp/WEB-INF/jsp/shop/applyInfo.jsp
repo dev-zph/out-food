@@ -91,9 +91,16 @@
 							    </span>
 							    <span class="fileupload-process"></span>
 							</p>
+							
 							<p>
 								<label>营业执照号:</label>
 								<input id="licenseNum" type="text" maxlength="50"/>
+							</p>
+							<div style="margin-bottom:20px;"> <font color="red" style="margin-left: 20px;">以下地址是外卖配送地址，请一定要准确填写!</font>
+							</div>
+							<p>
+								<label>店铺地址:</label>
+								<input id="shopAddress" type="text" maxlength="50"/>
 							</p>
 						</div>
 </div>

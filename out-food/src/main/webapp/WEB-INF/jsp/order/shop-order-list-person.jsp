@@ -186,9 +186,6 @@
 									<button class="layui-btn layui-btn-small order-detail"
 										status="${order.status}" id="shop-tips"
 										onclick="orderDetail(${order.id});">订单详情</button>
-									<button class="layui-btn layui-btn-small order-detail"
-										status="${order.status}" id="shop-tips"
-										onclick="orderDetail(${order.id});">取消订单</button>
 								</c:if> <c:if test="${order.status eq 2}">
 									<button class="layui-btn layui-btn-small order-detail"
 										status="${order.status}" id="shop-tips"

@@ -71,6 +71,7 @@ $(function($) {
             info.businessScope = $("#businessScope").val();//店铺简介
             info.licenseUrl = $('#licenseUrl').attr('file-filename');//	营业执照
             info.licenseNum = $("#licenseNum").val();//营业执照号contactCell
+            info.shopAddress = $("#shopAddress").val();//营业执照号contactCell
             info.contactName = $("#contactName").val();//店铺联系人
             info.contactCell = $("#contactCell").val();
             info.contactUrl = $("#contactUrl").attr('file-filename');//身份证信息
@@ -96,6 +97,10 @@ $(function($) {
             }
             if(info.contactUrl==''){
                 layer.msg('请上传联系人身份证！',{icon:3,time:2000}, function(){});
+                return;
+            }
+            if(info.shopAddress==''){
+                layer.msg('请填写您的店铺地址!！',{icon:3,time:2000}, function(){});
                 return;
             }
             //提交

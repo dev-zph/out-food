@@ -157,8 +157,8 @@
                             <fmt:formatDate value="${order.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
                         </td>
                         <td class="text-center border-right">
-                            <label>${order.userName}</label><br/>
-                            <label>${order.phone}</label>
+                            <label>用户名:${order.userName}</label><br/>
+                            <label>联系电话:${order.phone}</label>
                         </td>
 
                         <td class="text-center border-right">

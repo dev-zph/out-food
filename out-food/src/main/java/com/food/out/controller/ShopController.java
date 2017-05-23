@@ -145,6 +145,7 @@ public class ShopController extends BaseController {
 				List<Shop> shops = shopService.selectListByUserId(userId, null, Status.DELETED_NO);
 				if (CollectionUtils.isEmpty(shops)) {
 					shopService.insert(shop);
+					request.getSession().setAttribute(Status.SYSTEM_SHOP_KEYWORD, shop);
 					data.put("data", "success");
 				} else {
 					data.put("message", "exists");

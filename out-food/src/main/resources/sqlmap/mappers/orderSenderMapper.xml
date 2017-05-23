@@ -57,6 +57,7 @@
 			<if test="isDel != null">
 				is_del,
 			</if>
+			add_time
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="userId != null">
@@ -71,6 +72,7 @@
 			<if test="isDel != null">
 				#{isDel},
 			</if>
+			now()
 		</trim>
 	</insert>
 
@@ -94,7 +96,7 @@
 		LEFT JOIN USER u ON u.id = o.user_id
 		WHERE 1=1 
 		<if test="userId != null">
-			and u.id = #{userId}
+			and os.user_id = #{userId}
 		</if>
 		<if test="status != null">
 			AND o.`status` = #{status}	

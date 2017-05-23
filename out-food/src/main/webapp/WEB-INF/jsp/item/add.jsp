@@ -135,7 +135,7 @@
                             	                        layer.msg('添加成功！', {icon: 1,time: 2000}, function(index){
                             	                         // window.location.href = $('body').attr('ref') + "/item/toAdd.html";
                             	                        });
-                            					
+                            	                        location.reload();
                             				}else if(data.code == "205"){
                             	                        layer.msg('登录过期，需重新登录!', {icon: 2,time: 2000}, function(index){
                             	                         window.location.href = $('body').attr('ref') + "/toLogin.html";
