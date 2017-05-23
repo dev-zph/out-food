@@ -49,6 +49,8 @@ public class Shop {
     private String contactUrl;
     
     private Integer orderCount;
+    
+    private String address;
 
     public Integer getId() {
         return id;
@@ -258,6 +260,20 @@ public class Shop {
 	 */
 	public void setOrderCount(Integer orderCount) {
 		this.orderCount = orderCount;
+	}
+
+	/**
+	 * @return the address
+	 */
+	public String getAddress() {
+		return address;
+	}
+
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(String address) {
+		this.address = address;
 	}
     
     
