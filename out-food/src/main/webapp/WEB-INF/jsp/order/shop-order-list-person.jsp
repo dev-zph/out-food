@@ -191,13 +191,21 @@
 										status="${order.status}" id="shop-tips"
 										onclick="orderDetail(${order.id});">订单详情</button>
 									<button style="margin: 0 auto;" class="layui-btn show-voucher"
-										onclick="showVoucher(${order.id});">收货并评价</button>
+										>骑士正在配送</button>
 								</c:if> <c:if test="${order.status eq 4}">
 									<button class="layui-btn layui-btn-small order-detail"
 										status="${order.status}" id="shop-tips"
 										onclick="orderDetail(${order.id});">订单详情</button>
 										<button style="margin: 0 auto;" class="layui-btn show-voucher"
 										>已评价</button>
+								</c:if>
+								
+								<c:if test="${order.status eq 3}">
+									<button class="layui-btn layui-btn-small order-detail"
+										status="${order.status}" id="shop-tips"
+										onclick="orderDetail(${order.id});">订单详情</button>
+									<button style="margin: 0 auto;" class="layui-btn show-voucher"
+										onclick="showVoucher(${order.id});">评价</button>
 								</c:if>
 						</tr>
 					</table>

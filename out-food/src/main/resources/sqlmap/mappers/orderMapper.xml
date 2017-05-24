@@ -4,6 +4,7 @@
   <resultMap id="orderMap" type="com.food.out.model.Order" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="nick_name" property="nickName"  />
     <result column="shop_id" property="shopId" jdbcType="INTEGER" />
     <result column="order_num" property="orderNum" />
     <result column="order_price" property="orderPrice" />

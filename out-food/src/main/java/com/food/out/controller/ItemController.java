@@ -104,8 +104,12 @@ public class ItemController {
 	public void addItem(HttpServletRequest request, HttpServletResponse response) {
 		ResponseJsonResult result = new ResponseJsonResult();
 		try {
-			Shop shop = (Shop) request.getSession().getAttribute(Status.SYSTEM_SHOP_KEYWORD);
-			Integer shopId = shop.getId();
+			User user = (User) request.getSession().getAttribute(Status.SYSTEM_USER_KEYWORD);
+			List<Shop> shopList = shopService.selectListByUserId(user.getId().toString(), Integer.valueOf(0), "0");
+			if(null == shopList||0 == shopList.size()) {
+				throw new ApplicationException("未查询到您的店铺信息!");
+			}
+			Integer shopId = shopList.get(0).getId();
 			String itemName = request.getParameter("itemName");
 			String shopItemClassId = request.getParameter("shopItemClassId");
 			String itemImg = request.getParameter("itemImg");

@@ -328,7 +328,7 @@
 			<if test="address != null and address != ''">
 				address = #{address}
 			</if>
-			update_time = now() 
+			,update_time = now() 
 			where id = #{id,jdbcType=INTEGER}
 		</set>
 	</update>

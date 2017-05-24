@@ -87,7 +87,7 @@
 			s.address shop_address, 
 			s.contact_cell shop_phone,
 			o.status order_status,
-			o.create_time ,
+			o.create_time add_time,
 			o.id order_id
 		FROM
 		orderform o 

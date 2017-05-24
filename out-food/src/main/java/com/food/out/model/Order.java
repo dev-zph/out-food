@@ -13,6 +13,10 @@ public class Order {
 	 */
 	private Integer userId;
 	/**
+	 * 买家昵称
+	 */
+	private String nickName;
+	/**
 	 * 店铺id
 	 */
 	private Integer shopId;
@@ -238,6 +242,20 @@ public class Order {
 	 */
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
+	}
+
+	/**
+	 * @return the nickName
+	 */
+	public String getNickName() {
+		return nickName;
+	}
+
+	/**
+	 * @param nickName the nickName to set
+	 */
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 
 }

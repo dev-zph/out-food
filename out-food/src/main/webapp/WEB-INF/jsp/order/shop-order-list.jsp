@@ -157,7 +157,7 @@
                             <fmt:formatDate value="${order.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
                         </td>
                         <td class="text-center border-right">
-                            <label>用户名:${order.userName}</label><br/>
+                            <label>用户名:${order.nickName}</label><br/>
                             <label>联系电话:${order.phone}</label>
                         </td>
 
@@ -192,6 +192,16 @@
                             <c:if test="${order.status eq 2}">
                                 <button class="layui-btn layui-btn-small order-detail" status="${order.status}"
                                    id="shop-tips" onclick="orderDetail(${order.id});">订单详情</button>
+                            </c:if>
+                            <c:if test="${order.status eq 3}">
+                                <button class="layui-btn layui-btn-small order-detail" status="${order.status}"
+                                   id="shop-tips" onclick="orderDetail(${order.id});">订单详情</button>
+                                   <button class="layui-btn layui-btn-small button-orange send-goods" style= "color:#330000;background-color:#F1F1F1;">骑士已送达</button>
+                            </c:if>
+                             <c:if test="${order.status eq 4}">
+                                <button class="layui-btn layui-btn-small order-detail" status="${order.status}"
+                                   id="shop-tips" onclick="orderDetail(${order.id});">订单详情</button>
+                                   <button class="layui-btn layui-btn-small button-orange send-goods" style= "color:#330000;background-color:#F1F1F1;">买家已评价</button>
                             </c:if>
                     </tr>
                 </table>
