@@ -71,6 +71,7 @@
                                     <strong style="border-bottom: 1px solid #c6c6c6;display: block;padding-bottom: 8px;margin-bottom: 10px;">卖家信息</strong>
                                     <h2>
                                           商家名称:  ${order.shopName}
+                                           商家联系电话:  ${order.contactCell}
                                     </h2>
                                     <p>
                                         <br>

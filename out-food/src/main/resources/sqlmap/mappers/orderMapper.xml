@@ -25,6 +25,8 @@
 		<result property="price" column="order_price" />
 		<result property="nickName" column="nick_name" />
 		<result property="phone" column="phone" />
+		<result property="contactName" column="contact_name" />
+		<result property="contactCell" column="contact_cell" />
 		<result property="shopName" column="shop_name" />
 		<result property="address" column="address" />
 		<collection property="detailList" ofType="com.food.out.model.OrderDetail">
@@ -196,7 +198,7 @@
 			o.order_price order_price,
 			o.shop_id  shop_id,
 			o.address address,
-			u.user_name user_name,
+			u.nick_name nick_name,
 			u.phone phone,
 			s.shop_name  shop_name,
 			s.contact_name  contact_name,

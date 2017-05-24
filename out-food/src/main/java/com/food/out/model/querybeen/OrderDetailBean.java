@@ -21,6 +21,9 @@ public class OrderDetailBean {
 	private String nickName;
 	private String phone;
 	private String address;
+	private String contactName;
+	private String contactCell;
+	
 
 	private List<OrderDetail> detailList;
 
@@ -142,5 +145,34 @@ public class OrderDetailBean {
 	 */
 	public void setAddress(String address) {
 		this.address = address;
+	}
+//	
+
+	/**
+	 * @return the contactName
+	 */
+	public String getContactName() {
+		return contactName;
+	}
+
+	/**
+	 * @param contactName the contactName to set
+	 */
+	public void setContactName(String contactName) {
+		this.contactName = contactName;
+	}
+
+	/**
+	 * @return the contactCell
+	 */
+	public String getContactCell() {
+		return contactCell;
+	}
+
+	/**
+	 * @param contactCell the contactCell to set
+	 */
+	public void setContactCell(String contactCell) {
+		this.contactCell = contactCell;
 	}
 }
