@@ -196,6 +196,8 @@
 									<button class="layui-btn layui-btn-small order-detail"
 										status="${order.status}" id="shop-tips"
 										onclick="orderDetail(${order.id});">订单详情</button>
+										<button style="margin: 0 auto;" class="layui-btn show-voucher"
+										>已评价</button>
 								</c:if>
 						</tr>
 					</table>
