@@ -155,5 +155,6 @@ public class CartController extends BaseController {
 			result.setMessage(e.getMessage());
 			logger.error(e);
 		}
+		JsonUtils.renderJSON(response, result);
 	}
 }
